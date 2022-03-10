@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "html.format.enable": false,
+  "editor.defaultFormatter": "dprint.dprint"
+}

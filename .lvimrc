@@ -1,0 +1,11 @@
+let g:ale_linters = {
+\  'javascript': ['tsserver', 'dprint'],
+\  'typescript': ['tsserver', 'dprint'],
+\  'typescriptreact': ['tsserver', 'dprint']
+\}
+
+let g:ale_fixers = {
+\  'javascript': ['dprint'],
+\  'typescript': ['dprint'],
+\  'typescriptreact': ['dprint']
+\}
