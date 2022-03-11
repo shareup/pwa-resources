@@ -15,13 +15,15 @@ export const resources: Resource[] = [
   {
     url: new URL('https://preactjs.com/guide/v10/progressive-web-apps'),
     title: 'Progressive Web Apps Guide for Preact',
-    desc: '',
+    desc:
+      'Preact is an excellent choice for Progressive Web Apps that wish to load and become interactive quickly. Preact CLI codifies this into an instant build tool that gives you a PWA with a 100 Lighthouse score right out of the box.',
     collections: ['React']
   },
   {
     url: new URL('https://create-react-app.dev/docs/making-a-progressive-web-app/'),
     title: 'Making a Progressive Web App with Create React App',
-    desc: '',
+    desc:
+      "If you start a new project using one of the PWA custom templates, you'll get a src/service-worker.js file that serves as a good starting point for an offline-first service worker.",
     collections: ['React', 'Project Templates']
   },
   {
@@ -206,5 +208,20 @@ export const resources: Resource[] = [
     collections: ['Courses']
   }
 ]
+
+export const slugsToCollection: Map<string, string> = new Map()
+export const collectionToSlugs: Map<string, string> = new Map()
+
+for (const res of resources) {
+  for (const col of res.collections) {
+    if (col.startsWith(':')) { continue }
+
+    const slug = col.toLowerCase().replace(/\s+/, '-')
+    slugsToCollection.set(slug, col)
+    collectionToSlugs.set(col, slug)
+  }
+}
+
+export const collections = Array.from(collectionToSlugs.keys())
 
 // TODO: is this 2018 course still good? https://www.udemy.com/course/learn-to-build-progressive-web-apps-using-javascript/

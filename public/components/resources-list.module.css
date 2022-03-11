@@ -1,0 +1,95 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-auto-flow: dense;
+  gap: 0;
+  list-style-type: none;
+  margin: 32px 0;
+  padding: 0;
+  outline: 2px solid var(--brand-black);
+}
+
+@supports (grid-template-rows: masonry) {
+  .list {
+    grid-template-rows: masonry;
+  }
+}
+
+.item {
+  margin: 0;
+  padding: 18px 18px 92px;
+  box-sizing: border-box;
+  outline: 1px solid var(--brand-black);
+  position: relative;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  transition: color 0.1s ease;
+  --link-color: var(--brand-black);
+  color: var(--link-color);
+}
+
+.title:hover {
+  color: var(--brand-black);
+}
+
+.desc {
+  display: block;
+  line-height: 1.5;
+}
+
+.old {
+  display: block;
+  margin: 0.5em 0;
+}
+
+.old > span {
+  font-style: italic;
+  border-radius: 4px;
+  background-color: var(--brand-yellow);
+  padding: 0.15em 0.25em;
+  margin-left: 0.25em;
+}
+
+.collections {
+  display: block;
+  padding: 0;
+  margin: 1em 0;
+  list-style-type: none;
+}
+
+.collections::before {
+  content: 'In ';
+}
+
+.collectionItem {
+  display: inline;
+  margin: 0;
+}
+
+.collectionItem::after {
+  content: ', ';
+}
+
+.collectionItem:last-child::after {
+  content: '';
+}
+
+.collectionItem a {
+  border-radius: 4px;
+  transition: color 0.1s ease;
+  --hover-color: var(--brand-grey);
+  color: var(--brand-black);
+}
+
+.collectionItem a:hover {
+  color: var(--hover-color);
+}
+
+.saveButton {
+  color: var(--brand-white);
+  --button-color: var(--brand-black);
+  background-color: var(--button-color);
+}
