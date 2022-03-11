@@ -1,3 +1,36 @@
 .main {
   padding: 44px;
 }
+
+.item {
+  margin-bottom: 1em;
+}
+
+.desc {
+  display: block;
+}
+
+.collections {
+  display: block;
+  padding: 0;
+  font-style: italic;
+}
+
+.collectionItem {
+  display: inline;
+}
+
+.collectionItem::after {
+  content: ', ';
+}
+
+.collectionItem:last-child::after {
+  content: '';
+}
+
+.old {
+  font-style: italic;
+  background-color: var(--brand-yellow);
+  /* background: rgb(from var(--brand-yellow) r g b / 50%); */
+  padding: 2px 4px;
+}
