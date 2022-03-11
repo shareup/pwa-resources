@@ -8,6 +8,7 @@
     "wmr": "^3.7.2"
   },
   "dependencies": {
+    "idb": "^7.0.0",
     "preact": "^10.6.6",
     "preact-iso": "^2.3.0"
   }

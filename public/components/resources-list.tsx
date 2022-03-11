@@ -1,4 +1,7 @@
 import type { FunctionalComponent, VNode } from 'preact'
+import { useCallback, useEffect, useRef } from 'preact/hooks'
+import { useDB } from '../db-context'
+import { useFetched } from '../hooks/use-fetched'
 import type { Resource } from '../resources'
 import { collectionToSlugs } from '../resources'
 import styles from './resources-list.module.css'
@@ -7,16 +10,13 @@ type Props = {
   resources: Resource[]
 }
 
-export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
-  return (
-    <ul class={styles.list}>
-      {resources.map(res => <Item item={res} />)}
-    </ul>
-  )
+type ItemProps = {
+  favs?: string[]
+  item: Resource
 }
 
-type ItemProps = {
-  item: Resource
+type FavButtonProps = ItemProps & {
+  color: string
 }
 
 const colors = [
@@ -25,11 +25,67 @@ const colors = [
   'var(--brand-red)'
 ]
 
-const Item: FunctionalComponent<ItemProps> = ({ item }) => {
-  let isOld = false
+export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
+  const listRef = useRef<HTMLUListElement>(null)
+  const db = useDB()
 
+  const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
+    return db && db.getAllKeys('favs')
+  }, [db])
+
+  const clickedFav = useCallback(async (button: HTMLButtonElement) => {
+    const url = button.getAttribute('data-item-url')
+    const isFav = button.hasAttribute('data-favorited')
+
+    if (!url) { return }
+
+    // TODO: should we have a state for 'saving...'? It's so quick I
+    // can't imagine we would need it 🤷
+
+    if (isFav) {
+      await db.delete('favs', url)
+    } else {
+      await db.add('favs', { url })
+    }
+
+    fetchFavs()
+  }, [db])
+
+  const clicked = useCallback((e: MouseEvent) => {
+    if (!db) { return }
+
+    if (e.target instanceof HTMLElement) {
+      const button = e.target.closest('button')
+
+      if (button) {
+        e.preventDefault()
+        clickedFav(button).catch(e => {
+          console.error('error processing fav click', e)
+        })
+      }
+    }
+  }, [db])
+
+  useEffect(() => {
+    listRef.current.addEventListener('click', clicked)
+
+    return () => {
+      listRef.current?.removeEventListener('click', clicked)
+    }
+  }, [])
+
+  return (
+    <ul class={styles.list} ref={listRef}>
+      {resources.map(res => <Item item={res} favs={favs} />)}
+    </ul>
+  )
+}
+
+const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
+  let isOld = false
   const colorCode = item.title.slice(-1).codePointAt(0) % 3
   const color = colors[colorCode]
+
   const collectionItems: VNode[] = []
 
   for (const col of item.collections) {
@@ -66,12 +122,42 @@ const Item: FunctionalComponent<ItemProps> = ({ item }) => {
       <ul class={styles.collections}>
         {collectionItems}
       </ul>
-      <button
-        class={styles.saveButton}
-        style={{ '--button-color': color }}
-      >
-        <abbr title='Favorite'>♥</abbr>
-      </button>
+      <FavButton item={item} favs={favs} color={color} />
     </li>
+  )
+}
+
+const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) => {
+  const itemUrl = item.url.toString()
+  const disabled = !favs
+
+  if (disabled) {
+    color = 'var(--brand-silver)'
+  }
+
+  favs || (favs = [])
+  const isFav = favs.includes(itemUrl)
+
+  const classes = isFav
+    ? [styles.saveButton, styles.faved].join(' ')
+    : styles.saveButton
+
+  const contents = disabled
+    ? '…'
+    : (isFav
+      ? <abbr title='Favorited'>♥</abbr>
+      : <abbr title='Favorite'>♥</abbr>)
+
+  return (
+    <button
+      key='button'
+      disabled={disabled}
+      class={classes}
+      style={{ '--button-color': color }}
+      data-item-url={itemUrl}
+      data-favorited={isFav}
+    >
+      {contents}
+    </button>
   )
 }

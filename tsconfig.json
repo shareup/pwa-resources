@@ -1,6 +1,7 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
+		"lib": ["esnext", "dom"],
 		"jsx": "preserve",
 		"jsxFactory": "preact.h",
 		"jsxFragmentFactory": "preact.Fragment",
@@ -8,7 +9,7 @@
 		"checkJs": true,
 		"noEmit": true,
 		"moduleResolution": "node",
-		"target": "ESNext",
+		"target": "esnext",
 		"module": "esnext",
 		"resolveJsonModule": true,
 		"allowSyntheticDefaultImports": true,

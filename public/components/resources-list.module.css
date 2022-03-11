@@ -90,6 +90,10 @@
 
 .saveButton {
   color: var(--brand-white);
-  --button-color: var(--brand-black);
   background-color: var(--button-color);
+}
+
+.saveButton.faved {
+  background-color: var(--brand-white);
+  color: var(--button-color);
 }

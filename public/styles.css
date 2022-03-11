@@ -27,16 +27,17 @@ abbr[title] {
 
 .button, button {
   box-sizing: border-box;
-  margin: 0;
-  padding: 12px 24px;
   text-transform: uppercase;
   border: 4px solid var(--brand-black);
-  background-color: var(--brand-white);
+  --button-color: var(--brand-white);
+  background-color: var(--button-color);
+  color: var(--brand-black);
   cursor: pointer;
   font-size: 16px;
   position: relative;
   display: inline-block;
-  transition: margin 0.07s ease, box-shadow 0.07s ease;
+  transition: margin 0.07s ease, box-shadow 0.07s ease, color 0.1s ease, background-color 0.1s ease;
+  padding: 12px 24px;
   margin: 2px 2px 8px 8px;
   box-shadow: -1px 1px 0px var(--brand-black),
               -2px 2px 0px var(--brand-black),
@@ -52,4 +53,8 @@ abbr[title] {
   margin: 8px 8px 2px 2px;
   box-shadow: -1px 1px 0px var(--brand-black),
               -2px 2px 0px var(--brand-black);
+}
+
+button[disabled] {
+  cursor: normal;
 }
