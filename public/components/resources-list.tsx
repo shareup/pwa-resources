@@ -72,7 +72,7 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
     return () => {
       listRef.current?.removeEventListener('click', clicked)
     }
-  }, [])
+  }, [db])
 
   return (
     <ul class={styles.list} ref={listRef}>

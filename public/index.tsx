@@ -1,3 +1,4 @@
+import swUrl from 'bundle:./service-worker'
 import {
   ErrorBoundary,
   hydrate,
@@ -8,6 +9,18 @@ import {
   Router
 } from 'preact-iso'
 import { DBContext } from './db-context'
+
+if ('navigator' in self && 'serviceWorker' in navigator) {
+  const betterUrl = swUrl.replace(/chunks\//, '')
+
+  navigator.serviceWorker.register(betterUrl, { scope: '/', type: 'module' })
+    .then(reg => {
+      return reg.update()
+    })
+    .catch(e => {
+      console.error('error registering or updating the service worker', e)
+    })
+}
 
 const Index = lazy(async () => (await import('./pages/index')).Index)
 const Collection = lazy(async () => (await import('./pages/collection')).Collection)
