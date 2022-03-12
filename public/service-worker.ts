@@ -42,36 +42,62 @@ self.addEventListener('fetch', (e: FetchEvent) => {
         return fetch(e.request)
       }
 
-      const cachedResponse = await caches.match(e.request)
-      if (cachedResponse) { return cachedResponse }
-
-      // @ts-ignore
-      const preloadResponse = await e.preloadResponse
-      if (preloadResponse) { return preloadResponse }
-
-      const response = await fetch(e.request)
-
-      if (response.ok) {
-        const cache = await caches.open(cacheName)
-        cache.put(e.request, response.clone())
-      }
-
       if (e.request.destination === 'document') {
-        if (response.status === 404) {
-          return caches.match(fallbackHtmlUrl, { cacheName })
-        } else {
+        // NOTE: we always fetch documents in the background to either cache
+        // initially or update an existing cache asynchronously
+        const networkResponse = (async () => {
+          const response = await fetch(e.request)
+
+          if (response.ok) {
+            console.debug({ url: e.request.url, putInCache: true, isDocument: true })
+            const cache = await caches.open(cacheName)
+            cache.put(e.request, response.clone())
+          }
+
           return response
+        })()
+
+        const cachedResponse = await caches.match(e.request)
+
+        if (cachedResponse) {
+          console.debug({ url: e.request.url, fromCache: true, isDocument: true })
+          return cachedResponse
+        } else {
+          console.debug({ url: e.request.url, fromNetwork: true, isDocument: true })
+          return networkResponse
         }
       } else {
+        // NOTE: assets are fine to return from cache every time
+        const cachedResponse = await caches.match(e.request)
+        if (cachedResponse) {
+          console.debug({ url: e.request.url, fromCache: true })
+          return cachedResponse
+        }
+
+        // @ts-ignore
+        const preloadResponse = await e.preloadResponse
+        if (preloadResponse) {
+          console.debug({ url: e.request.url, preloaded: true })
+          return preloadResponse
+        }
+
+        const response = await fetch(e.request)
+
+        if (response.ok) {
+          console.debug({ url: e.request.url, putInCache: true })
+          const cache = await caches.open(cacheName)
+          cache.put(e.request, response.clone())
+        }
+
         return response
       }
     } catch (err) {
+      console.error('error handling fetch', err)
+      console.error(err.stack)
+
       if (e.request.destination === 'document') {
         return caches.match(fallbackHtmlUrl, { cacheName })
       }
-
-      console.error('error handling fetch', err)
-      console.error(err.stack)
 
       return textResponse('error', 500)
     }
