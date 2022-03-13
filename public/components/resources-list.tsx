@@ -131,10 +131,6 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
   const itemUrl = item.url.toString()
   const disabled = !favs
 
-  if (disabled) {
-    color = 'var(--brand-silver)'
-  }
-
   favs || (favs = [])
   const isFav = favs.includes(itemUrl)
 
