@@ -3,34 +3,24 @@
 /// <reference lib="webworker" />
 
 declare let self: ServiceWorkerGlobalScope
-export {}
 
-const cacheName = 'pwaResourcesV2' + (import.meta.env.NODE_ENV || 'dev')
-const fallbackHtmlUrl = '/index.html'
+const cacheName = 'pwaResourcesV5' + (import.meta.env.NODE_ENV || '---')
 
 self.addEventListener('error', e => {
   console.error('caught unhandled error in service worker', e, e.error, e.filename, e.lineno)
 })
 
 self.addEventListener('install', e => {
-  e.waitUntil(async () => {
-    await self.skipWaiting()
+  self.skipWaiting()
 
+  e.waitUntil(async () => {
     const cache = await caches.open(cacheName)
-    cache.add(fallbackHtmlUrl)
+    cache.add('/')
   })
 })
 
 self.addEventListener('activate', e => {
-  e.waitUntil(async () => {
-    // @ts-ignore
-    if (self.registration.navigationPreload) {
-      // @ts-ignore
-      await self.registration.navigationPreload.enable()
-    }
-
-    await self.clients.claim()
-  })
+  self.clients.claim()
 })
 
 self.addEventListener('fetch', (e: FetchEvent) => {
@@ -57,7 +47,7 @@ self.addEventListener('fetch', (e: FetchEvent) => {
           return response
         })()
 
-        const cachedResponse = await caches.match(e.request)
+        const cachedResponse = await caches.match(e.request, { cacheName })
 
         if (cachedResponse) {
           console.debug({ url: e.request.url, fromCache: true, isDocument: true })
@@ -68,17 +58,10 @@ self.addEventListener('fetch', (e: FetchEvent) => {
         }
       } else {
         // NOTE: assets are fine to return from cache every time
-        const cachedResponse = await caches.match(e.request)
+        const cachedResponse = await caches.match(e.request, { cacheName })
         if (cachedResponse) {
           console.debug({ url: e.request.url, fromCache: true })
           return cachedResponse
-        }
-
-        // @ts-ignore
-        const preloadResponse = await e.preloadResponse
-        if (preloadResponse) {
-          console.debug({ url: e.request.url, preloaded: true })
-          return preloadResponse
         }
 
         const response = await fetch(e.request)
@@ -96,7 +79,7 @@ self.addEventListener('fetch', (e: FetchEvent) => {
       console.error(err.stack)
 
       if (e.request.destination === 'document') {
-        return caches.match(fallbackHtmlUrl, { cacheName })
+        return caches.match('/', { cacheName })
       }
 
       return textResponse('error', 500)
