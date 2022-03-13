@@ -1,4 +1,4 @@
-@import "/normalize.css";
+@import url(../lib/normalize.css);
 
 html, body {
   margin: 0;

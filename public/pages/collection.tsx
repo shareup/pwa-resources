@@ -2,7 +2,6 @@ import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
 import { ResourcesList } from '../components/resources-list'
 import { resources, slugsToCollection } from '../resources'
-import styles from './collection.module.css'
 
 type Props = {
   slug: string
