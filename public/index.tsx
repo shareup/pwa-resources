@@ -1,4 +1,5 @@
 import swUrl from 'bundle:./service-worker'
+import type { FunctionalComponent } from 'preact'
 import {
   ErrorBoundary,
   hydrate,
@@ -9,6 +10,7 @@ import {
   Router
 } from 'preact-iso'
 import { DBContext } from './db-context'
+import { PrerenderContext } from './prerender-context'
 
 if ('navigator' in self && 'serviceWorker' in navigator) {
   const betterUrl = swUrl.replace(/chunks\//, '')
@@ -26,7 +28,7 @@ const Index = lazy(async () => (await import('./pages/index')).Index)
 const Collection = lazy(async () => (await import('./pages/collection')).Collection)
 const NotFound = lazy(async () => (await import('./pages/not-found')).NotFound)
 
-const App = () => (
+const App: FunctionalComponent = () => (
   <DBContext>
     <LocationProvider>
       <ErrorBoundary>
@@ -43,5 +45,9 @@ const App = () => (
 hydrate(<App />)
 
 export function prerender() {
-  return ssr(<App />)
+  return ssr(
+    <PrerenderContext>
+      <App />
+    </PrerenderContext>
+  )
 }

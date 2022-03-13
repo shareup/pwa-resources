@@ -2,6 +2,7 @@ import type { FunctionalComponent, VNode } from 'preact'
 import { useCallback, useEffect, useRef } from 'preact/hooks'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
+import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
 import { collectionToSlugs } from '../resources'
 import styles from './resources-list.module.css'
@@ -82,6 +83,7 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
 }
 
 const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
+  const isPrerender = isPrerenderContext()
   let isOld = false
   const colorCode = item.title.slice(-1).codePointAt(0) % 3
   const color = colors[colorCode]
@@ -122,7 +124,9 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
       <ul class={styles.collections}>
         {collectionItems}
       </ul>
-      <FavButton item={item} favs={favs} color={color} />
+      {isPrerender
+        ? null
+        : <FavButton item={item} favs={favs} color={color} />}
     </li>
   )
 }
