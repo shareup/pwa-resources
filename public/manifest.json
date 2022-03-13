@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "PWA Resources",
+  "short_name": "PWA Recs",
+  "description": "A curated list of resources for building awesome PWAs",
+  "lang": "en",
+  "orientation": "natural",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3374eb",
+  "icons": []
+}
