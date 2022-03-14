@@ -121,9 +121,13 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
           </span>
         )
         : null}
-      <ul class={styles.collections}>
-        {collectionItems}
-      </ul>
+      {collectionItems.length > 0
+        ? (
+          <ul class={styles.collections}>
+            {collectionItems}
+          </ul>
+        )
+        : null}
       {isPrerender
         ? null
         : <FavButton item={item} favs={favs} color={color} />}
