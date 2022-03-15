@@ -11,21 +11,15 @@ const defaultTitle = (
   </>
 )
 
-export const Layout: FunctionalComponent<Props> = ({ children, title = defaultTitle }) => (
+export const Layout: FunctionalComponent<Props> = ({ children }) => (
   <div class={styles.wrapper}>
-    <header>
-      <h1>{title}</h1>
-      <p>A curated collection.</p>
-    </header>
-    <main>
-      {children}
-    </main>
-    <footer>
+    {children}
+    <footer class={styles.footer}>
       <p>
-        Currated and maintained with ♥ by the folks at <a href='https://shareup.app'>Shareup</a>.
+        Currated and maintained with ♥ by the folks at <a href='https://shareup.app'>Shareup</a>
       </p>
       <p>
-        <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a>{'  '}
+        <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a>{' '}
         Come build great things with us
       </p>
     </footer>

@@ -22,10 +22,14 @@ abbr[title] {
   text-decoration: none;
 }
 
+a {
+  color: var(--brand-blue);
+}
 
 .button, button {
   box-sizing: border-box;
   text-transform: uppercase;
+  text-decoration: none;
   border: 4px solid var(--brand-black);
   --button-color: var(--brand-white);
   background-color: var(--button-color);
