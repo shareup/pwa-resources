@@ -24,9 +24,9 @@ if ('navigator' in self && 'serviceWorker' in navigator) {
     })
 }
 
-const Index = lazy(async () => (await import('./pages/index')).Index)
-const Collection = lazy(async () => (await import('./pages/collection')).Collection)
-const NotFound = lazy(async () => (await import('./pages/not-found')).NotFound)
+import { Category } from './pages/category'
+import { Index } from './pages/index'
+import { NotFound } from './pages/not-found'
 
 const App: FunctionalComponent = () => (
   <DBContext>
@@ -34,7 +34,7 @@ const App: FunctionalComponent = () => (
       <ErrorBoundary>
         <Router>
           <Route path='/' component={Index} />
-          <Route path='/collections/:slug' component={Collection} />
+          <Route path='/categories/:slug' component={Category} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

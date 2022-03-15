@@ -4,7 +4,7 @@ import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
-import { collectionToSlugs } from '../resources'
+import { categoryToSlugs } from '../resources'
 import styles from './resources-list.module.css'
 
 type Props = {
@@ -88,17 +88,17 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
   const colorCode = item.title.slice(-1).codePointAt(0) % 3
   const color = colors[colorCode]
 
-  const collectionItems: VNode[] = []
+  const categoryItems: VNode[] = []
 
-  for (const col of item.collections) {
+  for (const col of item.categories) {
     if (col === ':old') { isOld = true }
     if (col.startsWith(':')) { continue }
 
-    const slug = collectionToSlugs.get(col)!
+    const slug = categoryToSlugs.get(col)!
 
-    collectionItems.push(
-      <li class={styles.collectionItem}>
-        <a href={`/collections/${slug}`}>{col}</a>
+    categoryItems.push(
+      <li class={styles.categoryItem}>
+        <a href={`/categories/${slug}`}>{col}</a>
       </li>
     )
   }
@@ -121,10 +121,10 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
           </span>
         )
         : null}
-      {collectionItems.length > 0
+      {categoryItems.length > 0
         ? (
-          <ul class={styles.collections}>
-            {collectionItems}
+          <ul class={styles.categories}>
+            {categoryItems}
           </ul>
         )
         : null}

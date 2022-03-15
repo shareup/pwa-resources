@@ -1,16 +1,16 @@
 import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
 import { ResourcesList } from '../components/resources-list'
-import { resources, slugsToCollection } from '../resources'
+import { resources, slugsToCategory } from '../resources'
 
 type Props = {
   slug: string
 }
 
-export const Collection: FunctionalComponent<Props> = ({ slug }) => {
-  const collection = slugsToCollection.get(slug)
+export const Category: FunctionalComponent<Props> = ({ slug }) => {
+  const category = slugsToCategory.get(slug)
 
-  if (!collection) {
+  if (!category) {
     return (
       <Layout>
         <h1>Collection not found</h1>
@@ -19,12 +19,12 @@ export const Collection: FunctionalComponent<Props> = ({ slug }) => {
   }
 
   const filteredResources = resources.filter(res => {
-    return res.collections.includes(collection)
+    return res.categories.includes(category)
   })
 
   const title = (
     <>
-      <abbr title='Progressive Web App'>PWA</abbr> Resources in the ‘{collection}’ collection
+      <abbr title='Progressive Web App'>PWA</abbr> Resources in the ‘{category}’ category
     </>
   )
 

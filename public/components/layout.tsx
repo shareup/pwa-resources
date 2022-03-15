@@ -22,10 +22,10 @@ export const Layout: FunctionalComponent<Props> = ({ children, title = defaultTi
     </main>
     <footer>
       <p>
-      Currated and maintained with ♥ by the folks at <a href='https://shareup.app'>Shareup</a>.
+        Currated and maintained with ♥ by the folks at <a href='https://shareup.app'>Shareup</a>.
       </p>
       <p>
-        <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a> {' '}
+        <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a>{'  '}
         Come build great things with us
       </p>
     </footer>

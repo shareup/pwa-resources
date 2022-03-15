@@ -53,38 +53,38 @@
   margin-left: 0.25em;
 }
 
-.collections {
+.categories {
   display: block;
   padding: 0;
   margin: 1em 0;
   list-style-type: none;
 }
 
-.collections::before {
+.categories::before {
   content: 'In ';
 }
 
-.collectionItem {
+.categoryItem {
   display: inline;
   margin: 0;
 }
 
-.collectionItem::after {
+.categoryItem::after {
   content: ', ';
 }
 
-.collectionItem:last-child::after {
+.categoryItem:last-child::after {
   content: '';
 }
 
-.collectionItem a {
+.categoryItem a {
   border-radius: 4px;
   transition: color 0.1s ease;
   --hover-color: var(--brand-grey);
   color: var(--brand-black);
 }
 
-.collectionItem a:hover {
+.categoryItem a:hover {
   color: var(--hover-color);
 }
 
