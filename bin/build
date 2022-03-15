@@ -3,3 +3,7 @@
 set -eo pipefail
 
 npx --yes wmr build --prerender
+
+if [[ "${CF_PAGES}" == "1" ]]; then
+  cp -v dist/chunks/service-worker.*.js dist/
+fi
