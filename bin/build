@@ -2,4 +2,4 @@
 
 set -eo pipefail
 
-npx wmr build --prerender
+npx --yes wmr build --prerender

@@ -2,4 +2,4 @@
 
 set -eo pipefail
 
-npx standard
+npx --yes standard
