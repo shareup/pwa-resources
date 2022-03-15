@@ -2,3 +2,12 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+footer {
+  text-align: center;
+  height: 150px;
+  border: 2px solid #000;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
