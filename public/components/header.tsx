@@ -1,6 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import { useCallback } from 'preact/hooks'
-import thumbsUrl from 'url:../../images/thumbs.png'
+import thumbsUrl from 'url:../images/thumbs.png'
 import styles from './header.module.css'
 
 export const Header: FunctionalComponent = () => {

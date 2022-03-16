@@ -24,9 +24,9 @@ if ('navigator' in self && 'serviceWorker' in navigator) {
     })
 }
 
-import { Category } from './pages/category'
-import { Index } from './pages/index'
-import { NotFound } from './pages/not-found'
+import { Category } from './components/category'
+import { Index } from './components/index'
+import { NotFound } from './components/not-found'
 
 const App: FunctionalComponent = () => (
   <DBContext>

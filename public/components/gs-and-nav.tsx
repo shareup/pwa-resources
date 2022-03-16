@@ -1,8 +1,8 @@
 import type { FunctionalComponent } from 'preact'
-import bananaUrl from 'url:../../images/svg/banana.svg'
-import catsUrl from 'url:../../images/svg/cats.svg'
-import convoUrl from 'url:../../images/svg/convo.svg'
-import { categories, categoryToSlugs } from '../../resources'
+import bananaUrl from 'url:../images/svg/banana.svg'
+import catsUrl from 'url:../images/svg/cats.svg'
+import convoUrl from 'url:../images/svg/convo.svg'
+import { categories, categoryToSlugs } from '../resources'
 import styles from './gs-and-nav.module.css'
 
 export const GettingStartedAndNav: FunctionalComponent = () => {

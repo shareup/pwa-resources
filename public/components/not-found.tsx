@@ -1,6 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
-import headerStyles from './index/header.module.css'
+import headerStyles from './header.module.css'
 import styles from './not-found.module.css'
 
 export const NotFound: FunctionalComponent = () => (
