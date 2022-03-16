@@ -8,44 +8,44 @@ import styles from './gs-and-nav.module.css'
 export const GettingStartedAndNav: FunctionalComponent = () => {
   return (
     <div class={styles.columns}>
-      <div>
-        <section>
-          <h2>Getting Started</h2>
-          <p>Guides for how to get up & running</p>
+      <div class={styles.gsWrapper}>
+        <section class={styles.gs}>
+          <h2 class={styles.gsHeading}>Getting Started</h2>
+          <p class={styles.gsDesc}>Guides for how to get up & running</p>
           <p>
             <a
-              class='button'
+              class={['button', styles.button].join(' ')}
               href='/categories/getting-started'
               title='View all resources in the ‘Getting Started’ category'
             >
               View Category
             </a>
           </p>
-          <figure>
+          <figure class={styles.gsFigure}>
             <img src={bananaUrl} width='310' height='159' alt='' />
           </figure>
         </section>
-        <figure>
+        <figure class={styles.offlineFigure}>
           <p>You don’t work offline?</p>
           <p>You do‽</p>
           <img src={convoUrl} width='331' height='190' alt='' />
         </figure>
       </div>
       <div class={styles.navWrapper}>
-        <nav aria-labelledby='categories-nav-heading'>
-          <h2 id='categories-nav-heading'>Categories</h2>
-          <ul>
+        <nav aria-labelledby='categories-nav-heading' class={styles.nav}>
+          <h2 id='categories-nav-heading' class={styles.navHeading}>Categories</h2>
+          <ul class={styles.navList}>
             <li>
-              <a href='#'>All</a>
+              <a href='#' class={styles.navLink}>All</a>
             </li>
             {categories.map(cat => (
               <li>
-                <a href={`/categories/${categoryToSlugs.get(cat)}`}>{cat}</a>
+                <a href={`/categories/${categoryToSlugs.get(cat)}`} class={styles.navLink}>{cat}</a>
               </li>
             ))}
           </ul>
         </nav>
-        <figure>
+        <figure class={styles.navFigure}>
           <img src={catsUrl} width='247' height='229' alt='' />
         </figure>
       </div>

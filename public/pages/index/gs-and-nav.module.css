@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   align-items: stretch;
   align-content: stretch;
+  border-top: 2px solid var(--brand-black);
   border-bottom: 2px solid var(--brand-black);
 }
 
@@ -11,9 +12,102 @@
 }
 
 .gsWrapper {
+  border-right: 1px solid var(--brand-black);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.gs {
+  position: relative;
+  padding: 54px;
+  padding-bottom: 108px;
+  background-color: var(--brand-light-blue);
+  border-bottom: 2px solid var(--brand-black);
+  flex: 1 1 auto;
+}
+
+.gsHeading {
+  margin: 0;
+}
+
+.gsDesc {
+  margin: 1.5em 0;
+}
+
+.button {
+  --button-color: var(--brand-pink);
+}
+
+.gsFigure {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.gsFigure img {
+  display: block;
+}
+
+.offlineFigure {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.offlineFigure img {
+  display: block;
+  margin: 0 auto;
 }
 
 .navWrapper {
   display: flex;
   flex-direction: column-reverse;
+  border-left: 1px solid var(--brand-black);
+}
+
+.navFigure {
+  display: block;
+  margin: 54px auto 0;
+}
+
+.navFigure img {
+  display: block;
+}
+
+.nav {
+  padding: 54px 0;
+  border-top: 2px solid var(--brand-black);
+  background-color: var(--brand-yellow);
+  text-align: center;
+}
+
+.navHeading {
+  margin: 0 0 0.7em;
+}
+
+.navList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: block;
+  /* NOTE: because these are uppercase, they don't have descenders and so we
+   * pad the top a bit more than the bottom */
+  padding: 3px 0 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  text-decoration: none;
+  transition: color 0.1s ease, background-color 0.1s ease;
+  color: var(--brand-black);
+  background-color: var(--brand-yellow);
+}
+
+.navLink:hover {
+  background-color: var(--brand-black);
+  color: var(--brand-yellow);
 }

@@ -28,10 +28,13 @@
 
 .titleSubheading {
   margin: 0;
-  line-height: 2;
+  line-height: 4;
   background-color: var(--brand-white);
   flex: 0 0 auto;
   border-top: 2px solid var(--brand-black);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.9rem;
 }
 
 .aside {
@@ -42,9 +45,12 @@
 
 .asideText {
   margin: 0;
-  line-height: 2;
+  line-height: 4;
   background-color: var(--brand-white);
   border-bottom: 2px solid var(--brand-black);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.9rem;
 }
 
 .buttonWrapper {

@@ -89,6 +89,9 @@
 }
 
 .saveButton {
+  letter-spacing: 0;
+  padding-left: 28px;
+  padding-right: 28px;
   color: var(--brand-white);
   background-color: var(--button-color);
 }
