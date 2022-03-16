@@ -1,9 +1,9 @@
 import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
 import { ResourcesList } from '../components/resources-list'
-import { NotFound } from './not-found'
 import { Resource, resources, slugsToCategory } from '../resources'
 import headerStyles from './index/header.module.css'
+import { NotFound } from './not-found'
 
 type Props = {
   slug: string
@@ -16,11 +16,11 @@ type LayoutProps = {
 
 const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) => {
   return (
-    <Layout >
+    <Layout>
       <nav class={headerStyles.categoryHeader}>
         <a href='/' class={headerStyles.backButton}>↩BACK</a>
         <h1 class={headerStyles.categoryTitle}>
-          { title }
+          {title}
         </h1>
       </nav>
       <hr />
@@ -38,14 +38,12 @@ export const Category: FunctionalComponent<Props> = ({ slug }) => {
   const category = slugsToCategory.get(slug)
 
   if (!category) {
-    return (
-      <NotFound/>
-    )
+    return <NotFound />
   }
 
   const filteredResources = resources.filter(res => {
     return res.categories.includes(category)
   })
 
-  return <CategoryLayout title={category} resources={filteredResources}/>
+  return <CategoryLayout title={category} resources={filteredResources} />
 }
