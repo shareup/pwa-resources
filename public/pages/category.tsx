@@ -6,7 +6,7 @@ import { Resource, resources, slugsToCategory } from '../resources'
 import headerStyles from './index/header.module.css'
 
 type Props = {
-  slug?: string
+  slug: string
 }
 
 type LayoutProps = {
