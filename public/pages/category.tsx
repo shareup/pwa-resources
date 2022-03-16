@@ -26,7 +26,7 @@ export const Category: FunctionalComponent<Props> = ({ slug }) => {
   return (
     <Layout >
       <nav class={styles.categoryHeader}>
-        <a href='/' class={styles.backButton}>↩ BACK</a>
+        <a href='/' class={styles.backButton}>↩BACK</a>
         <h1 class={styles.categoryTitle}>
           {category}
         </h1>

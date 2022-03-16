@@ -110,8 +110,9 @@
 }
 
 .categoryTitle {
-  outline: 1px solid var(--brand-black);
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   text-align: center;
   margin:0;
@@ -119,7 +120,19 @@
 
 .backButton {
   background-color: var(--brand-white);
-  width: 160px;
+  color: var(--brand-black);
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 175px;
+  text-transform: uppercase;
+  letter-spacing: 0.9rem;
+  text-indent: 0.9rem;
+  height: 100%;
   text-align: center;
-  outline: 1px solid var(--brand-black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--brand-black);
 }
