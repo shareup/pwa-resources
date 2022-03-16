@@ -61,6 +61,21 @@
   margin: 0 auto;
 }
 
+.offlineConvo {
+  padding: 0 62px 0 44px;
+  display: flex;
+  align-items: flex-end;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.offlineConvoQuestion {
+  max-width: 7em;
+}
+
+.offlineConvoAnswer {
+}
+
 .navWrapper {
   display: flex;
   flex-direction: column-reverse;
@@ -101,6 +116,7 @@
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.25rem;
+  text-indent: 0.25rem;
   text-decoration: none;
   transition: color 0.1s ease, background-color 0.1s ease;
   color: var(--brand-black);

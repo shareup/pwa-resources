@@ -35,6 +35,8 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.9rem;
+  text-indent: 0.9rem;
+  text-align: center;
 }
 
 .aside {
@@ -51,6 +53,8 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.9rem;
+  text-indent: 0.9rem;
+  text-align: center;
 }
 
 .buttonWrapper {
