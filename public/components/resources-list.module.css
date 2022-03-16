@@ -4,7 +4,7 @@
   grid-auto-flow: dense;
   gap: 0;
   list-style-type: none;
-  margin: 32px 0;
+  margin: 0;
   padding: 0;
   outline: 2px solid var(--brand-black);
 }
@@ -96,4 +96,27 @@
 .saveButton.faved {
   background-color: var(--brand-white);
   color: var(--button-color);
+}
+
+.categoryHeader {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: center;  
+  outline: 1px solid var(--brand-black);
+}
+
+.categoryTitle {
+  outline: 1px solid var(--brand-black);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin:0;
+}
+
+.backButton {
+  background-color: var(--brand-white);
+  width: 160px;
+  text-align: center;
+  outline: 1px solid var(--brand-black);
 }
