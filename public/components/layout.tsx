@@ -1,7 +1,7 @@
 import type { FunctionalComponent, VNode } from 'preact'
-import team1Url from 'url:../images/team1.png'
-import team2Url from 'url:../images/team2.png'
-import team3Url from 'url:../images/team3.png'
+import team1Url from 'url:../images/svg/team1.svg'
+import team2Url from 'url:../images/svg/team2.svg'
+import team3Url from 'url:../images/svg/team3.svg'
 import styles from './layout.module.css'
 
 type Props = {

@@ -1,7 +1,7 @@
 import type { FunctionalComponent } from 'preact'
-import bananaUrl from 'url:../../images/banana.png'
-import catsUrl from 'url:../../images/cats.png'
-import convoUrl from 'url:../../images/convo.png'
+import bananaUrl from 'url:../../images/svg/banana.svg'
+import catsUrl from 'url:../../images/svg/cats.svg'
+import convoUrl from 'url:../../images/svg/convo.svg'
 import { categories, categoryToSlugs } from '../../resources'
 import styles from './gs-and-nav.module.css'
 
@@ -22,7 +22,7 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
             </a>
           </p>
           <figure class={styles.gsFigure}>
-            <img src={bananaUrl} width='310' height='159' alt='' />
+            <img src={bananaUrl} width='345' height='220' alt='' />
           </figure>
         </section>
         <figure class={styles.offlineFigure}>
