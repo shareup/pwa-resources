@@ -17,7 +17,8 @@
   },
   "include": [
     "node_modules/wmr/types.d.ts",
-    "**/*"
+    "node_modules/preact/src/index.d.ts",
+    "node_modules/preact/src/jsx.d.ts"
   ],
   "typeAcquisition": {
     "enable": true

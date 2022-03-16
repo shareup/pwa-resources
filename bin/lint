@@ -3,4 +3,4 @@
 set -eo pipefail
 
 dprint check
-npx --yes ts-standard
+npx --yes tsc --noEmit
