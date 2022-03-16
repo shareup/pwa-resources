@@ -35,6 +35,7 @@ const App: FunctionalComponent = () => (
         <Router>
           <Route path='/' component={Index} />
           <Route path='/categories/:slug' component={Category} />
+          <Route path='/categories' component={Category} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

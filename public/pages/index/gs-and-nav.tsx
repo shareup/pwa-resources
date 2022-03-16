@@ -38,7 +38,7 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
           <h2 id='categories-nav-heading' class={styles.navHeading}>Categories</h2>
           <ul class={styles.navList}>
             <li>
-              <a href='#' class={styles.navLink}>All</a>
+              <a href='/categories' class={styles.navLink}>All</a>
             </li>
             {categories.map(cat => (
               <li>

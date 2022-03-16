@@ -112,7 +112,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
       >
         <h2>
           {item.title} 
-          <img src={arrowURL} width='22' height='22'/>
+           <img src={arrowURL} width='22' height='22'/>
         </h2>
       </a>
       <span class={styles.desc}>{item.desc}</span>
