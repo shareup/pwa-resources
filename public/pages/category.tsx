@@ -6,7 +6,7 @@ import { Resource, resources, slugsToCategory } from '../resources'
 import headerStyles from './index/header.module.css'
 
 type Props = {
-  slug: string
+  slug?: string
 }
 
 type LayoutProps = {
@@ -31,7 +31,7 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
 
 export const Category: FunctionalComponent<Props> = ({ slug }) => {
 
-  if (!slug) {
+  if (slug == 'all') {
     return <CategoryLayout title='all' resources={resources}/>
   }
 
