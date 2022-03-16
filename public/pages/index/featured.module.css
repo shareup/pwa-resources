@@ -1,0 +1,60 @@
+.featuredWrapper {
+}
+
+.repo {
+  border-top: 2px solid var(--brand-black);
+  border-bottom: 2px solid var(--brand-black);
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  flex-direction: row-reverse;
+}
+
+.figure {
+  margin: 0;
+  width: 50%;
+  flex: 0 0 auto;
+  background-color: var(--brand-red);
+  display: flex;
+  align-items: flex-end;
+  border-right: 1px solid var(--brand-black);
+}
+
+.figure img {
+  display: block;
+  margin: 54px 12px 0 81px;
+}
+
+.codeSpeech {
+  display: inline-block;
+  font-size: 12px;
+  max-width: 5em;
+  padding: 12px;
+  margin-bottom: 364px;
+}
+
+.info {
+  border-left: 1px solid var(--brand-black);
+  width: 50%;
+  flex: 1 1 auto;
+  padding: 54px 18px 154px 54px;
+  background-color: var(--brand-blue);
+  color: var(--brand-white);
+  position: relative;
+}
+
+.desc {
+  margin: 1.5em 0;
+  line-height: 1.5;
+}
+
+.decor {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.decor img {
+  display: block;
+}
