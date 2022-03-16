@@ -1,7 +1,3 @@
-.notFoundBackground {
-  background-color: var(--brand-pink);
-}
-
 .backToHome {
   background-color: var(--brand-light-blue);
 }
@@ -9,7 +5,7 @@
 .pageNotFound {
   width: 50%;
   background-color: var(--brand-yellow);
-  border :1px solid var(--brand-black);;
+  border-right:1px solid var(--brand-black);;
 }
 
 .notFoundSection {
@@ -29,9 +25,14 @@
 .notFoundPizza {
   width: 50%;
   background-color: var(--brand-light-blue);
-  border :1px solid var(--brand-black);;
+  border-left: 1px solid var(--brand-black);
+}
+
+.notFoundPizza img {
+  padding-bottom: 32px;
 }
 
 .notFoundWrapper {
   display: flex;
+  border-top: 2px solid var(--brand-black);
 }

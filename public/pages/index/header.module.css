@@ -95,6 +95,10 @@
   margin:0;
 }
 
+.notFoundBackground {
+  background-color: var(--brand-pink);
+}
+
 .backButton {
   background-color: var(--brand-white);
   color: var(--brand-black);

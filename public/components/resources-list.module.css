@@ -27,6 +27,7 @@
   font-size: 22px;
   font-weight: bold;
   transition: color 0.1s ease;
+  text-decoration: none;
   --link-color: var(--brand-black);
   color: var(--link-color);
 }

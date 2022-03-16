@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef } from 'preact/hooks'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import { isPrerenderContext } from '../prerender-context'
+import  arrowURL from 'url:..//images/svg/arrow.svg'
 import type { Resource } from '../resources'
 import { categoryToSlugs } from '../resources'
 import styles from './resources-list.module.css'
@@ -107,10 +108,12 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
     <li class={styles.item}>
       <a
         class={styles.title}
-        style={{ '--link-color': color }}
         href={item.url.toString()}
       >
-        {item.title}
+        <h2>
+          {item.title} 
+          <img src={arrowURL} width='22' height='22'/>
+        </h2>
       </a>
       <span class={styles.desc}>{item.desc}</span>
       {isOld
