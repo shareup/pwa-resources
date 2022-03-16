@@ -15,10 +15,14 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true
   },
+  "exclude": [
+    "public/service-worker.ts"
+  ],
   "include": [
     "node_modules/wmr/types.d.ts",
     "node_modules/preact/src/index.d.ts",
-    "node_modules/preact/src/jsx.d.ts"
+    "node_modules/preact/src/jsx.d.ts",
+    "public/**/*"
   ],
   "typeAcquisition": {
     "enable": true

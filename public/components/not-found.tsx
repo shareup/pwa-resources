@@ -7,7 +7,7 @@ export const NotFound: FunctionalComponent = () => (
   <Layout>
     <nav class={headerStyles.categoryHeader}>
       <a href='/' class={headerStyles.backButton}>↩BACK</a>
-      <h1 class={[headerStyles.categoryTitle, headerStyles.notFoundBackground].join(' ')} >404</h1>
+      <h1 class={[headerStyles.categoryTitle, headerStyles.notFoundBackground].join(' ')}>404</h1>
     </nav>
     <hr />
     <div class={styles.notFoundWrapper}>
@@ -19,7 +19,7 @@ export const NotFound: FunctionalComponent = () => (
       </div>
       <div class={styles.notFoundPizza}>
         <p class={[styles.pizzaSpeech, 'speech'].join(' ')}>Cheese the day!</p>
-        <img src='/images/svg/coolpizza.svg' width='450' height='450'/>
+        <img src='/images/svg/coolpizza.svg' width='450' height='450' />
       </div>
     </div>
   </Layout>
