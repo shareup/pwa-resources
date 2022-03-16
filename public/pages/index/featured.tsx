@@ -29,6 +29,7 @@ export const Featured: FunctionalComponent = () => {
           <p>
             <a
               class='button'
+              style={{ '--button-color': 'var(--brand-pink)' }}
               href='https://github.com/shareup/pwa-resources'
             >
               View on GitHub
