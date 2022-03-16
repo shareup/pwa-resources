@@ -1,6 +1,8 @@
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  border-right: 2px solid var(--brand-black);
+  border-left: 2px solid var(--brand-black);
 }
 
 .footer {

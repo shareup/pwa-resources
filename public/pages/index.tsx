@@ -9,6 +9,7 @@ import sourceWormUrl from 'url:../images/source-worm.png'
 import thumbsUrl from 'url:../images/thumbs.png'
 import { Layout } from '../components/layout'
 import { categories, categoryToSlugs } from '../resources'
+import styles from './index.module.css'
 
 export const Index: FunctionalComponent = () => {
   const click = useCallback((e: MouseEvent) => {
@@ -20,24 +21,26 @@ export const Index: FunctionalComponent = () => {
 
   return (
     <Layout>
-      <header>
-        <div>
-          <h1>
+      <header class={styles.header}>
+        <div class={styles.headerTitle}>
+          <h1 class={styles.headerTitleHeading}>
             <abbr title='Progressive Web App'>PWA</abbr> Resources
           </h1>
-          <p>A curated collection</p>
+          <p class={styles.headerTitleSubheading}>A curated collection</p>
         </div>
-        <aside>
-          <p>
-            <figure>
-              <img src={thumbsUrl} width='462' height='360' />
-            </figure>
-            <a href='/favs' class='button' onClick={click}>
+        <aside class={styles.headerAside}>
+          <p class={styles.headerAsideText}>Progressive Web Apps</p>
+          <p class={styles.headerAsideButtonWrapper}>
+            <a href='/favs' class={['button', styles.headerAsideButton].join(' ')} onClick={click}>
               View your <abbr title='favorites'>♥‘s</abbr>
             </a>
           </p>
+          <figure class={styles.headerAsideFigure}>
+            <img src={thumbsUrl} width='462' height='360' />
+          </figure>
         </aside>
       </header>
+      <hr />
       <main>
         <div>
           <div>

@@ -60,3 +60,11 @@ a {
 button[disabled] {
   cursor: normal;
 }
+
+hr {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  border: none;
+  border-bottom: 28px solid var(--brand-silver);
+}
