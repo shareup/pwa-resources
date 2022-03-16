@@ -14,7 +14,23 @@ export const Category: FunctionalComponent<Props> = ({ slug }) => {
   if (!category) {
     return (
       <Layout>
-        <h1>Collection not found</h1>
+        <nav class={styles.categoryHeader}>
+          <a href='/' class={styles.backButton}>↩BACK</a>
+          <h1 class={[styles.categoryTitle, styles.notFoundBackground].join(' ')} >404</h1>
+        </nav>
+        <hr />
+        <div class={styles.notFoundWrapper}>
+          <div class={styles.pageNotFound}>
+            <section class={styles.notFoundSection}>
+              <h2>Page not found</h2>
+              <a href='/' class={[styles.backToHome, 'button'].join(' ')}>Back to home</a>
+            </section>
+          </div>
+          <div class={styles.notFoundPizza}>
+            <p class={[styles.pizzaSpeech, 'speech'].join(' ')}>Cheese the day!</p>
+            <img src='/images/svg/coolpizza.svg' width='450' height='450'/>
+          </div>
+        </div>
       </Layout>
     )
   }
