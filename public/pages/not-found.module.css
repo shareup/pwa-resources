@@ -1,0 +1,37 @@
+.notFoundBackground {
+  background-color: var(--brand-pink);
+}
+
+.backToHome {
+  background-color: var(--brand-light-blue);
+}
+
+.pageNotFound {
+  width: 50%;
+  background-color: var(--brand-yellow);
+  border :1px solid var(--brand-black);;
+}
+
+.notFoundSection {
+  position: relative;
+  padding: 54px;
+  padding-bottom: 108px;
+  flex: 1 1 auto;
+}
+
+.pizzaSpeech {
+  width: 60px;
+  text-align: center;
+  margin-right: 75px;
+  margin-left: auto;
+}
+
+.notFoundPizza {
+  width: 50%;
+  background-color: var(--brand-light-blue);
+  border :1px solid var(--brand-black);;
+}
+
+.notFoundWrapper {
+  display: flex;
+}

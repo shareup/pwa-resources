@@ -75,3 +75,41 @@
   margin: 0 auto;
   display: block;
 }
+
+.categoryHeader {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: center;  
+  outline: 1px solid var(--brand-black);
+  border-bottom: 1px solid var(--brand-black);;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin:0;
+}
+
+.backButton {
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 175px;
+  text-transform: uppercase;
+  letter-spacing: 0.9rem;
+  text-indent: 0.9rem;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--brand-black);
+}
