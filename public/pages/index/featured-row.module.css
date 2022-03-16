@@ -1,0 +1,31 @@
+.row {
+  border-top: 2px solid var(--brand-black);
+  --background-color: var(--brand-white);
+  background-color: var(--background-color);
+  color: var(--brand-black);
+  padding: 54px 108px 0 81px;
+  display: flex;
+  align-items: stretch;
+  align-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+.heading {
+  margin: 0;
+}
+
+.desc {
+  flex: 0 0 auto;
+  margin: 1.5em 0;
+  max-width: 25em;
+  line-height: 1.5;
+}
+
+.figure {
+  flex: 1 1 auto;
+  margin: 0 0 0 54px;
+}
+
+.figure img {
+  display: block;
+}

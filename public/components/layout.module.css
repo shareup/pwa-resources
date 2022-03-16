@@ -7,8 +7,7 @@
 
 .footer {
   text-align: center;
-  height: 150px;
-  border: 2px solid #000;
+  border-top: 2px solid var(--brand-black);
   justify-content: center;
   display: flex;
   flex-direction: column;
