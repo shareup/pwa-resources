@@ -9,6 +9,8 @@ import {
   Route,
   Router
 } from 'preact-iso'
+import { useCallback } from 'preact/hooks'
+import arrowURL from 'url:./images/svg/arrow.svg'
 import { DBContext } from './db-context'
 import { PrerenderContext } from './prerender-context'
 
@@ -33,9 +35,9 @@ const App: FunctionalComponent = () => (
     <LocationProvider>
       <ErrorBoundary>
         <Router>
-          <Route path='/' component={Index} />
           <Route path='/categories/:slug' component={Category} />
           <Route path='/categories/all' component={Category} />
+          <Route path='/' component={Index} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

@@ -23,17 +23,59 @@
   position: relative;
 }
 
-.title {
-  font-size: 22px;
-  font-weight: bold;
+.heading {
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+  background-color: var(--brand-white);
+}
+
+.link {
+  line-height: 1.1;
   transition: color 0.1s ease;
   text-decoration: none;
   --link-color: var(--brand-black);
   color: var(--link-color);
 }
 
-.title:hover {
+.link:hover {
   color: var(--brand-black);
+}
+
+.headingVisible {
+  display: block;
+  position: relative;
+  z-index: 3;
+  background-color: var(--brand-white);
+}
+
+.headingFigure {
+  margin: 0;
+}
+
+.headingFigure > span {
+  text-stroke: 2px var(--link-color);
+  -webkit-text-stroke: 2px var(--link-color);
+  color: var(--brand-white);
+  position: absolute;
+  left: 0;
+  background-color: var(--brand-white);
+}
+
+.link:hover .headingFigure > span {
+  text-stroke: 2px var(--brand-black);
+  -webkit-text-stroke: 2px var(--brand-black);
+}
+
+.headingFigure .figureFirst {
+  z-index: 1;
+  top: -2.2em;
+}
+
+.headingFigure .figureSecond {
+  z-index: 2;
+  top: -1.1em;
 }
 
 .desc {

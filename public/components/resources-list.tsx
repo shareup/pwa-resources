@@ -1,9 +1,9 @@
 import type { FunctionalComponent, VNode } from 'preact'
 import { useCallback, useEffect, useRef } from 'preact/hooks'
+import arrowURL from 'url:../images/svg/arrow.svg'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import { isPrerenderContext } from '../prerender-context'
-import  arrowURL from 'url:../images/svg/arrow.svg'
 import type { Resource } from '../resources'
 import { categoryToSlugs } from '../resources'
 import styles from './resources-list.module.css'
@@ -106,15 +106,21 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
 
   return (
     <li class={styles.item}>
-      <a
-        class={styles.title}
-        href={item.url.toString()}
-      >
-        <h2>
-          {item.title} 
-           <img src={arrowURL} width='22' height='22'/>
-        </h2>
-      </a>
+      <h2 class={styles.heading}>
+        <a
+          class={styles.link}
+          href={item.url.toString()}
+        >
+          <span class={styles.headingVisible}>
+            {item.title}
+            <img src={arrowURL} width='22' height='22' alt='' />
+          </span>
+          <figure aria-hidden class={styles.headingFigure}>
+            <span class={styles.figureFirst}>{item.title}</span>
+            <span class={styles.figureSecond}>{item.title}</span>
+          </figure>
+        </a>
+      </h2>
       <span class={styles.desc}>{item.desc}</span>
       {isOld
         ? (
