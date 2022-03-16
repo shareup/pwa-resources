@@ -1,8 +1,33 @@
-html, body {
-  margin: 0;
-	min-height: 100%;
-	font-family: system-ui, sans-serif;
-  font-size: 16px;
+@font-face {
+  font-family: Archia;
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  src: url(./fonts/archia-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Archia;
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+  src: url(./fonts/archia-bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Chaney;
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  src: url(./fonts/chaney-wide.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Chaney;
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+  src: url(./fonts/chaney-ultraextended.woff2) format("woff2");
 }
 
 :root {
@@ -16,6 +41,18 @@ html, body {
   --brand-grey: #A9AEB7;
   --brand-black: #000000;
   --brand-white: #ffffff;
+}
+
+html, body {
+  margin: 0;
+	min-height: 100%;
+	font-family: Archia, system-ui, sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Chaney, system-ui, sans-serif;
+  font-weight: normal;
 }
 
 abbr[title] {

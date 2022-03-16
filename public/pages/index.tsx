@@ -1,87 +1,22 @@
-import type { FunctionalComponent, VNode } from 'preact'
-import { useCallback } from 'preact/hooks'
-import catsUrl from 'url:../images/cats.png'
+import type { FunctionalComponent } from 'preact'
 import componentsUrl from 'url:../images/components.png'
 import computerUrl from 'url:../images/computer.png'
-import convoUrl from 'url:../images/convo.png'
 import iaUrl from 'url:../images/ia.png'
 import sourceWormUrl from 'url:../images/source-worm.png'
 import thumbsUrl from 'url:../images/thumbs.png'
 import { Layout } from '../components/layout'
 import { categories, categoryToSlugs } from '../resources'
 import styles from './index.module.css'
+import { GettingStartedAndNav } from './index/gs-and-nav'
+import { Header } from './index/header'
 
 export const Index: FunctionalComponent = () => {
-  const click = useCallback((e: MouseEvent) => {
-    e.preventDefault()
-    // NOTE: we stop prop so the router doesn't grab it and pushState
-    e.stopPropagation()
-    console.debug('clicked fav button')
-  }, [])
-
   return (
     <Layout>
-      <header class={styles.header}>
-        <div class={styles.headerTitle}>
-          <h1 class={styles.headerTitleHeading}>
-            <abbr title='Progressive Web App'>PWA</abbr> Resources
-          </h1>
-          <p class={styles.headerTitleSubheading}>A curated collection</p>
-        </div>
-        <aside class={styles.headerAside}>
-          <p class={styles.headerAsideText}>Progressive Web Apps</p>
-          <p class={styles.headerAsideButtonWrapper}>
-            <a href='/favs' class={['button', styles.headerAsideButton].join(' ')} onClick={click}>
-              View your <abbr title='favorites'>♥‘s</abbr>
-            </a>
-          </p>
-          <figure class={styles.headerAsideFigure}>
-            <img src={thumbsUrl} width='462' height='360' />
-          </figure>
-        </aside>
-      </header>
+      <Header />
       <hr />
       <main>
-        <div>
-          <div>
-            <section>
-              <h2>Getting Started</h2>
-              <p>
-                Guides for how to get up & running
-                <a
-                  class='button'
-                  href='/categories/getting-started'
-                  title='View all resources in the ‘Getting Started’ category'
-                >
-                  View Category
-                </a>
-              </p>
-            </section>
-            <figure>
-              <p>You don’t work offline?</p>
-              <p>You do‽</p>
-              <img src={convoUrl} width='331' height='190' alt='' />
-            </figure>
-          </div>
-          <div>
-            <nav aria-labelledby='categories-nav-heading'>
-              <h2 id='categories-nav-heading'>Categories</h2>
-              <ul>
-                <li>
-                  <a href='#'>All</a>
-                </li>
-                {categories.map(cat => (
-                  <li>
-                    <a href={`/categories/${categoryToSlugs.get(cat)}`}>{cat}</a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <figure>
-              <img src={catsUrl} width='247' height='229' alt='' />
-            </figure>
-          </div>
-        </div>
+        <GettingStartedAndNav />
         <div>
           <section>
             <h2>Web Components</h2>

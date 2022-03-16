@@ -1,0 +1,19 @@
+.columns {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.columns > div {
+  width: 50%;
+}
+
+.gsWrapper {
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
