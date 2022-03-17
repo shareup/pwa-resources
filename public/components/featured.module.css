@@ -65,6 +65,7 @@
 
   .info {
     border-left: 1px solid var(--brand-black);
+    border-bottom: none;
   }  
 
   .figure {
