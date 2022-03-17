@@ -20,10 +20,46 @@
 .titleHeading {
   margin: 0;
   line-height: 1;
-  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 48px;
+}
+
+.titleHeadingFigure {
+  margin: 0;
+  line-height: 1;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-family: 'Chaney';
+  color: transparent;
+  text-stroke: 2px var(--brand-black);
+  -webkit-text-stroke: 2px var(--brand-black);
+}
+
+.titleHeadingFigure span {
+  display: inline;
+  line-height: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.titleHeadingFigure .titleHeading {
+  margin-bottom: 0;
+  height: 92px;
+}
+
+.titleHeading abbr, .titleHeadingFigure {
+  font-weight: bold;
+  font-size: 106px;
+  letter-spacing: 1px;
+}
+
+.titleHeading abbr span, .titleHeadingFigure span {
+  font-feature-settings: "ss02";
 }
 
 .titleSubheading {

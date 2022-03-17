@@ -14,8 +14,19 @@ export const Header: FunctionalComponent = () => {
   return (
     <header class={styles.header}>
       <div class={styles.title}>
+        <figure aria-hidden class={styles.titleHeadingFigure}>
+          <span class={styles.titleHeading}>
+            P<span>WA</span>
+          </span>
+          <span class={styles.titleHeading}>
+            P<span>WA</span>
+          </span>
+        </figure>
         <h1 class={styles.titleHeading}>
-          <abbr title='Progressive Web App'>PWA</abbr> Resources
+          <abbr title='Progressive Web App'>
+            P<span>WA</span>
+          </abbr>{' '}
+          Resources
         </h1>
         <p class={styles.titleSubheading}>A curated collection</p>
       </div>
