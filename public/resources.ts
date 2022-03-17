@@ -17,7 +17,7 @@ export const resources: Resource[] = [
     title: 'Progressive Web Apps Guide for Preact',
     desc:
       'Preact is an excellent choice for Progressive Web Apps that wish to load and become interactive quickly. Preact CLI codifies this into an instant build tool that gives you a PWA with a 100 Lighthouse score right out of the box.',
-    categories: ['React']
+    categories: ['Preact']
   },
   {
     url: new URL('https://create-react-app.dev/docs/making-a-progressive-web-app/'),
@@ -49,12 +49,19 @@ export const resources: Resource[] = [
     title: 'The Front-End Checklist',
     desc:
       'The Front-End Checklist Application is perfect for modern websites and meticulous developers!',
-    categories: ['Checklist']
+    categories: ['Checklists']
   },
   {
     url: new URL('https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps'),
     title: 'Progressive web apps (PWAs) on MDN',
     desc: 'PWA how-to guides and other documentation on developer.mozilla.org.',
+    categories: ['Overview']
+  },
+  {
+    url: new URL('https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Introduction'),
+    title: 'Introduction to progressive web apps',
+    desc:
+      '“This article provides an introduction to Progressive Web Apps (PWAs), discussing what they are and the advantages they offer over regular web apps.”',
     categories: ['Getting Started', 'Highlights']
   },
   {
@@ -90,13 +97,13 @@ export const resources: Resource[] = [
     url: new URL('https://webaccessibilitychecklist.com'),
     title: 'Web Accessibility Checklist',
     desc: 'A checklist for creating accessible websites and web applications.',
-    categories: ['Checklist', 'Accessibility']
+    categories: ['Checklists', 'Accessibility']
   },
   {
     url: new URL('https://www.pwastats.com'),
     title: 'PWA Stats',
     desc: 'A community-driven list of stats and news related to Progressive Web Apps by Cloud Four',
-    categories: []
+    categories: ['Advocacy']
   },
   {
     url: new URL('https://blog.pusher.com/introduction-progressive-web-apps/'),
@@ -165,7 +172,7 @@ export const resources: Resource[] = [
     title: 'PWA Badge on GitHub',
     desc:
       'Like Native Apps, The PWA Badge API allows installed web apps to set an application-wide badge on the app icon.',
-    categories: []
+    categories: ['Installation']
   },
   {
     url: new URL('https://simplepwa.com'),
@@ -178,34 +185,112 @@ export const resources: Resource[] = [
     url: new URL('https://developers.google.com/codelabs/pwa-training/pwa03--going-offline#0'),
     title: 'Progressive Web Apps: Going Offline',
     desc: 'This is the first in a series of companion codelabs for a Progressive Web App workshop.',
-    categories: ['Courses']
+    categories: ['Courses', 'Offline']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/web-apps-progressive-getting-started'),
     title: 'Getting Started with Progressive Web Apps on Pluralsight',
     desc:
       "A for-pay course to create a 'Car Deals' website using techniques and technologies to transform it from a simple web page into a progressive web app.",
-    categories: ['Courses']
+    categories: ['Courses', 'Paid']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/progressive-web-app-fundamentals'),
     title: 'Progressive Web App Fundamentals on Pluralsight',
     desc: 'A for-pay course to learn to supercharge web apps so they can compete with native apps',
-    categories: ['Courses']
+    categories: ['Courses', 'Paid']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-apps/'),
     title: 'Progressive Web Apps: The Concise PWA Masterclass on Udemy',
     desc:
       'Everything you need to build Progressive Web Apps from Scratch, or upgrade your existing Web Apps to PWAs.',
-    categories: ['Courses']
+    categories: ['Courses', 'Paid']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-app-pwa-the-complete-guide/'),
     title: 'Progressive Web Apps (PWA) - The Complete Guide',
     desc:
       'Build a Progressive Web App (PWA) that feels like an iOS & Android App, using Device Camera, Push Notifications and more',
-    categories: ['Courses']
+    categories: ['Courses', 'Paid']
+  },
+  {
+    url: new URL('https://www.aaron-gustafson.com/notebook/pwa-qa/'),
+    title: 'PWA Q&A by Aaron Gustafson',
+    desc:
+      'A collection of questions and answers by Aaron which covers many topics related to PWAs.',
+    categories: ['Highlights']
+  },
+  {
+    url: new URL('https://web.dev/app-like-pwas/'),
+    title: 'Make your PWA feel more like an app',
+    desc: '“Make your Progressive Web App not feel like a website, but like a ‘real’ app”',
+    categories: ['Offline', 'Installation', 'Highlights']
+  },
+  {
+    url: new URL('https://progressier.com'),
+    title: 'Progressier',
+    desc:
+      'An automated tool to add installation, push notifications, and offline caching to your existing web app.',
+    categories: ['Paid', 'Automation']
+  },
+  {
+    url: new URL(
+      'https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/microsoft-store'
+    ),
+    title: 'Publish a Progressive Web App to the Microsoft Store',
+    desc: "Microsoft's documentation for how to publish PWAs to their store",
+    categories: ['Installation']
+  },
+  {
+    url: new URL(
+      'https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/'
+    ),
+    title: 'Get started with Progressive Web Apps',
+    desc: "A list of how-to's for building PWAs in Edge by Microsoft",
+    categories: ['Getting Started', 'Highlights']
+  },
+  {
+    url: new URL('https://developer.chrome.com/docs/devtools/progressive-web-apps/'),
+    title: 'Debug Progressive Web Apps',
+    desc:
+      '”Use the Application panel [in Chrome] to inspect, modify, and debug web app manifests, service workers, and service worker caches.”',
+    categories: ['Debugging', ':old']
+  },
+  {
+    url: new URL(
+      'https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/progressive-web-apps/'
+    ),
+    title: 'Debug Progressive Web Apps (PWAs)',
+    desc:
+      '“Use the Application panel [in Edge] to inspect, modify, and debug web app manifests, service workers, and service worker caches.”',
+    categories: ['Debugging']
+  },
+  {
+    url: new URL('https://www.pluralsight.com/courses/debugging-progressive-web-apps'),
+    title: 'Debugging Progressive Web Apps',
+    desc:
+      '“Learn to unleash the power of modern browser tools, techniques, and strategies to debug a progressive web application.”',
+    categories: ['Courses', 'Paid', 'Debugging']
+  },
+  {
+    url: new URL('https://chromeos.dev/en/web/desktop-progressive-web-apps'),
+    title: 'Desktop Progressive Web Apps',
+    desc:
+      '“Desktop PWAs are a great cross-platform, cross-browser way to build apps with a security model that centers user safety and privacy and get built-in sharing with the web’s inherent linkability.”',
+    categories: ['Installation', ':unsure']
+  },
+  {
+    url: new URL('https://www.davrous.com/2019/10/18/myth-busting-pwas-the-new-edge-edition/'),
+    title: 'Myth Busting PWAs',
+    desc: '“By busting 9 Myths on PWAs, we’ll see that PWAs are stronger than ever.”',
+    categories: ['Advocacy']
+  },
+  {
+    url: new URL('https://en.wikipedia.org/wiki/Progressive_web_application'),
+    title: 'Progressive web application on Wikipedia',
+    desc: 'The Wikipedia page for PWAs has a summary of their history and some of the related tech',
+    categories: ['Overview']
   }
 ]
 
