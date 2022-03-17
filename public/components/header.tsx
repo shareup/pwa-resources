@@ -1,15 +1,16 @@
 import type { FunctionalComponent } from 'preact'
-import { useCallback } from 'preact/hooks'
 import thumbsUrl from 'url:../images/thumbs.png'
+import { useDB } from '../db-context'
+import { useFetched } from '../hooks/use-fetched'
 import styles from './header.module.css'
 
 export const Header: FunctionalComponent = () => {
-  const click = useCallback((e: MouseEvent) => {
-    // e.preventDefault()
-    // // NOTE: we stop prop so the router doesn't grab it and pushState
-    // e.stopPropagation()
-    // console.debug('clicked favs link')
-  }, [])
+  const db = useDB()
+  const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
+    return db && db.getAllKeys('favs')
+  }, [db])
+
+  const hasFavs = favs && favs.length
 
   return (
     <header class={styles.header}>
@@ -33,9 +34,13 @@ export const Header: FunctionalComponent = () => {
       <aside class={styles.aside}>
         <p class={styles.asideText}>Progressive Web Apps</p>
         <p class={styles.buttonWrapper}>
-          <a href='/categories/favs' class={['button', styles.button].join(' ')} onClick={click}>
-            View your <abbr title='favorites'>♥‘s</abbr>
-          </a>
+          {hasFavs
+            ? (
+              <a href='/categories/favs' class={['button', styles.button].join(' ')}>
+                View your <abbr title='favorites'>♥‘s</abbr>
+              </a>
+            )
+            : null}
         </p>
         <figure class={styles.figure}>
           <img src={thumbsUrl} width='462' height='360' />
