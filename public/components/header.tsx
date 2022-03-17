@@ -5,10 +5,10 @@ import styles from './header.module.css'
 
 export const Header: FunctionalComponent = () => {
   const click = useCallback((e: MouseEvent) => {
-    e.preventDefault()
-    // NOTE: we stop prop so the router doesn't grab it and pushState
-    e.stopPropagation()
-    console.debug('clicked favs link')
+    // e.preventDefault()
+    // // NOTE: we stop prop so the router doesn't grab it and pushState
+    // e.stopPropagation()
+    // console.debug('clicked favs link')
   }, [])
 
   return (
@@ -33,7 +33,7 @@ export const Header: FunctionalComponent = () => {
       <aside class={styles.aside}>
         <p class={styles.asideText}>Progressive Web Apps</p>
         <p class={styles.buttonWrapper}>
-          <a href='/favs' class={['button', styles.button].join(' ')} onClick={click}>
+          <a href='/categories/favs' class={['button', styles.button].join(' ')} onClick={click}>
             View your <abbr title='favorites'>♥‘s</abbr>
           </a>
         </p>

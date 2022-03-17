@@ -1,4 +1,6 @@
 import type { FunctionalComponent } from 'preact'
+import { useDB } from '../db-context'
+import { useFetched } from '../hooks/use-fetched'
 import { Resource, resources, slugsToCategory } from '../resources'
 import headerStyles from './header.module.css'
 import { Layout } from './layout'
@@ -30,7 +32,20 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
 }
 
 export const Category: FunctionalComponent<Props> = ({ slug }) => {
-  if (slug == 'all') {
+  const db = useDB()
+  const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
+    return db && db.getAllKeys('favs')
+  }, [db])
+
+  if (slug === 'favs' && favs) {
+    const favResources = resources.filter(res => {
+      const url = res.url.toString()
+      return favs.includes(url)
+    })
+    return <CategoryLayout title='Favs' resources={favResources} />
+  }
+
+  if (slug === 'all') {
     return <CategoryLayout title='all' resources={resources} />
   }
 
