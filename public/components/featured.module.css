@@ -5,14 +5,12 @@
   border-top: 2px solid var(--brand-black);
   border-bottom: 2px solid var(--brand-black);
   display: flex;
-  align-items: stretch;
-  align-content: stretch;
-  flex-direction: row-reverse;
+  flex-direction: column;
 }
 
 .figure {
   margin: 0;
-  width: 50%;
+  width: 100%;
   flex: 0 0 auto;
   background-color: var(--brand-red);
   display: flex;
@@ -22,7 +20,7 @@
 
 .figure img {
   display: block;
-  margin: 54px 12px 0 81px;
+  margin: 0;
 }
 
 .codeSpeech {
@@ -34,13 +32,12 @@
 }
 
 .info {
-  border-left: 1px solid var(--brand-black);
-  width: 50%;
+  border-bottom: 2px solid var(--brand-black);
   flex: 1 1 auto;
-  padding: 54px 18px 154px 54px;
   background-color: var(--brand-blue);
   color: var(--brand-white);
   position: relative;
+  padding: 54px 38px 185px 38px;
 }
 
 .desc {
@@ -57,4 +54,29 @@
 
 .decor img {
   display: block;
+}
+
+@media (min-width: 900px) {
+  .repo {
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: row-reverse;
+  }
+
+  .info {
+    border-left: 1px solid var(--brand-black);
+  }  
+
+  .figure {
+    width: 50%;
+  }
+
+  .figure img {
+    margin: 54px 12px 0 81px;
+  }
+
+  .info {
+    width: 50%;
+    padding: 54px 18px 154px 54px;
+  }
 }

@@ -3,11 +3,10 @@
   --background-color: var(--brand-white);
   background-color: var(--background-color);
   color: var(--brand-black);
-  padding: 54px 108px 0 81px;
   display: flex;
-  align-items: stretch;
   align-content: flex-end;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  padding: 54px 38px 0 38px;
 }
 
 .heading {
@@ -23,9 +22,21 @@
 
 .figure {
   flex: 1 1 auto;
-  margin: 0 0 0 54px;
+  margin: 0 ;
 }
 
 .figure img {
   display: block;
+}
+
+@media (min-width: 900px) {
+  .row {
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 54px 108px 0 81px;
+  }
+
+  .figure {
+    margin: 0 0 0 54px;
+  }
 }

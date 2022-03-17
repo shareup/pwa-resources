@@ -1,20 +1,21 @@
 .header {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: stretch;
+  flex-wrap: wrap;
   text-align: center;
   border-bottom: 2px solid var(--brand-black);
 }
 
 .title {
-  width: 50%;
+  width: 100%;
   background-color: var(--brand-gold);
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  align-content: stretch;
-  border-right: 1px solid var(--brand-black);
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.title :nth-child(3) { 
+  order: -1; 
+  border-bottom: 2px solid var(--brand-black);
 }
 
 .titleHeading {
@@ -37,6 +38,7 @@
   color: transparent;
   text-stroke: 2px var(--brand-black);
   -webkit-text-stroke: 2px var(--brand-black);
+  margin-top: 48px;
 }
 
 .titleHeadingFigure span {
@@ -54,7 +56,7 @@
 
 .titleHeading abbr, .titleHeadingFigure {
   font-weight: bold;
-  font-size: 106px;
+  font-size: 86px;
   letter-spacing: 1px;
 }
 
@@ -64,31 +66,33 @@
 
 .titleSubheading {
   margin: 0;
-  line-height: 4;
   background-color: var(--brand-white);
   flex: 0 0 auto;
   border-top: 2px solid var(--brand-black);
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.9rem;
   text-indent: 0.9rem;
   text-align: center;
+  line-height: 2;
+  letter-spacing: 0.6rem;
+  font-size: 12px;
 }
 
 .aside {
-  width: 50%;
+  width: 100%;
   border-left: 1px solid var(--brand-black);
   background-color: var(--brand-pink);
 }
 
 .asideText {
   margin: 0;
-  line-height: 4;
   background-color: var(--brand-white);
   border-bottom: 2px solid var(--brand-black);
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.9rem;
+  line-height: 2;
+  letter-spacing: 0.6rem;
+  font-size: 12px;
   text-indent: 0.9rem;
   text-align: center;
 }
@@ -108,8 +112,9 @@
 }
 
 .figure img {
-  margin: 0 auto;
-  display: block;
+  width: 100%;
+  height: fit-content;
+  display: flex;
 }
 
 .categoryHeader {
@@ -152,4 +157,49 @@
   align-items: center;
   justify-content: center;
   border-right: 2px solid var(--brand-black);
+}
+
+@media (min-width: 900px) {
+
+  .header {
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: nowrap;
+  }
+  
+  .titleHeading abbr, .titleHeadingFigure {
+    font-size: 106px;
+  }
+
+  .titleHeadingFigure {
+    margin-top: 0px;
+  }
+  
+  .title {
+    width: 50%;
+    align-items: stretch;
+    align-content: stretch;
+    border-bottom: none;
+    border-right: 1px solid var(--brand-black);
+  }
+
+  .titleSubheading, .asideText {
+    line-height: 4;
+    letter-spacing: 0.9rem;
+    font-size: 16px;
+  }
+
+  .title :nth-child(3) { 
+    order: unset; 
+    border-bottom: none;
+  }
+
+  .figure img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .aside {
+    width: 50%;
+  }
 }

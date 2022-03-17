@@ -1,5 +1,5 @@
 .wrapper {
-  max-width: 1024px;
+  max-width: 3072px;
   margin: 0 auto;
   border-right: 2px solid var(--brand-black);
   border-left: 2px solid var(--brand-black);
@@ -10,5 +10,20 @@
   border-top: 2px solid var(--brand-black);
   justify-content: center;
   display: flex;
+  padding: 0 5%;
   flex-direction: column;
+}
+
+.footer img {
+  width: 30%;
+}
+
+@media (min-width: 900px) {
+  .footer p {
+    padding: none;
+  }
+
+  img {
+    width: auto;
+  }
 }
