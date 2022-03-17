@@ -83,6 +83,12 @@
   line-height: 1.5;
 }
 
+.hostname {
+  display: block;
+  line-height: 1.5;
+  color: var(--brand-grey);
+}
+
 .old {
   display: block;
   margin: 0.5em 0;

@@ -121,6 +121,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
           </figure>
         </a>
       </h2>
+      <span class={styles.hostname}>({item.url.hostname.replace(/^www\./, '')})</span>
       <span class={styles.desc}>{item.desc}</span>
       {isOld
         ? (
