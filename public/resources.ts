@@ -222,6 +222,6 @@ for (const res of resources) {
   }
 }
 
-export const categories = Array.from(categoryToSlugs.keys()).sort()
+export const categories = Array.from(categoryToSlugs.keys()).sort((a, b) => b.length - a.length)
 
 // TODO: is this 2018 course still good? https://www.udemy.com/course/learn-to-build-progressive-web-apps-using-javascript/

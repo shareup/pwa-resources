@@ -37,14 +37,14 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
         <nav aria-labelledby='categories-nav-heading' class={styles.nav}>
           <h2 id='categories-nav-heading' class={styles.navHeading}>Categories</h2>
           <ul class={styles.navList}>
-            <li>
-              <a href='/categories/all' class={styles.navLink}>All</a>
-            </li>
             {categories.map(cat => (
               <li>
                 <a href={`/categories/${categoryToSlugs.get(cat)}`} class={styles.navLink}>{cat}</a>
               </li>
             ))}
+            <li>
+              <a href='/categories/all' class={styles.navLink}>All</a>
+            </li>
           </ul>
         </nav>
         <figure class={styles.navFigure}>
