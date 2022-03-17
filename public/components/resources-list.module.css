@@ -133,6 +133,7 @@
 
 .saveButton {
   letter-spacing: 0;
+  text-indent: 0;
   padding-left: 28px;
   padding-right: 28px;
   color: var(--brand-white);
