@@ -112,7 +112,7 @@ export const resources: Resource[] = [
     title: 'Intro to Progressive Web Apps Course by Google',
     desc:
       '“In this course you’ll get started working on your very first Progressive Web App (PWA) - a web app that can take advantage of many of the features native applications have enjoyed.”',
-    categories: ['Courses']
+    categories: ['Courses: Free']
   },
   {
     url: new URL(
@@ -181,34 +181,34 @@ export const resources: Resource[] = [
     url: new URL('https://developers.google.com/codelabs/pwa-training/pwa03--going-offline#0'),
     title: 'Progressive Web Apps: Going Offline',
     desc: 'This is the first in a series of companion codelabs for a Progressive Web App workshop.',
-    categories: ['Courses', 'Offline']
+    categories: ['Courses: Free', 'Offline']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/web-apps-progressive-getting-started'),
     title: 'Getting Started with Progressive Web Apps Course',
     desc:
       "A course to create a 'Car Deals' website using techniques and technologies to transform it from a simple web page into a progressive web app.",
-    categories: ['Courses', 'Paid']
+    categories: ['Courses: Paid']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/progressive-web-app-fundamentals'),
     title: 'Progressive Web App Fundamentals Course',
     desc: 'A course to learn to supercharge web apps so they can compete with native apps',
-    categories: ['Courses', 'Paid']
+    categories: ['Courses: Paid']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-apps/'),
     title: 'Progressive Web Apps: The Concise PWA Masterclass Course',
     desc:
       '“Everything you need to build Progressive Web Apps from Scratch, or upgrade your existing Web Apps to PWAs.”',
-    categories: ['Courses', 'Paid']
+    categories: ['Courses: Paid']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-app-pwa-the-complete-guide/'),
     title: 'Progressive Web Apps (PWA) - The Complete Guide',
     desc:
       '“Build a Progressive Web App (PWA) that feels like an iOS & Android App, using Device Camera, Push Notifications and more.”',
-    categories: ['Courses', 'Paid']
+    categories: ['Courses: Paid']
   },
   {
     url: new URL('https://www.aaron-gustafson.com/notebook/pwa-qa/'),
@@ -266,7 +266,7 @@ export const resources: Resource[] = [
     title: 'Debugging Progressive Web Apps',
     desc:
       '“Learn to unleash the power of modern browser tools, techniques, and strategies to debug a progressive web application.”',
-    categories: ['Courses', 'Paid', 'Debugging']
+    categories: ['Courses: Paid', 'Debugging']
   },
   {
     url: new URL('https://www.davrous.com/2019/10/18/myth-busting-pwas-the-new-edge-edition/'),
