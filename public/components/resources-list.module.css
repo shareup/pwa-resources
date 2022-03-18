@@ -55,8 +55,8 @@
 }
 
 .headingFigure > span {
-  text-stroke: 1px var(--link-color);
-  -webkit-text-stroke: 1px var(--link-color);
+  text-stroke: 1px var(--brand-black);
+  -webkit-text-stroke: 1px var(--brand-black);
   color: var(--brand-white);
   position: absolute;
   left: 0;

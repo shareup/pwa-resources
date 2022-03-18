@@ -4,13 +4,18 @@
   background-color: var(--background-color);
   color: var(--brand-black);
   display: flex;
-  align-content: flex-end;
+  flex-direction: column;
+  align-content: center;
   flex-wrap: wrap;
   padding: 54px 38px 0 38px;
 }
 
 .heading {
   margin: 0;
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
 }
 
 .desc {
@@ -25,6 +30,10 @@
   margin: 0 ;
 }
 
+.featuredRowContent {
+  margin-bottom: 24px;
+}
+
 .figure img {
   display: block;
 }
@@ -34,9 +43,13 @@
     align-items: stretch;
     flex-wrap: nowrap;
     padding: 54px 108px 0 81px;
+    align-content: flex-end;
+    flex-direction: row;
   }
 
   .figure {
     margin: 0 0 0 54px;
+    align-items: flex-end;
+    display: flex;
   }
 }

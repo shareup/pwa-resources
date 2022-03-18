@@ -4,13 +4,22 @@ import catsUrl from 'url:../images/svg/cats.svg'
 import convoUrl from 'url:../images/svg/convo.svg'
 import { categories, categoryToSlugs } from '../resources'
 import styles from './gs-and-nav.module.css'
+import resourceStyles from './resources-list.module.css'
 
 export const GettingStartedAndNav: FunctionalComponent = () => {
   return (
     <div class={styles.columns}>
       <div class={styles.gsWrapper}>
         <section class={styles.gs}>
-          <h2 class={styles.gsHeading}>Getting Started</h2>
+          <h2 class={styles.gsHeading}>
+            <span class={resourceStyles.headingVisible}>
+              Getting Started
+            </span>
+            <figure aria-hidden class={resourceStyles.headingFigure}>
+              <span class={resourceStyles.figureFirst}>Getting Started</span>
+              <span class={resourceStyles.figureSecond}>Getting Started</span>
+            </figure>
+          </h2>
           <p class={styles.gsDesc}>Guides for how to get up & running</p>
           <p>
             <a

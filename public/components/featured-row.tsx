@@ -1,5 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import styles from './featured-row.module.css'
+import resourceStyles from './resources-list.module.css'
 
 type Props = {
   image: {
@@ -26,8 +27,24 @@ export const FeaturedRow: FunctionalComponent<Props> = (
       class={styles.row}
       style={{ '--background-color': backgroundColor }}
     >
-      <div>
-        <h2 class={styles.heading}>{heading}</h2>
+      <div class={styles.featuredRowContent}>
+        <h2 class={styles.heading}>
+          {heading}
+          <figure aria-hidden class={resourceStyles.headingFigure}>
+            <span
+              class={resourceStyles.figureFirst}
+              style={{ 'color': backgroundColor, 'background-color': backgroundColor }}
+            >
+              {heading}
+            </span>
+            <span
+              class={resourceStyles.figureSecond}
+              style={{ 'color': backgroundColor, 'background-color': backgroundColor }}
+            >
+              {heading}
+            </span>
+          </figure>
+        </h2>
         <p class={styles.desc}>{desc}</p>
         <p>
           <a

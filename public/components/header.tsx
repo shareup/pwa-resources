@@ -1,5 +1,5 @@
 import type { FunctionalComponent } from 'preact'
-import thumbsUrl from 'url:../images/thumbs.png'
+import thumbsUrl from 'url:../images/svg/thumbs.svg'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import styles from './header.module.css'

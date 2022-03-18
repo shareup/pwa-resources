@@ -28,6 +28,19 @@
 
 .gsHeading {
   margin: 0;
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+  background-color: var(--brand-light-blue);
+}
+
+.gsHeading span {
+  background-color: var(--brand-light-blue);
+}
+
+.gsHeading figure span {
+  color: var(--brand-light-blue);
 }
 
 .gsDesc {
