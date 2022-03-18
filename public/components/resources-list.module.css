@@ -1,9 +1,8 @@
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-auto-flow: dense;
-  gap: 0;
+  display: flex;
   list-style-type: none;
+  flex-wrap: nowrap;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   outline: 2px solid var(--brand-black);
@@ -17,6 +16,7 @@
 
 .item {
   margin: 0;
+  width: 100%;
   padding: 18px 18px 92px;
   box-sizing: border-box;
   outline: 1px solid var(--brand-black);
@@ -55,8 +55,8 @@
 }
 
 .headingFigure > span {
-  text-stroke: 2px var(--link-color);
-  -webkit-text-stroke: 2px var(--link-color);
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
   color: var(--brand-white);
   position: absolute;
   left: 0;
@@ -64,8 +64,8 @@
 }
 
 .link:hover .headingFigure > span {
-  text-stroke: 2px var(--brand-black);
-  -webkit-text-stroke: 2px var(--brand-black);
+  text-stroke: 1px var(--brand-black);
+  -webkit-text-stroke: 1px var(--brand-black);
 }
 
 .headingFigure .figureFirst {
@@ -151,3 +151,17 @@
   color: var(--button-color);
 }
 
+@media (min-width: 900px) {
+
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 50%;
+  }
+  
+  .item:nth-child(3n) {
+    width: 100%;
+  }
