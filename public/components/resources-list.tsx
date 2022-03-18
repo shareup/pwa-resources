@@ -1,5 +1,6 @@
 import type { FunctionalComponent, VNode } from 'preact'
 import { useCallback, useEffect, useRef } from 'preact/hooks'
+import whiteArrowURL from 'url:../images/svg/arrow-white.svg'
 import arrowURL from 'url:../images/svg/arrow.svg'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
@@ -15,19 +16,43 @@ type Props = {
 type ItemProps = {
   favs?: string[]
   item: Resource
-  divider: boolean
+  divider?: boolean
 }
 
 type FavButtonProps = ItemProps & {
   color: string
 }
 
+const illustrationPairs = {
+  'var(--brand-gold)': 'ia',
+  'var(--brand-yellow)': 'space',
+  'var(--brand-blue)': 'cup',
+  'var(--brand-light-blue)': 'tri',
+  'var(--brand-pink)': 'components',
+  'var(--brand-red)': 'penta'
+}
+
 const colorPairs = {
   'var(--brand-blue)': ['var(--brand-gold)', 'var(--brand-light-blue)', 'var(--brand-pink)'],
-  'var(--brand-red)': ['var(--brand-light-blue)', 'var(--brand-pink)', 'var(--brand-gold)'],
-  'var(--brand-pink)': ['var(--brand-yellow)', 'var(--brand-light-blue)'],
-  'var(--brand-light-blue)': ['var(--brand-yellow)', 'var(--brand-pink)'],
-  'var(--brand-yellow)': ['var(--brand-pink)', 'var(--brand-light-blue)']
+  'var(--brand-red)': ['var(--brand-gold)', 'var(--brand-light-blue)', 'var(--brand-pink)'],
+  'var(--brand-pink)': [
+    'var(--brand-yellow)',
+    'var(--brand-light-blue)',
+    'var(--brand-blue)',
+    'var(--brand-red)'
+  ],
+  'var(--brand-light-blue)': [
+    'var(--brand-yellow)',
+    'var(--brand-blue)',
+    'var(--brand-light-blue)',
+    'var(--brand-red)'
+  ],
+  'var(--brand-yellow)': [
+    'var(--brand-yellow)',
+    'var(--brand-blue)',
+    'var(--brand-light-blue)',
+    'var(--brand-red)'
+  ]
 }
 
 const colors = Object.keys(colorPairs)
@@ -100,6 +125,8 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
     item.title.slice(0, 1).codePointAt(0)
     % matchingBackgroundColors.length
   ]
+  const darkColor = matchingBackgroundColor === 'var(--brand-blue)'
+    || matchingBackgroundColor === 'var(--brand-red)'
 
   const categoryItems: VNode[] = []
 
@@ -118,7 +145,10 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
 
   return (
     <li
-      class={[styles.item, divider ? styles.divider : null].join(' ')}
+      class={[styles.item, divider ? styles.divider : null, darkColor ? styles.darkColor : null]
+        .join(
+          ' '
+        )}
       style={{ 'background-color': matchingBackgroundColor }}
     >
       <h2 class={styles.heading}>
@@ -131,7 +161,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
             style={{ 'background-color': matchingBackgroundColor }}
           >
             {item.title}
-            <img src={arrowURL} width='22' height='22' alt='' />
+            <img src={darkColor ? whiteArrowURL : arrowURL} width='22' height='22' alt='' />
           </span>
           <figure aria-hidden class={styles.headingFigure}>
             <span
@@ -175,6 +205,16 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
       {isPrerender
         ? null
         : <FavButton item={item} favs={favs} color={color} />}
+
+      {divider
+        ? (
+          <img
+            src={`/images/svg/${illustrationPairs[matchingBackgroundColor]}.svg`}
+            class={styles.featureImage}
+            height='200'
+          />
+        )
+        : null}
     </li>
   )
 }

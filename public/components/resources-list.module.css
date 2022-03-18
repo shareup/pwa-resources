@@ -8,16 +8,41 @@
   outline: 2px solid var(--brand-black);
 }
 
-@supports (grid-template-rows: masonry) {
-  .list {
-    grid-template-rows: masonry;
-  }
+.darkColor, .darkColor a, .darkColor li a, 
+.darkColor .link:hover  {
+  color: var(--brand-white);
+}
+
+.darkColor .headingFigure > span {
+  text-stroke: 1px var(--brand-white);
+  -webkit-text-stroke: 1px var(--brand-white);
+}
+
+.darkColor .link:hover .headingFigure > span {
+  text-stroke: 1px var(--brand-white);
+  -webkit-text-stroke: 1px var(--brand-white);
+}
+
+.darkColor .hostname {
+  color: var(--brand-grey);
+}
+
+.darkColor .headingVisible svg {
+  fill: var(--brand-white);
+  stroke: var(--brand-white);
+}
+
+.featureImage {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  z-index: 300;
 }
 
 .item {
   margin: 0;
   width: 100%;
-  padding: 18px 18px 92px;
+  padding: 80px 18px 92px;
   box-sizing: border-box;
   outline: 1px solid var(--brand-black);
   position: relative;
@@ -100,9 +125,11 @@
   left: 0;
   position: absolute;
   height: 28px;
+  z-index: 9999;
   right: 0;
   bottom: -28px;
   border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .old {
