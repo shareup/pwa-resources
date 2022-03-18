@@ -5,7 +5,7 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
-  outline: 2px solid var(--brand-black);
+  border-top: 2px solid var(--brand-black);
 }
 
 .darkColor, .darkColor a, .darkColor li a, 
@@ -132,6 +132,10 @@
   border-bottom: 1px solid black;
 }
 
+.divider {
+  padding-bottom: 275px;
+}
+
 .old {
   display: block;
   margin: 0.5em 0;
@@ -204,6 +208,15 @@
     width: 50%;
   }
   
+  .divider {
+    padding: 80px 18px 92px;
+  }
+
   .item:nth-child(3n) {
     width: 100%;
   }
+
+  .item:nth-child(3n) .heading, .item:nth-child(3n) .desc  {
+    width: 50%;
+  }
+}

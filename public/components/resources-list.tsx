@@ -38,20 +38,17 @@ const colorPairs = {
   'var(--brand-pink)': [
     'var(--brand-yellow)',
     'var(--brand-light-blue)',
-    'var(--brand-blue)',
-    'var(--brand-red)'
+    'var(--brand-blue)'
   ],
   'var(--brand-light-blue)': [
     'var(--brand-yellow)',
     'var(--brand-blue)',
-    'var(--brand-light-blue)',
-    'var(--brand-red)'
+    'var(--brand-light-blue)'
   ],
   'var(--brand-yellow)': [
     'var(--brand-yellow)',
     'var(--brand-blue)',
-    'var(--brand-light-blue)',
-    'var(--brand-red)'
+    'var(--brand-light-blue)'
   ]
 }
 
@@ -211,7 +208,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
           <img
             src={`/images/svg/${illustrationPairs[matchingBackgroundColor]}.svg`}
             class={styles.featureImage}
-            height='200'
+            height='275'
           />
         )
         : null}
