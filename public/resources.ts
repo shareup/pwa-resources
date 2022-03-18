@@ -3,6 +3,7 @@ export type Resource = {
   title: string
   desc: string
   categories: string[]
+  color?: string
 }
 
 export const resources: Resource[] = [
