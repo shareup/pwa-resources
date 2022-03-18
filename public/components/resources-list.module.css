@@ -137,12 +137,19 @@
 }
 
 .old {
-  display: block;
   margin: 0.5em 0;
+  display: block;
+}
+
+.old img {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .old > span {
   font-style: italic;
+  display: inline-block;
+  vertical-align: middle;
   border-radius: 4px;
   background-color: var(--brand-yellow);
   padding: 0.15em 0.25em;

@@ -3,16 +3,17 @@
 }
 
 .pageNotFound {
-  width: 50%;
+  width: 100%;
   background-color: var(--brand-yellow);
-  border-right:1px solid var(--brand-black);;
+  border-right:1px solid var(--brand-black);
 }
 
 .notFoundSection {
   position: relative;
-  padding: 54px;
+  padding: 80px 48px;
   padding-bottom: 108px;
   flex: 1 1 auto;
+  border-bottom: 2px solid var(--brand-black);
 }
 
 .pizzaSpeech {
@@ -23,16 +24,54 @@
 }
 
 .notFoundPizza {
-  width: 50%;
+  width: 100%;
   background-color: var(--brand-light-blue);
   border-left: 1px solid var(--brand-black);
 }
 
 .notFoundPizza img {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
   padding-bottom: 32px;
+}
+
+.pageNotFoundHeading {
+  position: relative;
+}
+
+.pageNotFoundHeading span, .pageNotFoundHeading figure span  {
+  background-color: var(--brand-yellow)
+}
+
+.pageNotFoundHeading figure span {
+  color: var(--brand-yellow)
 }
 
 .notFoundWrapper {
   display: flex;
+  flex-wrap: wrap;
   border-top: 2px solid var(--brand-black);
+}
+
+@media (min-width: 900px) {
+  .notFoundPizza {
+    width: 50%;
+  }
+
+  .notFoundSection {
+    border-bottom: none;
+  }
+
+  .notFoundPizza img {
+    width: unset;
+  }
+
+  .pageNotFound {
+    width: 50%;
+  }
+
+  .notFoundWrapper {
+    flex-wrap: nowrap;
+  }
 }

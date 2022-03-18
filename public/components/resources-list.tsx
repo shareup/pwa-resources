@@ -115,11 +115,11 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
 const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
   const isPrerender = isPrerenderContext()
   let isOld = false
-  const colorCode = item.title.slice(-2, -1).codePointAt(0) % colors.length
+  const colorCode = item.title.slice(-1).codePointAt(0) % colors.length
   const color = colors[colorCode]
   const matchingBackgroundColors = colorPairs[color]
   const matchingBackgroundColor = matchingBackgroundColors[
-    item.title.slice(0, 1).codePointAt(0)
+    item.title.slice(-1).codePointAt(0)
     % matchingBackgroundColors.length
   ]
   const darkColor = matchingBackgroundColor === 'var(--brand-blue)'
@@ -187,7 +187,9 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
       {isOld
         ? (
           <span class={styles.old}>
-            <abbr title='Caution'>⚠️</abbr>
+            <abbr title='Caution'>
+              <img src='/images/svg/warn.svg' height='30' />
+            </abbr>
             <span>This resource might be a little out of date.</span>
           </span>
         )
@@ -223,9 +225,9 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
   favs || (favs = [])
   const isFav = favs.includes(itemUrl)
   const heartColor = color === 'var(--brand-blue)' || color === 'var(--brand-red)'
-    ? isFav ? 'var(--brand-red)' : '#fff'
+    ? isFav ? color : '#fff'
     : isFav
-    ? 'var(--brand-red)'
+    ? color
     : '#000'
 
   const classes = isFav

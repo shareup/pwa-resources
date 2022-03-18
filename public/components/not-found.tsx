@@ -2,6 +2,7 @@ import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
 import headerStyles from './header.module.css'
 import styles from './not-found.module.css'
+import resourceStyles from './resources-list.module.css'
 
 export const NotFound: FunctionalComponent = () => (
   <Layout>
@@ -13,7 +14,15 @@ export const NotFound: FunctionalComponent = () => (
     <div class={styles.notFoundWrapper}>
       <div class={styles.pageNotFound}>
         <section class={styles.notFoundSection}>
-          <h2>Page not found</h2>
+          <h2 class={styles.pageNotFoundHeading}>
+            <span class={resourceStyles.headingVisible}>
+              Page not found
+            </span>
+            <figure aria-hidden class={resourceStyles.headingFigure}>
+              <span class={resourceStyles.figureFirst}>Page not found</span>
+              <span class={resourceStyles.figureSecond}>Page not found</span>
+            </figure>
+          </h2>
           <a href='/' class={[styles.backToHome, 'button'].join(' ')}>Back to home</a>
         </section>
       </div>
