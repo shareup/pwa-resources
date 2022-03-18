@@ -85,8 +85,24 @@
 
 .hostname {
   display: block;
+  mix-blend-mode: luminosity;
   line-height: 1.5;
-  color: var(--brand-grey);
+  color: var(--brand-dark-grey);
+}
+
+.divider {
+  margin-bottom:28px;
+}
+
+.divider::after {
+  content: '';
+  background: var(--brand-silver);
+  left: 0;
+  position: absolute;
+  height: 28px;
+  right: 0;
+  bottom: -28px;
+  border-top: 1px solid black;
 }
 
 .old {
@@ -142,7 +158,6 @@
   text-indent: 0;
   padding-left: 28px;
   padding-right: 28px;
-  color: var(--brand-white);
   background-color: var(--button-color);
 }
 

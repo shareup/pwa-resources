@@ -15,17 +15,22 @@ type Props = {
 type ItemProps = {
   favs?: string[]
   item: Resource
+  divider: boolean
 }
 
 type FavButtonProps = ItemProps & {
   color: string
 }
 
-const colors = [
-  'var(--brand-gold)',
-  'var(--brand-blue)',
-  'var(--brand-red)'
-]
+const colorPairs = {
+  'var(--brand-blue)': ['var(--brand-gold)', 'var(--brand-light-blue)', 'var(--brand-pink)'],
+  'var(--brand-red)': ['var(--brand-light-blue)', 'var(--brand-pink)', 'var(--brand-gold)'],
+  'var(--brand-pink)': ['var(--brand-yellow)', 'var(--brand-light-blue)'],
+  'var(--brand-light-blue)': ['var(--brand-yellow)', 'var(--brand-pink)'],
+  'var(--brand-yellow)': ['var(--brand-pink)', 'var(--brand-light-blue)']
+}
+
+const colors = Object.keys(colorPairs)
 
 export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
   const listRef = useRef<HTMLUListElement>(null)
@@ -78,16 +83,23 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
 
   return (
     <ul class={styles.list} ref={listRef}>
-      {resources.map(res => <Item item={res} favs={favs} />)}
+      {resources.map((res, index) => {
+        return <Item item={res} favs={favs} divider={(index + 1) % 3 === 0} />
+      })}
     </ul>
   )
 }
-
-const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
+const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
   const isPrerender = isPrerenderContext()
   let isOld = false
-  const colorCode = item.title.slice(-1).codePointAt(0) % 3
+  const colorCode =
+    item.title.slice(item.title.length / 2, item.title.length / 2 + 1).codePointAt(0) % 5
   const color = colors[colorCode]
+  const matchingBackgroundColors = colorPairs[color]
+  const matchingBackgroundColor = matchingBackgroundColors[
+    item.title.slice(0, 1).codePointAt(0)
+    % matchingBackgroundColors.length
+  ]
 
   const categoryItems: VNode[] = []
 
@@ -105,19 +117,41 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
   }
 
   return (
-    <li class={styles.item}>
+    <li
+      class={[styles.item, divider ? styles.divider : null].join(' ')}
+      style={{ 'background-color': matchingBackgroundColor }}
+    >
       <h2 class={styles.heading}>
         <a
           class={styles.link}
           href={item.url.toString()}
         >
-          <span class={styles.headingVisible}>
+          <span
+            class={styles.headingVisible}
+            style={{ 'background-color': matchingBackgroundColor }}
+          >
             {item.title}
             <img src={arrowURL} width='22' height='22' alt='' />
           </span>
           <figure aria-hidden class={styles.headingFigure}>
-            <span class={styles.figureFirst}>{item.title}</span>
-            <span class={styles.figureSecond}>{item.title}</span>
+            <span
+              class={styles.figureFirst}
+              style={{
+                'background-color': matchingBackgroundColor,
+                'color': matchingBackgroundColor
+              }}
+            >
+              {item.title}
+            </span>
+            <span
+              class={styles.figureSecond}
+              style={{
+                'background-color': matchingBackgroundColor,
+                'color': matchingBackgroundColor
+              }}
+            >
+              {item.title}
+            </span>
           </figure>
         </a>
       </h2>
@@ -151,6 +185,11 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
 
   favs || (favs = [])
   const isFav = favs.includes(itemUrl)
+  const heartColor = color === 'var(--brand-blue)' || color === 'var(--brand-red)'
+    ? isFav ? 'var(--brand-red)' : '#fff'
+    : isFav
+    ? 'var(--brand-red)'
+    : '#000'
 
   const classes = isFav
     ? [styles.saveButton, styles.faved].join(' ')
@@ -167,7 +206,7 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
       key='button'
       disabled={disabled}
       class={classes}
-      style={{ '--button-color': color }}
+      style={{ '--button-color': color, color: heartColor }}
       data-item-url={itemUrl}
       data-favorited={isFav}
     >
