@@ -43,12 +43,12 @@ const colorPairs = {
   'var(--brand-light-blue)': [
     'var(--brand-yellow)',
     'var(--brand-blue)',
-    'var(--brand-light-blue)'
+    'var(--brand-pink)'
   ],
   'var(--brand-yellow)': [
-    'var(--brand-yellow)',
     'var(--brand-blue)',
-    'var(--brand-light-blue)'
+    'var(--brand-light-blue)',
+    'var(--brand-pink)'
   ]
 }
 
@@ -111,11 +111,11 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
     </ul>
   )
 }
+
 const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
   const isPrerender = isPrerenderContext()
   let isOld = false
-  const colorCode =
-    item.title.slice(item.title.length / 2, item.title.length / 2 + 1).codePointAt(0) % 5
+  const colorCode = item.title.slice(-2, -1).codePointAt(0) % colors.length
   const color = colors[colorCode]
   const matchingBackgroundColors = colorPairs[color]
   const matchingBackgroundColor = matchingBackgroundColors[
