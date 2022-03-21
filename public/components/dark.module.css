@@ -2,6 +2,10 @@
   --link-color: var(--brand-white);
 }
 
+.dark {
+  color: var(--brand-white);
+}
+
 .dark ul li a {
   --hover-color: var(--brand-silver);
 }

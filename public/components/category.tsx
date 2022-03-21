@@ -2,6 +2,7 @@ import type { FunctionalComponent } from 'preact'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import { categoryToColors, Resource, resources, slugsToCategory } from '../resources'
+import darkStyles from './dark.module.css'
 import headerStyles from './header.module.css'
 import { Layout } from './layout'
 import { NotFound } from './not-found'
@@ -24,12 +25,17 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
   }
 
   const backgroundColor = categoryToColors.get(title)
+  const darkColor = backgroundColor === 'var(--brand-blue)'
+    || backgroundColor === 'var(--brand-red)'
 
   return (
     <Layout>
       <nav class={headerStyles.categoryHeader}>
         <a href='/' onClick={onBackclick} class={headerStyles.backButton}>↩BACK</a>
-        <h1 class={headerStyles.categoryTitle} style={`background-color:${backgroundColor}`}>
+        <h1
+          class={[headerStyles.categoryTitle, darkColor ? darkStyles.dark : null].join(' ')}
+          style={`background-color:${backgroundColor}`}
+        >
           {title}
         </h1>
       </nav>
