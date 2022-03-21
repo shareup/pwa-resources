@@ -35,7 +35,7 @@ export const NotFound: FunctionalComponent = () => (
       <div class={styles.notFoundPizza}>
         <p class={[styles.pizzaSpeech, 'speech'].join(' ')}>Cheese the day!</p>
         <figure aria-hidden>
-          <img src='/images/svg/coolpizza.svg' width='450' height='450' />
+          <img src='/images/svg/coolpizza.svg' width='450' height='450' alt='' />
         </figure>
       </div>
     </div>

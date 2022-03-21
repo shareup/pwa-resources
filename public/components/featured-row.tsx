@@ -17,10 +17,11 @@ type Props = {
     href: string
     title: string
   }
+  inlineImage?: string
 }
 
 export const FeaturedRow: FunctionalComponent<Props> = (
-  { image, backgroundColor, button, heading, desc }
+  { image, backgroundColor, button, heading, desc, inlineImage }
 ) => {
   return (
     <section
@@ -29,7 +30,10 @@ export const FeaturedRow: FunctionalComponent<Props> = (
     >
       <div class={styles.featuredRowContent}>
         <TripleHeading title={heading} />
-        <p class={styles.desc}>{desc}</p>
+        <p class={styles.desc}>
+          {desc}
+          {inlineImage ? <img src={inlineImage} alt='' class={styles.inlineImage} /> : null}
+        </p>
         <p>
           <a
             class='button'
@@ -44,7 +48,7 @@ export const FeaturedRow: FunctionalComponent<Props> = (
           </a>
         </p>
       </div>
-      <figure class={styles.figure} aria-hidden='true'>
+      <figure class={styles.figure} aria-hidden>
         <img
           src={image.url}
           width={image.width}

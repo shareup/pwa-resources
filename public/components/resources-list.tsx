@@ -196,7 +196,11 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
         ? (
           <span class={[styles.old, darkStyles.darkBackground].join(' ')}>
             <abbr title='Caution'>
-              <img src='/images/svg/warn.svg' height='30' />
+              <img
+                src='/images/svg/warn.svg'
+                height='30'
+                alt='Caution icon as a worried smiley face'
+              />
             </abbr>
             <span>This resource might be a little out of date.</span>
           </span>

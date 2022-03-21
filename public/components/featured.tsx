@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from 'preact'
+import armURL from 'url:../images/svg/arm.svg'
 import componentsUrl from 'url:../images/svg/components.svg'
 import computerUrl from 'url:../images/svg/computer.svg'
 import iaUrl from 'url:../images/svg/ia.svg'
@@ -13,7 +14,8 @@ export const Featured: FunctionalComponent = () => {
     <div class={styles.featuredWrapper}>
       <FeaturedRow
         heading='Installation'
-        desc='Learn to make your web app installable 💪'
+        desc='Learn to make your web app installable '
+        inlineImage={armURL}
         image={{ url: componentsUrl, width: 304, height: 269 }}
         backgroundColor='var(--brand-pink)'
         button={{
@@ -37,12 +39,12 @@ export const Featured: FunctionalComponent = () => {
               View on GitHub
             </a>
           </p>
-          <figure class={styles.decor} aria-hidden='true'>
+          <figure class={styles.decor} aria-hidden>
             <img src={sourceWormUrl} width='181' height='154' alt='' />
           </figure>
         </div>
         <figure class={styles.figure}>
-          <img src={computerUrl} width='300' height='400' alt='' />
+          <img src={computerUrl} width='300' height='400' alt='Computer with a face' />
           <pre>
             <code
               title='Binary representation of ‘PWA’'
