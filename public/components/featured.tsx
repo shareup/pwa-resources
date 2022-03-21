@@ -28,7 +28,7 @@ export const Featured: FunctionalComponent = () => {
         <div class={[styles.info, darkStyles.dark].join(' ')}>
           <TripleHeading title='How this site is built' />
           <p class={styles.desc}>
-            A PWA itself, see the source
+            This site is a PWA itself! See the source or suggest a link
           </p>
           <p>
             <a
