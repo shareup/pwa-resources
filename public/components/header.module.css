@@ -80,7 +80,6 @@
 
 .aside {
   width: 100%;
-  border-left: 1px solid var(--brand-black);
   background-color: var(--brand-pink);
 }
 
@@ -173,6 +172,7 @@
     align-items: stretch;
     align-content: stretch;
     flex-wrap: nowrap;
+    border-top: 2px solid var(--brand-black);
   }
   
   .titleHeading abbr, .titleHeadingFigure {
@@ -224,5 +224,6 @@
 
   .aside {
     width: 50%;
+    border-left: 1px solid var(--brand-black);
   }
 }

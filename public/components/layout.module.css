@@ -7,7 +7,7 @@
 
 .footer {
   text-align: center;
-  border-top: 1px solid var(--brand-black);
+  border-top: 2px solid var(--brand-black);
   justify-content: center;
   display: flex;
   flex-direction: column;

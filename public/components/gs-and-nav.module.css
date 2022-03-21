@@ -91,7 +91,6 @@
   display: flex;
   flex-direction: column-reverse;
   border-bottom: 2px solid var(--brand-black);
-  border-left: 1px solid var(--brand-black);
 }
 
 .navFigure {
@@ -170,6 +169,7 @@ span.navTitle {
 
   .navWrapper {
     border-bottom: none;
+    border-left: 1px solid var(--brand-black);
   }
 
   .offlineConvo {

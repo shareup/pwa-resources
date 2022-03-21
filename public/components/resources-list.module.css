@@ -44,7 +44,7 @@
   width: 100%;
   padding: 80px 18px 92px;
   box-sizing: border-box;
-  outline: 1px solid var(--brand-black);
+  outline: 2px solid var(--brand-black);
   position: relative;
 }
 
@@ -128,8 +128,8 @@
   z-index: 9999;
   right: 0;
   bottom: -28px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .divider {
@@ -154,6 +154,7 @@
   background-color: var(--brand-yellow);
   padding: 0.15em 0.25em;
   margin-left: 0.25em;
+  line-height: 1.5;
 }
 
 .categories {
