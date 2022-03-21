@@ -17,6 +17,7 @@ type ItemProps = {
   favs?: string[]
   item: Resource
   divider?: boolean
+  backgroundColor?: string
 }
 
 type FavButtonProps = ItemProps & {
@@ -38,19 +39,31 @@ const colorPairs = {
   'var(--brand-pink)': [
     'var(--brand-yellow)',
     'var(--brand-light-blue)',
-    'var(--brand-blue)'
+    'var(--brand-blue)',
+    'var(--brand-red)'
   ],
   'var(--brand-light-blue)': [
     'var(--brand-yellow)',
     'var(--brand-blue)',
+    'var(--brand-red)',
     'var(--brand-pink)'
   ],
   'var(--brand-yellow)': [
     'var(--brand-blue)',
     'var(--brand-light-blue)',
+    'var(--brand-gold)',
+    'var(--brand-red)',
     'var(--brand-pink)'
   ]
 }
+
+export const backgroundColors = [
+  'var(--brand-light-blue)',
+  'var(--brand-pink)',
+  'var(--brand-blue)',
+  'var(--brand-red)',
+  'var(--brand-yellow)'
+]
 
 const colors = Object.keys(colorPairs)
 
@@ -103,27 +116,44 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
     }
   }, [db])
 
+  let colorIndex = 0
+  let item
+
   return (
     <ul class={styles.list} ref={listRef}>
       {resources.map((res, index) => {
-        return <Item item={res} favs={favs} divider={(index + 1) % 3 === 0} />
+        item = (
+          <Item
+            item={res}
+            favs={favs}
+            backgroundColor={backgroundColors[colorIndex]}
+            divider={(index + 1) % 3 === 0}
+          />
+        )
+
+        colorIndex++
+
+        if (colorIndex >= backgroundColors.length) {
+          colorIndex = 0
+        }
+
+        return item
       })}
     </ul>
   )
 }
 
-const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
+const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundColor }) => {
   const isPrerender = isPrerenderContext()
   let isOld = false
-  const colorCode = item.title.slice(-1).codePointAt(0) % colors.length
-  const color = colors[colorCode]
-  const matchingBackgroundColors = colorPairs[color]
-  const matchingBackgroundColor = matchingBackgroundColors[
+  const matchingButtonColors = colorPairs[backgroundColor]
+  const color = matchingButtonColors[
     item.title.slice(-1).codePointAt(0)
-    % matchingBackgroundColors.length
+    % matchingButtonColors.length
   ]
-  const darkColor = matchingBackgroundColor === 'var(--brand-blue)'
-    || matchingBackgroundColor === 'var(--brand-red)'
+
+  const darkColor = backgroundColor === 'var(--brand-blue)'
+    || backgroundColor === 'var(--brand-red)'
 
   const categoryItems: VNode[] = []
 
@@ -146,7 +176,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
         .join(
           ' '
         )}
-      style={{ 'background-color': matchingBackgroundColor }}
+      style={{ 'background-color': backgroundColor }}
     >
       <h2 class={styles.heading}>
         <a
@@ -155,7 +185,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
         >
           <span
             class={styles.headingVisible}
-            style={{ 'background-color': matchingBackgroundColor }}
+            style={{ 'background-color': backgroundColor }}
           >
             {item.title}
             <img src={darkColor ? whiteArrowURL : arrowURL} width='22' height='22' alt='' />
@@ -164,8 +194,8 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
             <span
               class={styles.figureFirst}
               style={{
-                'background-color': matchingBackgroundColor,
-                'color': matchingBackgroundColor
+                'background-color': backgroundColor,
+                'color': backgroundColor
               }}
             >
               {item.title}
@@ -173,8 +203,8 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
             <span
               class={styles.figureSecond}
               style={{
-                'background-color': matchingBackgroundColor,
-                'color': matchingBackgroundColor
+                'background-color': backgroundColor,
+                'color': backgroundColor
               }}
             >
               {item.title}
@@ -208,7 +238,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider }) => {
       {divider
         ? (
           <img
-            src={`/images/svg/${illustrationPairs[matchingBackgroundColor]}.svg`}
+            src={`/images/svg/${illustrationPairs[backgroundColor]}.svg`}
             class={styles.featureImage}
             height='275'
           />
