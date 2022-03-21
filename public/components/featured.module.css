@@ -35,6 +35,7 @@
   border-bottom: 2px solid var(--brand-black);
   flex: 1 1 auto;
   --background-color: var(--brand-blue);
+  --link-color: var(--brand-white);
   background-color: var(--background-color);
   color: var(--brand-white);
   position: relative;

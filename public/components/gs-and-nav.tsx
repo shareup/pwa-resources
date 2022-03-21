@@ -4,22 +4,14 @@ import catsUrl from 'url:../images/svg/cats.svg'
 import convoUrl from 'url:../images/svg/convo.svg'
 import { categories, categoryToSlugs } from '../resources'
 import styles from './gs-and-nav.module.css'
-import resourceStyles from './resources-list.module.css'
+import { TripleHeading } from './triple-heading'
 
 export const GettingStartedAndNav: FunctionalComponent = () => {
   return (
     <div class={styles.columns}>
       <div class={styles.gsWrapper}>
         <section class={styles.gs}>
-          <h2 class={styles.gsHeading}>
-            <span class={resourceStyles.headingVisible}>
-              Getting Started
-            </span>
-            <figure aria-hidden class={resourceStyles.headingFigure}>
-              <span class={resourceStyles.figureFirst}>Getting Started</span>
-              <span class={resourceStyles.figureSecond}>Getting Started</span>
-            </figure>
-          </h2>
+          <TripleHeading title='Getting Started' />
           <p class={styles.gsDesc}>Guides for how to get up & running</p>
           <p>
             <a
@@ -44,15 +36,7 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
       </div>
       <div class={styles.navWrapper}>
         <nav aria-labelledby='categories-nav-heading' class={styles.nav}>
-          <h2 id='categories-nav-heading' class={styles.navHeading}>
-            <span class={[resourceStyles.headingVisible, styles.navTitle].join(' ')}>
-              Categories
-            </span>
-            <figure aria-hidden class={resourceStyles.headingFigure}>
-              <span class={resourceStyles.figureFirst}>Categories</span>
-              <span class={resourceStyles.figureSecond}>Categories</span>
-            </figure>
-          </h2>
+          <TripleHeading title='Categories' />
           <ul class={styles.navList}>
             <li>
               <a href='/categories/all' class={styles.navLink}>All</a>

@@ -6,7 +6,7 @@ import sourceWormUrl from 'url:../images/svg/source-worm.svg'
 import darkStyles from './dark.module.css'
 import { FeaturedRow } from './featured-row'
 import styles from './featured.module.css'
-import resourceStyles from './resources-list.module.css'
+import { TripleHeading } from './triple-heading'
 
 export const Featured: FunctionalComponent = () => {
   return (
@@ -24,19 +24,7 @@ export const Featured: FunctionalComponent = () => {
       />
       <section class={styles.repo}>
         <div class={[styles.info, darkStyles.dark].join(' ')}>
-          <h2 class={resourceStyles.heading}>
-            <span class={resourceStyles.headingVisible}>
-              How this site is built
-            </span>
-            <figure aria-hidden class={resourceStyles.headingFigure}>
-              <span class={resourceStyles.figureFirst}>
-                How this site is built
-              </span>
-              <span class={resourceStyles.figureSecond}>
-                How this site is built
-              </span>
-            </figure>
-          </h2>
+          <TripleHeading title='How this site is built' />
           <p class={styles.desc}>
             A PWA itself, see the source
           </p>
