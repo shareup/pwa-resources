@@ -17,10 +17,16 @@ type LayoutProps = {
 }
 
 const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) => {
+  const onBackclick = (e: MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    history.back()
+  }
+
   return (
     <Layout>
       <nav class={headerStyles.categoryHeader}>
-        <a href='/' class={headerStyles.backButton}>↩BACK</a>
+        <a href='/' onClick={onBackclick} class={headerStyles.backButton}>↩BACK</a>
         <h1 class={headerStyles.categoryTitle}>
           {title}
         </h1>

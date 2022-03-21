@@ -307,4 +307,7 @@ for (const res of resources) {
   }
 }
 
-export const categories = Array.from(categoryToSlugs.keys()).sort((a, b) => b.length - a.length)
+export const categories = Array.from(categoryToSlugs.keys()).sort((a, b) => {
+  if (a < b) { return -1 }
+  if (a > b) { return 1 }
+})
