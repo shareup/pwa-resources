@@ -299,10 +299,11 @@ export const categoryToSlugs: Map<string, string> = new Map()
 for (const res of resources) {
   for (const col of res.categories) {
     if (col.startsWith(':')) { continue }
-    if (col === 'Getting Started') { continue }
 
     const slug = col.toLowerCase().replace(/\s+/, '-')
     slugsToCategory.set(slug, col)
+
+    if (col === 'Getting Started') { continue }
     categoryToSlugs.set(col, slug)
   }
 }
