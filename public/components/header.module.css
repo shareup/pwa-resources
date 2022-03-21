@@ -143,6 +143,10 @@
   background-color: var(--brand-pink);
 }
 
+.backButton:hover {
+  text-indent: -3%;
+}
+
 .backButton {
   background-color: var(--brand-white);
   color: var(--brand-black);
@@ -160,6 +164,7 @@
   align-items: center;
   justify-content: center;
   border-right: 2px solid var(--brand-black);
+  transition: text-indent 200ms ease;
 }
 
 @media (min-width: 900px) {

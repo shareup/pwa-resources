@@ -4,10 +4,16 @@ import headerStyles from './header.module.css'
 import styles from './not-found.module.css'
 import resourceStyles from './resources-list.module.css'
 
+const onBackclick = (e: MouseEvent) => {
+  e.preventDefault()
+  e.stopPropagation()
+  history.back()
+}
+
 export const NotFound: FunctionalComponent = () => (
   <Layout>
     <nav class={headerStyles.categoryHeader}>
-      <a href='/' class={headerStyles.backButton}>↩BACK</a>
+      <a href='/' onClick={onBackclick} class={headerStyles.backButton}>↩BACK</a>
       <h1 class={[headerStyles.categoryTitle, headerStyles.notFoundBackground].join(' ')}>404</h1>
     </nav>
     <hr />
