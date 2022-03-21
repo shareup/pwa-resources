@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from 'preact'
+import { useLocation } from 'preact-iso'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import { categoryToColors, Resource, resources, slugsToCategory } from '../resources'
@@ -18,11 +19,17 @@ type LayoutProps = {
 }
 
 const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) => {
+  const { route } = useLocation()
+
   const onBackclick = (e: MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    const currentState = history.state
-    history.back()
+
+    if (history.length > 2) {
+      history.back()
+    } else {
+      route('/')
+    }
   }
 
   const backgroundColor = categoryToColors.get(title)
