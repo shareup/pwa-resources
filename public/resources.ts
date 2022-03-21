@@ -338,7 +338,7 @@ for (const res of resources) {
 
 let colorCount = 0
 slugsToCategory.forEach(cat => {
-  if (colorCount > backgroundColors.length) { colorCount = 0 }
+  if (colorCount >= backgroundColors.length) { colorCount = 0 }
   categoryToColors.set(cat, backgroundColors[colorCount])
   colorCount++
 })
