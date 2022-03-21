@@ -7,6 +7,7 @@ import { useFetched } from '../hooks/use-fetched'
 import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
 import { categoryToSlugs } from '../resources'
+import darkStyles from './dark.module.css'
 import styles from './resources-list.module.css'
 
 type Props = {
@@ -172,11 +173,12 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
 
   return (
     <li
-      class={[styles.item, divider ? styles.divider : null, darkColor ? styles.darkColor : null]
-        .join(
-          ' '
-        )}
-      style={{ 'background-color': backgroundColor }}
+      class={[
+        styles.item,
+        divider ? styles.divider : null,
+        darkColor ? darkStyles.dark : null
+      ].join(' ')}
+      style={{ '--background-color': backgroundColor }}
     >
       <h2 class={styles.heading}>
         <a
@@ -191,22 +193,10 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
             <img src={darkColor ? whiteArrowURL : arrowURL} width='22' height='22' alt='' />
           </span>
           <figure aria-hidden class={styles.headingFigure}>
-            <span
-              class={styles.figureFirst}
-              style={{
-                'background-color': backgroundColor,
-                'color': backgroundColor
-              }}
-            >
+            <span class={styles.figureFirst}>
               {item.title}
             </span>
-            <span
-              class={styles.figureSecond}
-              style={{
-                'background-color': backgroundColor,
-                'color': backgroundColor
-              }}
-            >
+            <span class={styles.figureSecond}>
               {item.title}
             </span>
           </figure>

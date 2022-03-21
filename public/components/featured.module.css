@@ -34,7 +34,8 @@
 .info {
   border-bottom: 2px solid var(--brand-black);
   flex: 1 1 auto;
-  background-color: var(--brand-blue);
+  --background-color: var(--brand-blue);
+  background-color: var(--background-color);
   color: var(--brand-white);
   position: relative;
   padding: 54px 38px 185px 38px;

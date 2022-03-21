@@ -1,0 +1,11 @@
+.dark {
+  --link-color: var(--brand-white);
+}
+
+.dark ul li a {
+  --hover-color: var(--brand-silver);
+}
+
+.dark h2 + span {
+  color: var(--brand-grey);
+}
