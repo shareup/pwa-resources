@@ -44,8 +44,13 @@ export const FeaturedRow: FunctionalComponent<Props> = (
           </a>
         </p>
       </div>
-      <figure class={styles.figure}>
-        <img src={image.url} width={image.width} height={image.height} alt='' />
+      <figure class={styles.figure} aria-hidden='true'>
+        <img
+          src={image.url}
+          width={image.width}
+          height={image.height}
+          alt=''
+        />
       </figure>
     </section>
   )

@@ -22,8 +22,13 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
               View Category
             </a>
           </p>
-          <figure class={styles.gsFigure}>
-            <img src={bananaUrl} width='345' height='220' alt='' />
+          <figure class={styles.gsFigure} aria-hidden>
+            <img
+              src={bananaUrl}
+              width='345'
+              height='220'
+              alt=''
+            />
           </figure>
         </section>
         <figure class={styles.offlineFigure}>
@@ -31,7 +36,12 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
             <p class={[styles.offlineConvoQuestion, 'speech'].join(' ')}>You don’t work offline?</p>
             <p class={[styles.offlineConvoAnswer, 'speech'].join(' ')}>You do‽</p>
           </div>
-          <img src={convoUrl} width='331' height='190' alt='' />
+          <img
+            src={convoUrl}
+            width='331'
+            height='190'
+            alt='Two cartoon characters staring at each other One asks the other: "You don’t work offline? The other responds: "You do?"'
+          />
         </figure>
       </div>
       <div class={styles.navWrapper}>
@@ -57,7 +67,12 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
           </ul>
         </nav>
         <figure class={styles.navFigure} aria-hidden='true'>
-          <img src={catsUrl} width='247' height='229' alt='' />
+          <img
+            src={catsUrl}
+            width='247'
+            height='229'
+            alt=''
+          />
         </figure>
       </div>
     </div>

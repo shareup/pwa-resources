@@ -37,7 +37,7 @@ export const Featured: FunctionalComponent = () => {
               View on GitHub
             </a>
           </p>
-          <figure class={styles.decor}>
+          <figure class={styles.decor} aria-hidden='true'>
             <img src={sourceWormUrl} width='181' height='154' alt='' />
           </figure>
         </div>

@@ -26,7 +26,7 @@ export const Layout: FunctionalComponent<Props> = ({ children }) => (
           Come build great things with us
         </p>
       </div>
-      <figure class={styles.footerImg}>
+      <figure class={styles.footerImg} aria-hidden>
         <img src={ensembleURL} height='400' alt='' />
       </figure>
     </footer>
