@@ -72,7 +72,7 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
             ))}
           </ul>
         </nav>
-        <figure class={styles.navFigure}>
+        <figure class={styles.navFigure} aria-hidden='true'>
           <img src={catsUrl} width='247' height='229' alt='' />
         </figure>
       </div>

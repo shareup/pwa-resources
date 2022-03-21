@@ -214,7 +214,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
       <span class={styles.desc}>{item.desc}</span>
       {isOld
         ? (
-          <span class={styles.old}>
+          <span class={[styles.old, darkStyles.darkBackground].join(' ')}>
             <abbr title='Caution'>
               <img src='/images/svg/warn.svg' height='30' />
             </abbr>

@@ -13,3 +13,7 @@
 .dark h2 + span {
   color: var(--brand-grey);
 }
+
+.darkBackground span {
+  color: var(--brand-black)
+}

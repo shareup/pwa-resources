@@ -42,7 +42,7 @@ export const Header: FunctionalComponent = () => {
             )
             : null}
         </p>
-        <figure class={styles.figure}>
+        <figure class={styles.figure} aria-hidden='true'>
           <img src={thumbsUrl} width='462' height='360' />
         </figure>
       </aside>
