@@ -1,9 +1,14 @@
 import type { FunctionalComponent, VNode } from 'preact'
 import { useCallback, useEffect, useRef } from 'preact/hooks'
-import whiteArrowURL from 'url:../images/svg/arrow-white.svg'
-import arrowURL from 'url:../images/svg/arrow.svg'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
+import componentsUrl from '../images/svg/components.svg'
+import cupUrl from '../images/svg/cup.svg'
+import iaUrl from '../images/svg/ia.svg'
+import pentaUrl from '../images/svg/penta.svg'
+import spaceUrl from '../images/svg/space.svg'
+import triUrl from '../images/svg/tri.svg'
+import warnUrl from '../images/svg/warn.svg'
 import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
 import { categoryToSlugs } from '../resources'
@@ -27,12 +32,12 @@ type FavButtonProps = ItemProps & {
 }
 
 const illustrationPairs = {
-  'var(--brand-gold)': 'ia',
-  'var(--brand-yellow)': 'space',
-  'var(--brand-blue)': 'cup',
-  'var(--brand-light-blue)': 'tri',
-  'var(--brand-pink)': 'components',
-  'var(--brand-red)': 'penta'
+  'var(--brand-gold)': iaUrl,
+  'var(--brand-yellow)': spaceUrl,
+  'var(--brand-blue)': cupUrl,
+  'var(--brand-light-blue)': triUrl,
+  'var(--brand-pink)': componentsUrl,
+  'var(--brand-red)': pentaUrl
 }
 
 const colorPairs = {
@@ -196,11 +201,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
         ? (
           <span class={[styles.old, darkStyles.darkBackground].join(' ')}>
             <abbr title='Caution'>
-              <img
-                src='/images/svg/warn.svg'
-                height='30'
-                alt='Caution icon as a worried smiley face'
-              />
+              <img src={warnUrl} height='30' alt='' />
             </abbr>
             <span>This resource might be a little out of date.</span>
           </span>
@@ -220,7 +221,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
       {divider
         ? (
           <img
-            src={`/images/svg/${illustrationPairs[backgroundColor]}.svg`}
+            src={illustrationPairs[backgroundColor]}
             class={styles.featureImage}
             height='275'
           />
@@ -236,11 +237,8 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
 
   favs || (favs = [])
   const isFav = favs.includes(itemUrl)
-  const heartColor = color === 'var(--brand-blue)' || color === 'var(--brand-red)'
-    ? isFav ? color : '#fff'
-    : isFav
-    ? color
-    : '#000'
+  const isDark = color === 'var(--brand-blue)' || color === 'var(--brand-red)'
+  const heartColor = isFav ? color : (isDark ? 'var(--brand-white)' : 'var(--brand-black)')
 
   const classes = isFav
     ? [styles.saveButton, styles.faved].join(' ')

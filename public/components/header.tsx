@@ -1,7 +1,7 @@
 import type { FunctionalComponent } from 'preact'
-import thumbsUrl from 'url:../images/svg/thumbs.svg'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
+import thumbsUrl from '../images/svg/thumbs.svg'
 import styles from './header.module.css'
 
 export const Header: FunctionalComponent = () => {

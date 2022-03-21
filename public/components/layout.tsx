@@ -1,5 +1,5 @@
 import type { FunctionalComponent, VNode } from 'preact'
-import ensembleURL from 'url:../images/svg/ensemble.svg'
+import ensembleURL from '../images/svg/ensemble.svg'
 import styles from './layout.module.css'
 
 type Props = {
