@@ -6,30 +6,7 @@
   margin: 0;
   padding: 0;
   border-top: 2px solid var(--brand-black);
-}
-
-.darkColor, .darkColor a, .darkColor li a, 
-.darkColor .link:hover  {
-  color: var(--brand-white);
-}
-
-.darkColor .headingFigure > span {
-  text-stroke: 1px var(--brand-white);
-  -webkit-text-stroke: 1px var(--brand-white);
-}
-
-.darkColor .link:hover .headingFigure > span {
-  text-stroke: 1px var(--brand-white);
-  -webkit-text-stroke: 1px var(--brand-white);
-}
-
-.darkColor .hostname {
-  color: var(--brand-grey);
-}
-
-.darkColor .headingVisible svg {
-  fill: var(--brand-white);
-  stroke: var(--brand-white);
+  --link-color: var(--brand-black);
 }
 
 .featureImage {
@@ -46,6 +23,8 @@
   box-sizing: border-box;
   outline: 2px solid var(--brand-black);
   position: relative;
+  color: var(--link-color);
+  background-color: var(--background-color, var(--brand-white));
 }
 
 .heading {
@@ -60,19 +39,24 @@
   line-height: 1.1;
   transition: color 0.1s ease;
   text-decoration: none;
-  --link-color: var(--brand-black);
   color: var(--link-color);
 }
 
 .link:hover {
-  color: var(--brand-black);
+  color: var(--link-color);
+}
+
+/* NOTE: for when we move to inline-svg for the arrow icon */
+.link svg {
+  fill: var(--link-color);
+  stroke: var(--link-color);
 }
 
 .headingVisible {
   display: block;
   position: relative;
   z-index: 3;
-  background-color: var(--brand-white);
+  background-color: var(--background-color, var(--brand-white));
 }
 
 .headingFigure {
@@ -80,17 +64,17 @@
 }
 
 .headingFigure > span {
-  text-stroke: 1px var(--brand-black);
-  -webkit-text-stroke: 1px var(--brand-black);
-  color: var(--brand-white);
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
+  color: var(--background-color);
   position: absolute;
   left: 0;
-  background-color: var(--brand-white);
+  background-color: var(--background-color, var(--brand-white));
 }
 
 .link:hover .headingFigure > span {
-  text-stroke: 1px var(--brand-black);
-  -webkit-text-stroke: 1px var(--brand-black);
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
 }
 
 .headingFigure .figureFirst {
@@ -106,6 +90,7 @@
 .desc {
   display: block;
   line-height: 1.5;
+  max-width: 48em;
 }
 
 .hostname {
@@ -184,8 +169,8 @@
 .categoryItem a {
   border-radius: 4px;
   transition: color 0.1s ease;
-  --hover-color: var(--brand-grey);
-  color: var(--brand-black);
+  --hover-color: var(--brand-dark-grey);
+  color: var(--link-color);
 }
 
 .categoryItem a:hover {
@@ -215,7 +200,7 @@
   .item {
     width: 50%;
   }
-  
+
   .divider {
     padding: 80px 18px 92px;
   }

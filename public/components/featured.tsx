@@ -3,26 +3,40 @@ import componentsUrl from 'url:../images/svg/components.svg'
 import computerUrl from 'url:../images/svg/computer.svg'
 import iaUrl from 'url:../images/svg/ia.svg'
 import sourceWormUrl from 'url:../images/svg/source-worm.svg'
+import darkStyles from './dark.module.css'
 import { FeaturedRow } from './featured-row'
 import styles from './featured.module.css'
+import resourceStyles from './resources-list.module.css'
 
 export const Featured: FunctionalComponent = () => {
   return (
     <div class={styles.featuredWrapper}>
       <FeaturedRow
-        heading='Web Components'
-        desc='Learn to implement interactive Web Components in the client and even prerender on the server'
+        heading='Installation'
+        desc='Learn to make your web app installable 💪'
         image={{ url: componentsUrl, width: 304, height: 269 }}
         backgroundColor='var(--brand-pink)'
         button={{
           color: 'var(--brand-yellow)',
-          href: '/categories/web-components',
-          title: 'View all resources in the ‘Web Components’ category'
+          href: '/categories/installation',
+          title: 'View all resources in the ‘Installation’ category'
         }}
       />
       <section class={styles.repo}>
-        <div class={styles.info}>
-          <h2>How this site is built</h2>
+        <div class={[styles.info, darkStyles.dark].join(' ')}>
+          <h2 class={resourceStyles.heading}>
+            <span class={resourceStyles.headingVisible}>
+              How this site is built
+            </span>
+            <figure aria-hidden class={resourceStyles.headingFigure}>
+              <span class={resourceStyles.figureFirst}>
+                How this site is built
+              </span>
+              <span class={resourceStyles.figureSecond}>
+                How this site is built
+              </span>
+            </figure>
+          </h2>
           <p class={styles.desc}>
             A PWA itself, see the source
           </p>

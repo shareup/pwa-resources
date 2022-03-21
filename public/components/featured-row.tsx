@@ -29,18 +29,14 @@ export const FeaturedRow: FunctionalComponent<Props> = (
     >
       <div class={styles.featuredRowContent}>
         <h2 class={styles.heading}>
-          {heading}
+          <span class={styles.headingVisible}>
+            {heading}
+          </span>
           <figure aria-hidden class={resourceStyles.headingFigure}>
-            <span
-              class={resourceStyles.figureFirst}
-              style={{ 'color': backgroundColor, 'background-color': backgroundColor }}
-            >
+            <span class={resourceStyles.figureFirst}>
               {heading}
             </span>
-            <span
-              class={resourceStyles.figureSecond}
-              style={{ 'color': backgroundColor, 'background-color': backgroundColor }}
-            >
+            <span class={resourceStyles.figureSecond}>
               {heading}
             </span>
           </figure>
