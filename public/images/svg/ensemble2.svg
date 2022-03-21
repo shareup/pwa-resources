@@ -8,15 +8,6 @@
                 <rect x="0" y="0" width="1080" height="1080"/>
             </clipPath>
             <g clip-path="url(#_clip1)">
-                <g transform="matrix(0.72,0,0,2.7,-885.551,359.696)">
-                    <path d="M1194.37,21.476L1883.44,157.775L2742.19,49.118L2763.49,276.218L2774.68,418.873L1162.8,466.71L1194.37,21.476Z" style="fill:rgb(255,119,148);stroke:black;stroke-width:2px;"/>
-                </g>
-                <g transform="matrix(0.72,0,0,2.7,-883.611,446.413)">
-                    <path d="M1194.37,21.476L1883.44,157.775L2742.19,49.118L2763.49,276.218L2774.68,418.873L1162.8,466.71L1194.37,21.476Z" style="fill:rgb(254,229,99);stroke:black;stroke-width:2px;"/>
-                </g>
-                <g transform="matrix(0.72,0,0,2.7,-851.147,702.241)">
-                    <path d="M1194.37,21.476L1978.96,189.621L2742.19,49.118L2763.49,276.218L2774.68,418.873L1162.8,466.71L1194.37,21.476Z" style="fill:rgb(173,20,76);stroke:black;stroke-width:2px;"/>
-                </g>
                 <g transform="matrix(2.51497,0,0,9.43115,-2091.7,-1157.12)">
                     <g transform="matrix(1,0,0,1,-6.94943,-8.77224)">
                         <circle cx="1121.88" cy="174.256" r="9.452" style="fill:rgb(255,118,147);stroke:black;stroke-width:0.57px;"/>
