@@ -21,6 +21,7 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
   const onBackclick = (e: MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    const currentState = history.state
     history.back()
   }
 
