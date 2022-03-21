@@ -120,6 +120,22 @@
   width: 100%;
 }
 
+.sectionEnd {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 60%;
+  position: absolute;
+  background-color: var(--brand-black);
+  left: 50%;
+  margin-left: -30%;
+  top: 32px;
+}
+
 span.navTitle {
   color: var(--brand-black);
 }
