@@ -44,7 +44,7 @@
   width: 100%;
   padding: 80px 18px 92px;
   box-sizing: border-box;
-  outline: 1px solid var(--brand-black);
+  outline: 2px solid var(--brand-black);
   position: relative;
 }
 

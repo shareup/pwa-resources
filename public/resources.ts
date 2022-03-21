@@ -314,6 +314,15 @@ export const resources: Resource[] = [
 
 export const slugsToCategory: Map<string, string> = new Map()
 export const categoryToSlugs: Map<string, string> = new Map()
+export const categoryToColors: Map<string, string> = new Map()
+
+export const backgroundColors = [
+  'var(--brand-light-blue)',
+  'var(--brand-pink)',
+  'var(--brand-blue)',
+  'var(--brand-red)',
+  'var(--brand-yellow)'
+]
 
 for (const res of resources) {
   for (const col of res.categories) {
@@ -326,6 +335,13 @@ for (const res of resources) {
     categoryToSlugs.set(col, slug)
   }
 }
+
+let colorCount = 0
+slugsToCategory.forEach(cat => {
+  if (colorCount > backgroundColors.length) { colorCount = 0 }
+  categoryToColors.set(cat, backgroundColors[colorCount])
+  colorCount++
+})
 
 export const categories = Array.from(categoryToSlugs.keys()).sort((a, b) => {
   if (a < b) { return -1 }

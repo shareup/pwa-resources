@@ -34,8 +34,16 @@ const illustrationPairs = {
 }
 
 const colorPairs = {
-  'var(--brand-blue)': ['var(--brand-gold)', 'var(--brand-light-blue)', 'var(--brand-pink)'],
-  'var(--brand-red)': ['var(--brand-gold)', 'var(--brand-light-blue)', 'var(--brand-pink)'],
+  'var(--brand-blue)': [
+    'var(--brand-gold)',
+    'var(--brand-light-blue)',
+    'var(--brand-pink)'
+  ],
+  'var(--brand-red)': [
+    'var(--brand-gold)',
+    'var(--brand-light-blue)',
+    'var(--brand-pink)'
+  ],
   'var(--brand-pink)': [
     'var(--brand-yellow)',
     'var(--brand-light-blue)',
@@ -49,15 +57,15 @@ const colorPairs = {
     'var(--brand-pink)'
   ],
   'var(--brand-yellow)': [
-    'var(--brand-blue)',
     'var(--brand-light-blue)',
     'var(--brand-gold)',
     'var(--brand-red)',
+    'var(--brand-blue)',
     'var(--brand-pink)'
   ]
 }
 
-export const backgroundColors = [
+const backgroundColors = [
   'var(--brand-light-blue)',
   'var(--brand-pink)',
   'var(--brand-blue)',
@@ -148,7 +156,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
   let isOld = false
   const matchingButtonColors = colorPairs[backgroundColor]
   const color = matchingButtonColors[
-    item.title.slice(-1).codePointAt(0)
+    item.title.slice(item.title.length / 2, item.title.length / 2 + 1).codePointAt(0)
     % matchingButtonColors.length
   ]
 
