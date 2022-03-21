@@ -1,8 +1,15 @@
 import { promises as fs } from 'fs'
-import path from 'path'
+import * as path from 'path'
 
 export default options => {
+  options.host = '0.0.0.0'
+  options.port = parseInt(process.env.PORT || '8080', 10)
+
   options.middleware.push(async (req, res, next) => {
+    if (process.env.NODE_ENV !== 'production') {
+      return next()
+    }
+
     const reqPath = req.path.replace(/^\//, '')
 
     if (reqPath.startsWith('service-worker.') && reqPath.endsWith('.js')) {

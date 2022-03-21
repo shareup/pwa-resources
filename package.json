@@ -3,7 +3,6 @@
   "devDependencies": {
     "@types/node": "^17.0.21",
     "browserslist": "^4.20.0",
-    "caniuse-lite": "^1.0.30001314",
     "rollup": "^2.70.1",
     "typescript": "^4.6.2",
     "wmr": "^3.7.2"
