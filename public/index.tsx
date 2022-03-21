@@ -10,7 +10,6 @@ import {
   Router
 } from 'preact-iso'
 import { useCallback } from 'preact/hooks'
-import arrowURL from 'url:./images/svg/arrow.svg'
 import { DBContext } from './db-context'
 import { PrerenderContext } from './prerender-context'
 

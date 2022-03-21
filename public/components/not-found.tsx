@@ -1,5 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import { Layout } from '../components/layout'
+import pizzaUrl from '../images/svg/coolpizza.svg'
 import headerStyles from './header.module.css'
 import styles from './not-found.module.css'
 import resourceStyles from './resources-list.module.css'
@@ -34,9 +35,7 @@ export const NotFound: FunctionalComponent = () => (
       </div>
       <div class={styles.notFoundPizza}>
         <p class={[styles.pizzaSpeech, 'speech'].join(' ')}>Cheese the day!</p>
-        <figure aria-hidden>
-          <img src='/images/svg/coolpizza.svg' width='450' height='450' />
-        </figure>
+        <img src={pizzaUrl} width='450' height='450' alt='Illustration of pizza' />
       </div>
     </div>
   </Layout>
