@@ -9,6 +9,7 @@ import type { Resource } from '../resources'
 import { categoryToSlugs } from '../resources'
 import darkStyles from './dark.module.css'
 import styles from './resources-list.module.css'
+import { TripleHeading } from './triple-heading'
 
 type Props = {
   resources: Resource[]
@@ -161,7 +162,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
     % matchingButtonColors.length
   ]
 
-  const darkColor = backgroundColor === 'var(--brand-blue)'
+  const isDarkColor = backgroundColor === 'var(--brand-blue)'
     || backgroundColor === 'var(--brand-red)'
 
   const categoryItems: VNode[] = []
@@ -184,32 +185,11 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
       class={[
         styles.item,
         divider ? styles.divider : null,
-        darkColor ? darkStyles.dark : null
+        isDarkColor ? darkStyles.dark : null
       ].join(' ')}
       style={{ '--background-color': backgroundColor }}
     >
-      <h2 class={styles.heading}>
-        <a
-          class={styles.link}
-          href={item.url.toString()}
-        >
-          <span
-            class={styles.headingVisible}
-            style={{ 'background-color': backgroundColor }}
-          >
-            {item.title}
-            <img src={darkColor ? whiteArrowURL : arrowURL} width='22' height='22' alt='' />
-          </span>
-          <figure aria-hidden class={styles.headingFigure}>
-            <span class={styles.figureFirst}>
-              {item.title}
-            </span>
-            <span class={styles.figureSecond}>
-              {item.title}
-            </span>
-          </figure>
-        </a>
-      </h2>
+      <TripleHeading title={item.title} url={item.url} />
       <span class={styles.hostname}>({item.url.hostname.replace(/^www\./, '')})</span>
       <span class={styles.desc}>{item.desc}</span>
       {isOld

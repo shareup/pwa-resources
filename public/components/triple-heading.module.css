@@ -1,0 +1,61 @@
+.heading {
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+  background-color: var(--background-color);
+}
+
+.link {
+  line-height: 1.1;
+  transition: color 0.1s ease;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.link:hover {
+  color: var(--link-color);
+}
+
+.link svg {
+  fill: var(--link-color);
+  stroke: var(--link-color);
+}
+
+.visible {
+  display: block;
+  position: relative;
+  z-index: 3;
+  background-color: var(--background-color);
+}
+
+.figure {
+  margin: 0;
+  display: block;
+}
+
+.figure > span {
+  display: block;
+  width: 100%;
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
+  color: var(--background-color);
+  background-color: var(--background-color);
+  position: absolute;
+  left: 0;
+}
+
+.link:hover .figure > span {
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
+}
+
+.figure .first {
+  z-index: 1;
+  top: -2.2em;
+}
+
+.figure .second {
+  z-index: 2;
+  top: -1.1em;
+}

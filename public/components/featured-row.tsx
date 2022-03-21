@@ -1,6 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import styles from './featured-row.module.css'
-import resourceStyles from './resources-list.module.css'
+import { TripleHeading } from './triple-heading'
 
 type Props = {
   image: {
@@ -25,22 +25,10 @@ export const FeaturedRow: FunctionalComponent<Props> = (
   return (
     <section
       class={styles.row}
-      style={{ '--background-color': backgroundColor }}
+      style={{ '--background-color': backgroundColor, '--link-color': 'var(--brand-black)' }}
     >
       <div class={styles.featuredRowContent}>
-        <h2 class={styles.heading}>
-          <span class={styles.headingVisible}>
-            {heading}
-          </span>
-          <figure aria-hidden class={resourceStyles.headingFigure}>
-            <span class={resourceStyles.figureFirst}>
-              {heading}
-            </span>
-            <span class={resourceStyles.figureSecond}>
-              {heading}
-            </span>
-          </figure>
-        </h2>
+        <TripleHeading title={heading} />
         <p class={styles.desc}>{desc}</p>
         <p>
           <a

@@ -21,7 +21,10 @@
   position: relative;
   padding: 54px;
   padding-bottom: 168px;
-  background-color: var(--brand-light-blue);
+  --background-color: var(--brand-light-blue);
+  background-color: var(--background-color);
+  --link-color: var(--brand-black);
+  color: var(--link-color);
   border-bottom: 2px solid var(--brand-black);
   flex: 1 1 auto;
 }
@@ -105,7 +108,10 @@
 .nav {
   padding: 54px 0;
   border-top: 2px solid var(--brand-black);
-  background-color: var(--brand-yellow);
+  --background-color: var(--brand-yellow);
+  background-color: var(--background-color);
+  --link-color: var(--brand-black);
+  color: var(--link-color);
   text-align: center;
 }
 
@@ -141,7 +147,7 @@ span.navTitle {
 
 .navList {
   list-style-type: none;
-  margin: 0;
+  margin: 38px 0 0;
   padding: 0;
 }
 
