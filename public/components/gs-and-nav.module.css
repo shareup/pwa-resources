@@ -146,6 +146,10 @@
     border-bottom: none;
   }
 
+  .offlineConvo {
+    padding: 0 17% 0 15%;
+  }
+
   .gs {
     padding-bottom: 106px;
   }

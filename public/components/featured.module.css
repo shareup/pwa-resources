@@ -81,3 +81,9 @@
     padding: 54px 18px 154px 54px;
   }
 }
+
+@media (max-width: 375px) {
+  .figure img {
+    width: 60%;
+  }
+}
