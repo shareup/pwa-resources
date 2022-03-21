@@ -111,7 +111,17 @@
 }
 
 .navHeading {
-  margin: 0 0 0.7em;
+  position: relative;
+}
+
+.navHeading span {
+  background-color: var(--brand-yellow);
+  color: var(--brand-yellow);
+  width: 100%;
+}
+
+span.navTitle {
+  color: var(--brand-black);
 }
 
 .navList {

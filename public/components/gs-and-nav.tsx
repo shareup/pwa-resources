@@ -44,7 +44,15 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
       </div>
       <div class={styles.navWrapper}>
         <nav aria-labelledby='categories-nav-heading' class={styles.nav}>
-          <h2 id='categories-nav-heading' class={styles.navHeading}>Categories</h2>
+          <h2 id='categories-nav-heading' class={styles.navHeading}>
+            <span class={[resourceStyles.headingVisible, styles.navTitle].join(' ')}>
+              Categories
+            </span>
+            <figure aria-hidden class={resourceStyles.headingFigure}>
+              <span class={resourceStyles.figureFirst}>Categories</span>
+              <span class={resourceStyles.figureSecond}>Categories</span>
+            </figure>
+          </h2>
           <ul class={styles.navList}>
             {categories.map(cat => (
               <li>

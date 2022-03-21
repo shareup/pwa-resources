@@ -10,12 +10,38 @@
   border-top: 1px solid var(--brand-black);
   justify-content: center;
   display: flex;
-  padding: 0 5%;
   flex-direction: column;
 }
 
+.footerText {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+}
+
+.footerText a {
+  font-weight: bold;
+}
+
+.footerImg {
+  display: flex;
+}
+
+.textWrapper {
+  margin: 44px 0;
+}
+
+.heart {
+  color: var(--brand-red)
+}
+
 .footer img {
-  width: 30%;
+  width: 100%;
+  height: fit-content;
+}
+
+.footer figure {
+  margin: 0;
 }
 
 @media (min-width: 900px) {
