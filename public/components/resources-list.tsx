@@ -11,13 +11,14 @@ import triUrl from '../images/svg/tri.svg'
 import warnUrl from '../images/svg/warn.svg'
 import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
-import { categoryToSlugs } from '../resources'
+import { categoryToColors, categoryToSlugs } from '../resources'
 import darkStyles from './dark.module.css'
 import styles from './resources-list.module.css'
 import { TripleHeading } from './triple-heading'
 
 type Props = {
   resources: Resource[]
+  category: string
 }
 
 type ItemProps = {
@@ -80,11 +81,12 @@ const backgroundColors = [
   'var(--brand-yellow)'
 ]
 
-const colors = Object.keys(colorPairs)
+const colorCount = backgroundColors.length
 
-export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
+export const ResourcesList: FunctionalComponent<Props> = ({ resources, category }) => {
   const listRef = useRef<HTMLUListElement>(null)
   const db = useDB()
+  const startingBackgroundColor = categoryToColors.get(category)
 
   const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
     return db && db.getAllKeys('favs')
@@ -131,7 +133,11 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
     }
   }, [db])
 
-  let colorIndex = 0
+  // grabs the next color
+  let colorIndex = backgroundColors.indexOf(startingBackgroundColor) + 1
+  // next color might be out of bounds, so reset
+  colorIndex = colorIndex === colorCount ? 0 : colorIndex
+
   let item
 
   return (
@@ -148,7 +154,7 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
 
         colorIndex++
 
-        if (colorIndex >= backgroundColors.length) {
+        if (colorIndex >= colorCount) {
           colorIndex = 0
         }
 

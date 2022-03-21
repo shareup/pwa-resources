@@ -40,7 +40,7 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
         </h1>
       </nav>
       <hr />
-      <ResourcesList resources={resources} />
+      <ResourcesList resources={resources} category={title} />
     </Layout>
   )
 }
