@@ -71,7 +71,7 @@ export const resources: Resource[] = [
     url: new URL('https://developers.google.com/web/updates/2015/11/app-shell'),
     title: 'Instant Loading Web Apps with an Application Shell Architecture',
     desc: 'A great, if slightly old, tutorial on the app shell architecture.',
-    categories: ['Architecture', ':old']
+    categories: ['Getting Started', ':old']
   },
   {
     url: new URL('https://developers.google.com/web/tools/workbox'),
@@ -93,7 +93,7 @@ export const resources: Resource[] = [
     url: new URL('https://webaccessibilitychecklist.com'),
     title: 'Web Accessibility Checklist',
     desc: '“A checklist for creating accessible websites and web applications.”',
-    categories: ['Checklists', 'Accessibility']
+    categories: ['Checklists']
   },
   {
     url: new URL('https://www.pwastats.com'),
@@ -113,7 +113,7 @@ export const resources: Resource[] = [
     title: 'Intro to Progressive Web Apps Course by Google',
     desc:
       '“In this course you’ll get started working on your very first Progressive Web App (PWA) - a web app that can take advantage of many of the features native applications have enjoyed.”',
-    categories: ['Courses: Free']
+    categories: ['Courses']
   },
   {
     url: new URL(
@@ -182,34 +182,34 @@ export const resources: Resource[] = [
     url: new URL('https://developers.google.com/codelabs/pwa-training/pwa03--going-offline#0'),
     title: 'Progressive Web Apps: Going Offline',
     desc: 'This is the first in a series of companion codelabs for a Progressive Web App workshop.',
-    categories: ['Courses: Free', 'Offline']
+    categories: ['Courses', 'Offline']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/web-apps-progressive-getting-started'),
     title: 'Getting Started with Progressive Web Apps Course',
     desc:
       "A course to create a 'Car Deals' website using techniques and technologies to transform it from a simple web page into a progressive web app.",
-    categories: ['Courses: Paid']
+    categories: ['Courses']
   },
   {
     url: new URL('https://www.pluralsight.com/courses/progressive-web-app-fundamentals'),
     title: 'Progressive Web App Fundamentals Course',
     desc: 'A course to learn to supercharge web apps so they can compete with native apps',
-    categories: ['Courses: Paid']
+    categories: ['Courses']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-apps/'),
     title: 'Progressive Web Apps: The Concise PWA Masterclass Course',
     desc:
       '“Everything you need to build Progressive Web Apps from Scratch, or upgrade your existing Web Apps to PWAs.”',
-    categories: ['Courses: Paid']
+    categories: ['Courses']
   },
   {
     url: new URL('https://www.udemy.com/course/progressive-web-app-pwa-the-complete-guide/'),
     title: 'Progressive Web Apps (PWA) - The Complete Guide',
     desc:
       '“Build a Progressive Web App (PWA) that feels like an iOS & Android App, using Device Camera, Push Notifications and more.”',
-    categories: ['Courses: Paid']
+    categories: ['Courses']
   },
   {
     url: new URL('https://www.aaron-gustafson.com/notebook/pwa-qa/'),
@@ -228,7 +228,7 @@ export const resources: Resource[] = [
     title: 'Progressier',
     desc:
       'An automated tool to add installation, push notifications, and offline caching to your existing web app.',
-    categories: ['Paid', 'Automation']
+    categories: ['Offline', 'Installation']
   },
   {
     url: new URL(
@@ -267,7 +267,7 @@ export const resources: Resource[] = [
     title: 'Debugging Progressive Web Apps',
     desc:
       '“Learn to unleash the power of modern browser tools, techniques, and strategies to debug a progressive web application.”',
-    categories: ['Courses: Paid', 'Debugging']
+    categories: ['Courses', 'Debugging']
   },
   {
     url: new URL('https://www.davrous.com/2019/10/18/myth-busting-pwas-the-new-edge-edition/'),
@@ -280,6 +280,25 @@ export const resources: Resource[] = [
     title: 'Progressive web application on Wikipedia',
     desc: 'The Wikipedia page for PWAs has a summary of their history and some of the related tech',
     categories: ['Getting Started']
+  },
+  {
+    url: new URL('https://microsoft.github.io/win-student-devs/#/30DaysOfPWA/README'),
+    title: '#30DaysOfPWA',
+    desc:
+      '“30 days of strucutured content and resources to help you explore the fascinating world of Progressive Web Apps.”',
+    categories: ['Getting Started', 'Advocacy']
+  },
+  {
+    url: new URL('https://github.com/Atyantik/react-pwa'),
+    title: 'React PWA',
+    desc: '“A highly scalable Progressive Web Application foundation and boilerplate.”',
+    categories: ['React', 'Project Templates']
+  },
+  {
+    url: new URL('https://vite-plugin-pwa.netlify.app'),
+    title: 'PWA Plugin for Vite',
+    desc: 'Zero-config PWA Framework-agnostic Plugin for Vite',
+    categories: ['Project Templates']
   }
 ].sort((l, r) => {
   const lTitle = l.title.toLowerCase().replace(/^the\s*/, '').replace(/^@/, '')
