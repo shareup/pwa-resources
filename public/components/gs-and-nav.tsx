@@ -46,7 +46,7 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
       </div>
       <div class={styles.navWrapper}>
         <nav aria-labelledby='categories-nav-heading' class={styles.nav}>
-          <TripleHeading title='Categories' />
+          <TripleHeading title='Categories' id='categories-nav-heading' />
           <ul class={styles.navList}>
             <li>
               <a href='/categories/all' class={styles.navLink}>All</a>

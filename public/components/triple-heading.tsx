@@ -6,15 +6,16 @@ import styles from './triple-heading.module.css'
 type Props = {
   title: string
   url?: URL
+  id?: string
 }
 
 export const TripleHeading: FunctionalComponent<Props> = (
-  { title, url }
+  { title, url, id }
 ) => {
   const isPrerender = isPrerenderContext()
 
   return (
-    <h2 class={styles.heading}>
+    <h2 class={styles.heading} id={id}>
       <Link url={url}>
         <span class={styles.visible}>
           {title}
