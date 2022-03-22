@@ -33,7 +33,7 @@ export const Header: FunctionalComponent = () => {
           <abbr title='Progressive Web App'>
             P<span>WA</span>
           </abbr>{' '}
-          Resources
+          <span class={styles.titleResources}>Resources</span>
         </h1>
         <p class={styles.titleSubheading}>A curated collection</p>
       </div>

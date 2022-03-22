@@ -87,5 +87,6 @@
 @media (max-width: 375px) {
   .figure img {
     width: 60%;
+    height: 100%;
   }
 }

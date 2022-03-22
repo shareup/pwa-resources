@@ -27,6 +27,10 @@
   margin-bottom: 48px;
 }
 
+.titleResources {
+  font-size: 11vw;
+}
+
 .titleHeadingFigure {
   margin: 0;
   line-height: 1;
@@ -51,12 +55,12 @@
 
 .titleHeadingFigure .titleHeading {
   margin-bottom: 0;
-  height: 92px;
+  height: 22vw;
 }
 
 .titleHeading abbr, .titleHeadingFigure {
   font-weight: bold;
-  font-size: 86px;
+  font-size: 22vw;
   letter-spacing: 1px;
 }
 
@@ -168,11 +172,23 @@
 
 @media (min-width: 900px) {
 
+  .titleHeading {
+    font-size: 106px;
+  }
+
+  .titleResources {
+    font-size: 54px;
+  }
+
   .header {
     align-items: stretch;
     align-content: stretch;
     flex-wrap: nowrap;
     border-top: 2px solid var(--brand-black);
+  }
+
+  .titleHeadingFigure .titleHeading {
+    height: 92px;
   }
   
   .titleHeading abbr, .titleHeadingFigure {
