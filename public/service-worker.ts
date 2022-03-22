@@ -22,10 +22,7 @@ self.addEventListener('install', e => {
 
     if (urlsResponse.ok) {
       const urls = await urlsResponse.json() as string[]
-
-      for (const url of urls) {
-        cache.add(url)
-      }
+      cache.addAll(urls)
     }
   })()
 })
