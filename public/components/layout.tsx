@@ -18,7 +18,7 @@ export const Layout: FunctionalComponent<Props> = ({ children }) => (
     <footer class={styles.footer}>
       <div class={styles.textWrapper}>
         <p class={styles.footerText}>
-          Currated and maintained with <span class={styles.heart}>♥</span> by the folks at{' '}
+          Curated and maintained with <span class={styles.heart}>♥</span> by the folks at{' '}
           <a href='https://shareup.app'>Shareup</a>
         </p>
         <p class={styles.footerText}>
