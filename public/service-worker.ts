@@ -29,11 +29,6 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
   self.clients.claim()
-
-  if ('navigationPreload' in self.registration) {
-    // @ts-ignore
-    self.registration.navigationPreload.enable()
-  }
 })
 
 self.addEventListener('fetch', (e: FetchEvent) => {
@@ -108,12 +103,7 @@ function isHtmlRequest(request: Request): boolean {
 }
 
 async function getFromNetworkAndCache(e: FetchEvent): Promise<Response> {
-  // @ts-ignore
-  let response = await e.preloadResponse
-
-  if (!response) {
-    response = await fetch(e.request)
-  }
+  const response = await fetch(e.request)
 
   if (response.ok) {
     const cache = await caches.open(cacheName)
