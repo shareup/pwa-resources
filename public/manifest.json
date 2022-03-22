@@ -7,7 +7,16 @@
   "orientation": "natural",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3374eb",
-  "icons": []
+  "theme_color": "#ffc81f",
+  "background_color": "#ffc81f",
+  "icons": [{
+    "src": "/android-chrome-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/android-chrome-256x256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }]
 }
