@@ -60,9 +60,15 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
               </a>
             </li>
             {categories.map(cat => (
-              <li>
-                <a href={`/categories/${categoryToSlugs.get(cat)}`} class={styles.navLink}>{cat}</a>
-              </li>
+              cat === 'Getting Started'
+                ? null
+                : (
+                  <li>
+                    <a href={`/categories/${categoryToSlugs.get(cat)}`} class={styles.navLink}>
+                      {cat}
+                    </a>
+                  </li>
+                )
             ))}
           </ul>
         </nav>

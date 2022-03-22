@@ -330,8 +330,6 @@ for (const res of resources) {
 
     const slug = col.toLowerCase().replace(/\s+/, '-')
     slugsToCategory.set(slug, col)
-
-    if (col === 'Getting Started') { continue }
     categoryToSlugs.set(col, slug)
   }
 }
