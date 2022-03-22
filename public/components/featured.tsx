@@ -13,15 +13,15 @@ export const Featured: FunctionalComponent = () => {
   return (
     <div class={styles.featuredWrapper}>
       <FeaturedRow
-        heading='Installation'
-        desc='Learn to make your web app installable '
+        heading='Work Offline'
+        desc='Learn how to make your web app work offline '
         inlineImage={armURL}
         image={{ url: componentsUrl, width: 304, height: 269 }}
         backgroundColor='var(--brand-pink)'
         button={{
           color: 'var(--brand-yellow)',
-          href: '/categories/installation',
-          title: 'View all resources in the ‘Installation’ category'
+          href: '/categories/offline',
+          title: 'View all resources in the ‘Offline’ category'
         }}
       />
       <section class={styles.repo}>
