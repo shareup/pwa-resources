@@ -2,9 +2,11 @@ import type { FunctionalComponent } from 'preact'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import thumbsUrl from '../images/svg/thumbs.svg'
+import { isPrerenderContext } from '../prerender-context'
 import styles from './header.module.css'
 
 export const Header: FunctionalComponent = () => {
+  const isPrerender = isPrerenderContext()
   const db = useDB()
   const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
     return db && db.getAllKeys('favs')
@@ -15,14 +17,18 @@ export const Header: FunctionalComponent = () => {
   return (
     <header class={styles.header}>
       <div class={styles.title}>
-        <figure aria-hidden class={styles.titleHeadingFigure}>
-          <span class={styles.titleHeading}>
-            P<span>WA</span>
-          </span>
-          <span class={styles.titleHeading}>
-            P<span>WA</span>
-          </span>
-        </figure>
+        {isPrerender
+          ? null
+          : (
+            <figure aria-hidden class={styles.titleHeadingFigure}>
+              <span class={styles.titleHeading}>
+                P<span>WA</span>
+              </span>
+              <span class={styles.titleHeading}>
+                P<span>WA</span>
+              </span>
+            </figure>
+          )}
         <h1 class={styles.titleHeading}>
           <abbr title='Progressive Web App'>
             P<span>WA</span>
