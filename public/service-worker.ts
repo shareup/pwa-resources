@@ -14,9 +14,20 @@ self.addEventListener('install', e => {
   self.skipWaiting()
 
   e.waitUntil(async () => {
+    const urlsRequest = fetch('/cache-urls.json')
     const cache = await caches.open(cacheName)
+
     cache.add('/')
-    // TODO: how do we know what filenames to cache here?
+
+    const urlsResponse = await urlsRequest
+
+    if (urlsResponse.ok) {
+      const urls = await urlsResponse.json() as string[]
+
+      for (const url of urls) {
+        cache.add(url)
+      }
+    }
   })
 })
 
