@@ -16,7 +16,8 @@
     "downlevelIteration": true
   },
   "exclude": [
-    "public/service-worker.ts"
+    "public/service-worker.ts",
+    "dist/**/*"
   ],
   "include": [
     "node_modules/wmr/types.d.ts",
