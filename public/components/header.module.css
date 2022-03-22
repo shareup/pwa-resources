@@ -236,6 +236,8 @@
   .figure img {
     margin: 0 auto;
     display: block;
+    height: auto;
+    width: auto;
   }
 
   .aside {
