@@ -9,7 +9,7 @@ import {
   Route,
   Router
 } from 'preact-iso'
-import { useCallback } from 'preact/hooks'
+import { useCallback, useEffect } from 'preact/hooks'
 import { DBContext } from './db-context'
 import { PrerenderContext } from './prerender-context'
 
@@ -29,21 +29,33 @@ import { Category } from './components/category'
 import { Index } from './components/index'
 import { NotFound } from './components/not-found'
 
-const App: FunctionalComponent = () => (
-  <DBContext>
-    <LocationProvider>
-      <ErrorBoundary>
-        <Router>
-          <Route path='/categories/:slug' component={Category} />
-          <Route path='/categories/favs' component={Category} />
-          <Route path='/categories/all' component={Category} />
-          <Route path='/' component={Index} />
-          <Route default component={NotFound} />
-        </Router>
-      </ErrorBoundary>
-    </LocationProvider>
-  </DBContext>
-)
+const App: FunctionalComponent = () => {
+  // NOTE: hack for iOS safari so :active pseudo class on buttons works
+  useEffect(() => {
+    const cb = () => {}
+    document.addEventListener('touchstart', cb)
+
+    return () => {
+      document.removeEventListener('touchstart', cb)
+    }
+  }, [])
+
+  return (
+    <DBContext>
+      <LocationProvider>
+        <ErrorBoundary>
+          <Router>
+            <Route path='/categories/:slug' component={Category} />
+            <Route path='/categories/favs' component={Category} />
+            <Route path='/categories/all' component={Category} />
+            <Route path='/' component={Index} />
+            <Route default component={NotFound} />
+          </Router>
+        </ErrorBoundary>
+      </LocationProvider>
+    </DBContext>
+  )
+}
 
 hydrate(<App />)
 
