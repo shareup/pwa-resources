@@ -45,16 +45,18 @@ export const Featured: FunctionalComponent = () => {
         </div>
         <figure class={styles.figure}>
           <img src={computerUrl} width='300' height='400' alt='Computer with a face' />
-          <pre>
-            <code
-              title='Binary representation of ‘PWA’'
-              class={['speech', styles.codeSpeech].join(' ')}
-            >
-              {`01010000
+          <figcaption>
+            <pre>
+              <code
+                title='Binary representation of ‘PWA’'
+                class={['speech', styles.codeSpeech].join(' ')}
+              >
+                {`01010000
 01010111
 01000001`}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </figcaption>
         </figure>
       </section>
       <hr />

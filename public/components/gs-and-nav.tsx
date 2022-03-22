@@ -32,10 +32,12 @@ export const GettingStartedAndNav: FunctionalComponent = () => {
           </figure>
         </section>
         <figure class={styles.offlineFigure}>
-          <div class={styles.offlineConvo}>
-            <p class={[styles.offlineConvoQuestion, 'speech'].join(' ')}>You don’t work offline?</p>
+          <figcaption class={styles.offlineConvo}>
+            <p class={[styles.offlineConvoQuestion, 'speech'].join(' ')}>
+              You don’t work offline?
+            </p>
             <p class={[styles.offlineConvoAnswer, 'speech'].join(' ')}>You do‽</p>
-          </div>
+          </figcaption>
           <img
             src={convoUrl}
             width='331'
