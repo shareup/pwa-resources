@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 422 660" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-4541,-819)">
+        <g transform="matrix(3.95957,0,0,1.69453,1216.62,0)">
+            <g transform="matrix(0.390828,0,0,0.913238,410.043,539.757)">
+                <g id="Polygon" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M141.455,-0L273.148,96.738L273.148,151.747L232,280L49,280L6.852,151.747L6.852,96.738L141.455,-0Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Polygon1" serif:id="Polygon" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M140,0L273.148,96.738L222.29,253.262L57.71,253.262L6.852,96.738L140,0Z" style="fill:rgb(138,227,242);stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Oval" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <ellipse cx="78" cy="107.5" rx="29" ry="16.5" style="fill:white;stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Oval1" serif:id="Oval" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <ellipse cx="56.5" cy="107.5" rx="7.5" ry="8.5" style="fill:rgb(42,33,48);stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Oval2" serif:id="Oval" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M56.5,116C65.06,116 72,112.194 72,107.5C72,102.806 65.06,99 56.5,99C47.94,99 47.94,116 56.5,116Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Oval-Copy" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <ellipse cx="203" cy="107.5" rx="29" ry="16.5" style="fill:white;stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Oval3" serif:id="Oval" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <ellipse cx="181.5" cy="107.5" rx="7.5" ry="8.5" style="fill:rgb(42,33,48);stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Oval4" serif:id="Oval" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M181.5,116C190.06,116 197,112.194 197,107.5C197,102.806 190.06,99 181.5,99C172.94,99 172.94,116 181.5,116Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Path" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M115.799,131.077L167.111,131.077C165.171,168.909 156.134,187.825 140,187.825C123.866,187.825 115.799,168.909 115.799,131.077Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Line" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M71.5,67.5L118.455,33.5" style="fill:none;stroke:black;stroke-width:1.29px;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Line-Copy" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M83.977,68L130.932,34" style="fill:none;stroke:black;stroke-width:1.29px;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Rectangle" transform="matrix(1,0,0,1,1106.78,-58.3586)">
+                    <rect x="70.5" y="270.5" width="30" height="128" style="fill:white;stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Rectangle-Copy-4" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <rect x="171.5" y="270.5" width="30" height="128" style="fill:white;stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Rectangle1" serif:id="Rectangle" transform="matrix(1,0,0,1,1106.78,-58.3586)">
+                    <rect x="70" y="270" width="31" height="17" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-5" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <rect x="171" y="270" width="31" height="27" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy" transform="matrix(1,0,0,1,1106.78,-58.3586)">
+                    <rect x="70" y="291" width="31" height="7" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-6" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <rect x="171" y="301" width="31" height="7" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-2" transform="matrix(1,0,0,1,1106.78,-58.3586)">
+                    <rect x="70" y="302" width="31" height="4" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-7" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <rect x="171" y="312" width="31" height="4" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-3" transform="matrix(1,0,0,1,1106.78,-58.3586)">
+                    <rect x="70" y="310" width="31" height="2" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-8" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <rect x="171" y="320" width="31" height="2" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Path-2" transform="matrix(1,0,0,1,1106.63,-37.5622)">
+                    <path d="M6.852,399L107.001,399C107.015,377.649 105.015,366.974 101,366.974L70.577,366.974C69.861,377.649 63.028,382.987 50.08,382.987C30.657,382.987 33.927,366.974 16.964,366.974C5.655,366.974 2.284,377.649 6.852,399Z" style="fill:rgb(138,227,242);stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Path-2-Copy" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M107.971,420.026L208.12,420.026C208.135,398.675 206.134,388 202.119,388L171.696,388C170.98,398.675 164.147,404.013 151.199,404.013C131.776,404.013 135.047,388 118.083,388C106.774,388 103.403,398.675 107.971,420.026Z" style="fill:rgb(138,227,242);stroke:black;stroke-width:1.29px;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Rectangle-Copy-9" transform="matrix(1,0,0,1,1106.63,-37.5622)">
+                    <path d="M6.055,395L107,395L107,399L7,399L6.055,395Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Rectangle-Copy-10" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M107.174,416.026L208.119,416.026L208.119,420.026L108.119,420.026L107.174,416.026Z" style="stroke:black;stroke-width:1.29px;"/>
+                </g>
+                <g id="Line-Copy-2" transform="matrix(1,0,0,1,1107.39,-41.0283)">
+                    <path d="M13.023,377.994L34.023,386.981" style="fill:none;stroke:black;stroke-width:1.29px;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+                <g id="Line-Copy-3" transform="matrix(1,0,0,1,1095.48,-58.66)">
+                    <path d="M114.142,399.019L135.142,408.006" style="fill:none;stroke:black;stroke-width:1.29px;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

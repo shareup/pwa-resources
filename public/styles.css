@@ -1,41 +1,96 @@
-html, body {
-  margin: 0;
-	min-height: 100%;
-	font-family: system-ui, sans-serif;
-  font-size: 16px;
+@import url(/normalize.css?v1);
+
+@font-face {
+  font-family: Archia;
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  src: url(/fonts/archia-regular.woff2?v1) format("woff2");
+}
+
+@font-face {
+  font-family: Archia;
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+  src: url(/fonts/archia-bold.woff2?v1) format("woff2");
+}
+
+@font-face {
+  font-family: Chaney;
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  src: url(/fonts/chaney-wide.woff2?v1) format("woff2");
+}
+
+@font-face {
+  font-family: Chaney;
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+  src: url(/fonts/chaney-ultraextended.woff2?v1) format("woff2");
 }
 
 :root {
   --brand-light-blue: #8AE3F2;
-  --brand-blue: #3374EB;
+  --brand-blue: #5225F4;
   --brand-yellow: #FEE563;
   --brand-gold: #FFC81F;
   --brand-pink: #FF7693;
-  --brand-red: #D81E49;
+  --brand-red: #AD144C;
   --brand-silver: #DCDEE6;
   --brand-grey: #A9AEB7;
+  --brand-dark-grey: #5b5b5b;
   --brand-black: #000000;
   --brand-white: #ffffff;
+}
+
+html, body {
+  margin: 0;
+	min-height: 100%;
+	font-family: Archia, system-ui, sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Chaney, system-ui, sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 28px;
 }
 
 abbr[title] {
   text-decoration: none;
 }
 
+a {
+  color: var(--brand-blue);
+}
 
 .button, button {
   box-sizing: border-box;
   text-transform: uppercase;
+  text-decoration: none;
   border: 4px solid var(--brand-black);
   --button-color: var(--brand-white);
   background-color: var(--button-color);
   color: var(--brand-black);
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.4rem;
+  text-indent: 0.4rem;
   position: relative;
   display: inline-block;
   transition: margin 0.07s ease, box-shadow 0.07s ease, color 0.1s ease, background-color 0.1s ease;
-  padding: 12px 24px;
+  padding: 18px 32px;
   margin: 2px 2px 8px 8px;
   box-shadow: -1px 1px 0px var(--brand-black),
               -2px 2px 0px var(--brand-black),
@@ -55,4 +110,27 @@ abbr[title] {
 
 button[disabled] {
   cursor: normal;
+}
+
+.speech {
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+  border: 2px solid var(--brand-black);
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  border: none;
+  border-bottom: 28px solid var(--brand-silver);
+}
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 54px;
+  }
 }

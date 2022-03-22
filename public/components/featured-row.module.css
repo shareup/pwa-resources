@@ -1,0 +1,60 @@
+.row {
+  border-top: 2px solid var(--brand-black);
+  --background-color: var(--brand-white);
+  background-color: var(--background-color);
+  color: var(--brand-black);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 54px 38px 0 38px;
+}
+
+.heading {
+  margin: 0;
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+}
+
+.desc {
+  flex: 0 0 auto;
+  margin: 1.5em 0;
+  max-width: 25em;
+  line-height: 1.5;
+}
+
+.figure {
+  flex: 1 1 auto;
+  margin: 0 ;
+}
+
+.featuredRowContent {
+  margin-bottom: 24px;
+}
+
+.inlineImage {
+  height: 24px;
+  vertical-align: middle;
+}
+
+.figure img {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .row {
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 54px 108px 0 81px;
+    align-content: flex-end;
+    flex-direction: row;
+  }
+
+  .figure {
+    margin: 0 0 0 54px;
+    align-items: flex-end;
+    display: flex;
+  }
+}

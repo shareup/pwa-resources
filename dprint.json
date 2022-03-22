@@ -15,11 +15,10 @@
   "excludes": [
     "**/node_modules",
     "**/.cache",
-    "**/public"
+    "**/dist"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.62.2.wasm",
-    "https://plugins.dprint.dev/json-0.14.1.wasm",
-    "https://plugins.dprint.dev/markdown-0.12.2.wasm"
+    "https://plugins.dprint.dev/json-0.14.1.wasm"
   ]
 }

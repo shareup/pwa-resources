@@ -1,0 +1,216 @@
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  border-top: 2px solid var(--brand-black);
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.columns > div {
+  width: 100%;
+}
+
+.gsWrapper {
+  border-right: 1px solid var(--brand-black);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.gs {
+  position: relative;
+  padding: 54px;
+  padding-bottom: 168px;
+  --background-color: var(--brand-light-blue);
+  background-color: var(--background-color);
+  --link-color: var(--brand-black);
+  color: var(--link-color);
+  border-bottom: 2px solid var(--brand-black);
+  flex: 1 1 auto;
+}
+
+.gsHeading {
+  margin: 0;
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+  background-color: var(--brand-light-blue);
+}
+
+.gsHeading span {
+  background-color: var(--brand-light-blue);
+}
+
+.gsHeading figure span {
+  color: var(--brand-light-blue);
+}
+
+.gsDesc {
+  margin: 1.5em 0;
+}
+
+.button {
+  --button-color: var(--brand-pink);
+}
+
+.gsFigure {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.gsFigure img {
+  display: block;
+}
+
+.offlineFigure {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.offlineFigure img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: fit-content;
+}
+
+.offlineConvo {
+  padding: 5% 2% 0 3%;
+  display: flex;
+  align-items: flex-end;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.offlineConvoQuestion {
+  max-width: 7em;
+}
+
+.offlineConvoAnswer {
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.navFigure {
+  display: block;
+  margin: 54px auto 0;
+}
+
+.navFigure img {
+  display: block;
+}
+
+.nav {
+  padding: 54px 0;
+  border-top: 2px solid var(--brand-black);
+  --background-color: var(--brand-yellow);
+  background-color: var(--background-color);
+  --link-color: var(--brand-black);
+  color: var(--link-color);
+  text-align: center;
+}
+
+.navHeading {
+  position: relative;
+}
+
+.navHeading span {
+  background-color: var(--brand-yellow);
+  color: var(--brand-yellow);
+  width: 100%;
+}
+
+.sectionEnd {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 60%;
+  position: absolute;
+  background-color: var(--brand-black);
+  left: 50%;
+  margin-left: -30%;
+  top: 32px;
+}
+
+span.navTitle {
+  color: var(--brand-black);
+}
+
+.navList {
+  list-style-type: none;
+  margin: 38px 0 0;
+  padding: 0;
+}
+
+.navLink {
+  display: block;
+  /* NOTE: because these are uppercase, they don't have descenders and so we
+   * pad the top a bit more than the bottom */
+  padding: 3px 0 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  text-indent: 0.25rem;
+  text-decoration: none;
+  transition: color 0.1s ease, background-color 0.1s ease;
+  color: var(--brand-black);
+  background-color: var(--brand-yellow);
+}
+
+.navLink:hover {
+  background-color: var(--brand-black);
+  color: var(--brand-yellow);
+}
+
+@media (min-width: 900px) {
+
+  .navWrapper {
+    border-bottom: none;
+    border-left: 1px solid var(--brand-black);
+  }
+
+  .offlineConvo {
+    padding: 0 17% 0 15%;
+  }
+
+  .offlineFigure img {
+    height: auto;
+    width: 70%
+  }
+
+  .offlineConvo img {
+    height: unset;
+    width: unset;
+  }
+
+  .gs {
+    padding-bottom: 106px;
+  }
+
+  .columns {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: unset;
+  }
+
+  .columns > div {
+    width: 50%;
+  }
+
+  .gsWrapper {
+    align-items: stretch;
+    align-content: stretch;
+  }
+}

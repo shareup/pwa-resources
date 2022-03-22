@@ -1,4 +1,5 @@
 import type { FunctionalComponent, VNode } from 'preact'
+import ensembleURL from '../images/svg/ensemble.svg'
 import styles from './layout.module.css'
 
 type Props = {
@@ -11,23 +12,23 @@ const defaultTitle = (
   </>
 )
 
-export const Layout: FunctionalComponent<Props> = ({ children, title = defaultTitle }) => (
+export const Layout: FunctionalComponent<Props> = ({ children }) => (
   <div class={styles.wrapper}>
-    <header>
-      <h1>{title}</h1>
-      <p>A curated collection.</p>
-    </header>
-    <main>
-      {children}
-    </main>
-    <footer>
-      <p>
-        Curated and maintained with ❤️ by the peeps at <a href='https://shareup.app'>Shareup</a>.
-      </p>
-      <p>
-        ✨ <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a> ✨{' '}
-        Come build awesome PWAs with us.
-      </p>
+    {children}
+    <footer class={styles.footer}>
+      <div class={styles.textWrapper}>
+        <p class={styles.footerText}>
+          Curated and maintained with <span class={styles.heart}>♥</span> by the folks at{' '}
+          <a href='https://shareup.app'>Shareup</a>
+        </p>
+        <p class={styles.footerText}>
+          <a href='https://shareup.app/jobs/senior-web-engineer/'>We are hiring!</a>{' '}
+          Come build great things with us
+        </p>
+      </div>
+      <figure class={styles.footerImg} aria-hidden>
+        <img src={ensembleURL} height='400' alt='' />
+      </figure>
     </footer>
   </div>
 )

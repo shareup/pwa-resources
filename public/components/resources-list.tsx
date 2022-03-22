@@ -2,33 +2,91 @@ import type { FunctionalComponent, VNode } from 'preact'
 import { useCallback, useEffect, useRef } from 'preact/hooks'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
+import componentsUrl from '../images/svg/components.svg'
+import cupUrl from '../images/svg/cup.svg'
+import iaUrl from '../images/svg/ia.svg'
+import pentaUrl from '../images/svg/penta.svg'
+import spaceUrl from '../images/svg/space.svg'
+import triUrl from '../images/svg/tri.svg'
+import warnUrl from '../images/svg/warn.svg'
 import { isPrerenderContext } from '../prerender-context'
 import type { Resource } from '../resources'
-import { collectionToSlugs } from '../resources'
+import { categoryToColors, categoryToSlugs } from '../resources'
+import darkStyles from './dark.module.css'
 import styles from './resources-list.module.css'
+import { TripleHeading } from './triple-heading'
 
 type Props = {
   resources: Resource[]
+  category: string
 }
 
 type ItemProps = {
   favs?: string[]
   item: Resource
+  divider?: boolean
+  backgroundColor?: string
 }
 
 type FavButtonProps = ItemProps & {
   color: string
 }
 
-const colors = [
-  'var(--brand-gold)',
+const illustrationPairs = {
+  'var(--brand-gold)': iaUrl,
+  'var(--brand-yellow)': spaceUrl,
+  'var(--brand-blue)': cupUrl,
+  'var(--brand-light-blue)': triUrl,
+  'var(--brand-pink)': componentsUrl,
+  'var(--brand-red)': pentaUrl
+}
+
+const colorPairs = {
+  'var(--brand-blue)': [
+    'var(--brand-gold)',
+    'var(--brand-light-blue)',
+    'var(--brand-pink)'
+  ],
+  'var(--brand-red)': [
+    'var(--brand-gold)',
+    'var(--brand-light-blue)',
+    'var(--brand-pink)'
+  ],
+  'var(--brand-pink)': [
+    'var(--brand-yellow)',
+    'var(--brand-light-blue)',
+    'var(--brand-blue)',
+    'var(--brand-red)'
+  ],
+  'var(--brand-light-blue)': [
+    'var(--brand-yellow)',
+    'var(--brand-blue)',
+    'var(--brand-red)',
+    'var(--brand-pink)'
+  ],
+  'var(--brand-yellow)': [
+    'var(--brand-light-blue)',
+    'var(--brand-gold)',
+    'var(--brand-red)',
+    'var(--brand-blue)',
+    'var(--brand-pink)'
+  ]
+}
+
+const backgroundColors = [
+  'var(--brand-light-blue)',
+  'var(--brand-pink)',
   'var(--brand-blue)',
-  'var(--brand-red)'
+  'var(--brand-red)',
+  'var(--brand-yellow)'
 ]
 
-export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
+const colorCount = backgroundColors.length
+
+export const ResourcesList: FunctionalComponent<Props> = ({ resources, category }) => {
   const listRef = useRef<HTMLUListElement>(null)
   const db = useDB()
+  const startingBackgroundColor = categoryToColors.get(category)
 
   const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
     return db && db.getAllKeys('favs')
@@ -75,62 +133,107 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources }) => {
     }
   }, [db])
 
+  // grabs the next color
+  let colorIndex = backgroundColors.indexOf(startingBackgroundColor) + 1
+  // next color might be out of bounds, so reset
+  colorIndex = colorIndex === colorCount ? 0 : colorIndex
+
+  let item
+
   return (
     <ul class={styles.list} ref={listRef}>
-      {resources.map(res => <Item item={res} favs={favs} />)}
+      {resources.map((res, index) => {
+        item = (
+          <Item
+            item={res}
+            favs={favs}
+            backgroundColor={backgroundColors[colorIndex]}
+            divider={(index + 1) % 3 === 0}
+          />
+        )
+
+        colorIndex++
+
+        if (colorIndex >= colorCount) {
+          colorIndex = 0
+        }
+
+        return item
+      })}
     </ul>
   )
 }
 
-const Item: FunctionalComponent<ItemProps> = ({ item, favs }) => {
+const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundColor }) => {
   const isPrerender = isPrerenderContext()
   let isOld = false
-  const colorCode = item.title.slice(-1).codePointAt(0) % 3
-  const color = colors[colorCode]
+  const matchingButtonColors = colorPairs[backgroundColor]
+  const color = matchingButtonColors[
+    item.title.slice(item.title.length / 2, item.title.length / 2 + 1).codePointAt(0)
+    % matchingButtonColors.length
+  ]
 
-  const collectionItems: VNode[] = []
+  const isDarkColor = backgroundColor === 'var(--brand-blue)'
+    || backgroundColor === 'var(--brand-red)'
 
-  for (const col of item.collections) {
+  const categoryItems: VNode[] = []
+
+  for (const col of item.categories) {
     if (col === ':old') { isOld = true }
     if (col.startsWith(':')) { continue }
 
-    const slug = collectionToSlugs.get(col)!
+    const slug = categoryToSlugs.get(col)!
 
-    collectionItems.push(
-      <li class={styles.collectionItem}>
-        <a href={`/collections/${slug}`}>{col}</a>
+    categoryItems.push(
+      <li class={styles.categoryItem}>
+        <a href={`/categories/${slug}`}>{col}</a>
       </li>
     )
   }
 
   return (
-    <li class={styles.item}>
-      <a
-        class={styles.title}
-        style={{ '--link-color': color }}
-        href={item.url.toString()}
-      >
-        {item.title}
-      </a>
+    <li
+      class={[
+        styles.item,
+        divider ? styles.divider : null,
+        isDarkColor ? darkStyles.dark : null
+      ].join(' ')}
+      style={{ '--background-color': backgroundColor }}
+    >
+      <TripleHeading title={item.title} url={item.url} />
+      <span class={styles.hostname}>({item.url.hostname.replace(/^www\./, '')})</span>
       <span class={styles.desc}>{item.desc}</span>
       {isOld
         ? (
-          <span class={styles.old}>
-            <abbr title='Caution'>⚠️</abbr>
+          <span class={[styles.old, darkStyles.darkBackground].join(' ')}>
+            <abbr title='Caution'>
+              <img src={warnUrl} height='30' alt='' />
+            </abbr>
             <span>This resource might be a little out of date.</span>
           </span>
         )
         : null}
-      {collectionItems.length > 0
+      {categoryItems.length > 0
         ? (
-          <ul class={styles.collections}>
-            {collectionItems}
+          <ul class={styles.categories}>
+            {categoryItems}
           </ul>
         )
         : null}
       {isPrerender
         ? null
         : <FavButton item={item} favs={favs} color={color} />}
+
+      {divider
+        ? (
+          <img
+            src={illustrationPairs[backgroundColor]}
+            class={styles.featureImage}
+            height='275'
+            alt=''
+          />
+        )
+        : null}
     </li>
   )
 }
@@ -141,6 +244,8 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
 
   favs || (favs = [])
   const isFav = favs.includes(itemUrl)
+  const isDark = color === 'var(--brand-blue)' || color === 'var(--brand-red)'
+  const heartColor = isFav ? color : (isDark ? 'var(--brand-white)' : 'var(--brand-black)')
 
   const classes = isFav
     ? [styles.saveButton, styles.faved].join(' ')
@@ -157,7 +262,7 @@ const FavButton: FunctionalComponent<FavButtonProps> = ({ item, favs, color }) =
       key='button'
       disabled={disabled}
       class={classes}
-      style={{ '--button-color': color }}
+      style={{ '--button-color': color, color: heartColor }}
       data-item-url={itemUrl}
       data-favorited={isFav}
     >

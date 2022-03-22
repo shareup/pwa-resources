@@ -9,6 +9,7 @@ import {
   Route,
   Router
 } from 'preact-iso'
+import { useCallback } from 'preact/hooks'
 import { DBContext } from './db-context'
 import { PrerenderContext } from './prerender-context'
 
@@ -24,17 +25,19 @@ if ('navigator' in self && 'serviceWorker' in navigator) {
     })
 }
 
-const Index = lazy(async () => (await import('./pages/index')).Index)
-const Collection = lazy(async () => (await import('./pages/collection')).Collection)
-const NotFound = lazy(async () => (await import('./pages/not-found')).NotFound)
+import { Category } from './components/category'
+import { Index } from './components/index'
+import { NotFound } from './components/not-found'
 
 const App: FunctionalComponent = () => (
   <DBContext>
     <LocationProvider>
       <ErrorBoundary>
         <Router>
+          <Route path='/categories/:slug' component={Category} />
+          <Route path='/categories/favs' component={Category} />
+          <Route path='/categories/all' component={Category} />
           <Route path='/' component={Index} />
-          <Route path='/collections/:slug' component={Collection} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

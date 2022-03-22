@@ -1,99 +1,216 @@
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-auto-flow: dense;
-  gap: 0;
+  display: flex;
   list-style-type: none;
-  margin: 32px 0;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin: 0;
   padding: 0;
-  outline: 2px solid var(--brand-black);
+  border-top: 2px solid var(--brand-black);
+  --link-color: var(--brand-black);
 }
 
-@supports (grid-template-rows: masonry) {
-  .list {
-    grid-template-rows: masonry;
-  }
+.featureImage {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  z-index: 300;
 }
 
 .item {
   margin: 0;
-  padding: 18px 18px 92px;
+  width: 100%;
+  padding: 80px 18px 92px;
   box-sizing: border-box;
-  outline: 1px solid var(--brand-black);
+  outline: 2px solid var(--brand-black);
   position: relative;
+  color: var(--link-color);
+  background-color: var(--background-color, var(--brand-white));
 }
 
-.title {
-  font-size: 22px;
-  font-weight: bold;
+.heading {
+  line-height: 1.1;
+  margin: 2.2em 0 0;
+  position: relative;
+  overflow: visible;
+  background-color: var(--brand-white);
+}
+
+.link {
+  line-height: 1.1;
   transition: color 0.1s ease;
-  --link-color: var(--brand-black);
+  text-decoration: none;
   color: var(--link-color);
 }
 
-.title:hover {
-  color: var(--brand-black);
+.link:hover {
+  color: var(--link-color);
+}
+
+/* NOTE: for when we move to inline-svg for the arrow icon */
+.link svg {
+  fill: var(--link-color);
+  stroke: var(--link-color);
+}
+
+.headingVisible {
+  display: block;
+  position: relative;
+  z-index: 3;
+  background-color: var(--background-color, var(--brand-white));
+}
+
+.headingFigure {
+  margin: 0;
+}
+
+.headingFigure > span {
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
+  color: var(--background-color);
+  position: absolute;
+  left: 0;
+  background-color: var(--background-color, var(--brand-white));
+}
+
+.link:hover .headingFigure > span {
+  text-stroke: 1px var(--link-color);
+  -webkit-text-stroke: 1px var(--link-color);
+}
+
+.headingFigure .figureFirst {
+  z-index: 1;
+  top: -2.2em;
+}
+
+.headingFigure .figureSecond {
+  z-index: 2;
+  top: -1.1em;
 }
 
 .desc {
   display: block;
   line-height: 1.5;
+  max-width: 48em;
+}
+
+.hostname {
+  display: block;
+  mix-blend-mode: luminosity;
+  line-height: 1.5;
+  color: var(--brand-dark-grey);
+}
+
+.divider {
+  margin-bottom:28px;
+}
+
+.divider::after {
+  content: '';
+  background: var(--brand-silver);
+  left: 0;
+  position: absolute;
+  height: 28px;
+  z-index: 9999;
+  right: 0;
+  bottom: -28px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.divider {
+  padding-bottom: 275px;
 }
 
 .old {
-  display: block;
   margin: 0.5em 0;
+  display: flex;
+}
+
+.old img {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .old > span {
   font-style: italic;
+  display: inline-block;
+  vertical-align: middle;
   border-radius: 4px;
   background-color: var(--brand-yellow);
   padding: 0.15em 0.25em;
   margin-left: 0.25em;
+  line-height: 1.5;
 }
 
-.collections {
+.categories {
   display: block;
   padding: 0;
-  margin: 1em 0;
+  margin: 2em 0;
   list-style-type: none;
 }
 
-.collections::before {
+.categories::before {
   content: 'In ';
 }
 
-.collectionItem {
+.categoryItem {
   display: inline;
   margin: 0;
 }
 
-.collectionItem::after {
+.categoryItem::after {
   content: ', ';
 }
 
-.collectionItem:last-child::after {
+.categoryItem:last-child::after {
   content: '';
 }
 
-.collectionItem a {
+.categoryItem a {
   border-radius: 4px;
   transition: color 0.1s ease;
-  --hover-color: var(--brand-grey);
-  color: var(--brand-black);
+  --hover-color: var(--brand-dark-grey);
+  color: var(--link-color);
 }
 
-.collectionItem a:hover {
+.categoryItem a:hover {
   color: var(--hover-color);
 }
 
 .saveButton {
-  color: var(--brand-white);
+  letter-spacing: 0;
+  text-indent: 0;
+  user-select: none;
+  padding-left: 28px;
+  padding-right: 28px;
   background-color: var(--button-color);
 }
 
 .saveButton.faved {
   background-color: var(--brand-white);
   color: var(--button-color);
+}
+
+@media (min-width: 900px) {
+
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 50%;
+  }
+
+  .divider {
+    padding: 80px 18px 92px;
+  }
+
+  .item:nth-child(3n) {
+    width: 100%;
+  }
+
+  .item:nth-child(3n) .heading, .item:nth-child(3n) .desc  {
+    width: 50%;
+  }
 }

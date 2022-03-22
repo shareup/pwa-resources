@@ -1,0 +1,247 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.title {
+  width: 100%;
+  background-color: var(--brand-gold);
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.title :nth-child(3) { 
+  order: -1; 
+  border-bottom: 2px solid var(--brand-black);
+}
+
+.titleHeading {
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.titleResources {
+  font-size: 11vw;
+}
+
+.titleHeadingFigure {
+  margin: 0;
+  line-height: 1;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-family: 'Chaney';
+  color: transparent;
+  text-stroke: 2px var(--brand-black);
+  -webkit-text-stroke: 2px var(--brand-black);
+  margin-top: 48px;
+}
+
+.titleHeadingFigure span {
+  display: inline;
+  line-height: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.titleHeadingFigure .titleHeading {
+  margin-bottom: 0;
+  height: 22vw;
+}
+
+.titleHeading abbr, .titleHeadingFigure {
+  font-weight: bold;
+  font-size: 22vw;
+  letter-spacing: 1px;
+}
+
+.titleHeading abbr span, .titleHeadingFigure span {
+  font-feature-settings: "ss02";
+}
+
+.titleSubheading {
+  margin: 0;
+  background-color: var(--brand-white);
+  flex: 0 0 auto;
+  border-top: 2px solid var(--brand-black);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-indent: 0.9rem;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 0.6rem;
+  font-size: 12px;
+}
+
+.aside {
+  width: 100%;
+  background-color: var(--brand-pink);
+}
+
+.asideText {
+  margin: 0;
+  background-color: var(--brand-white);
+  border-bottom: 2px solid var(--brand-black);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 0.6rem;
+  font-size: 12px;
+  text-indent: 0.9rem;
+  text-align: center;
+}
+
+.buttonWrapper {
+  margin: 0;
+  padding: 18px 0;
+}
+
+.button {
+  --button-color: var(--brand-gold);
+}
+
+.figure {
+  margin: 0;
+  display: block;
+}
+
+.figure img {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+}
+
+.categoryHeader {
+  display: flex;
+  height: 160px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;  
+  outline: 1px solid var(--brand-black);
+  border-bottom: 1px solid var(--brand-black);
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin:0;
+  font-size: 24px;
+  border-top: 2px solid var(--brand-black);
+}
+
+.notFoundBackground {
+  background-color: var(--brand-pink);
+}
+
+.backButton:hover {
+  text-indent: -3%;
+}
+
+.backButton {
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 175px;
+  text-transform: uppercase;
+  letter-spacing: 0.9rem;
+  text-indent: 0.9rem;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--brand-black);
+  transition: text-indent 200ms ease;
+}
+
+@media (min-width: 900px) {
+
+  .titleHeading {
+    font-size: 106px;
+  }
+
+  .titleResources {
+    font-size: 54px;
+  }
+
+  .header {
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    border-top: 2px solid var(--brand-black);
+  }
+
+  .titleHeadingFigure .titleHeading {
+    height: 92px;
+  }
+  
+  .titleHeading abbr, .titleHeadingFigure {
+    font-size: 106px;
+  }
+
+  .titleHeadingFigure {
+    margin-top: 0px;
+  }
+  
+  .title {
+    width: 50%;
+    align-items: stretch;
+    align-content: stretch;
+    border-bottom: none;
+    border-right: 1px solid var(--brand-black);
+  }
+
+  .categoryHeader {
+    flex-direction: unset;
+    height: 120px;
+    align-items: center;
+  }
+
+  .backButton {
+    font-size: 16px;
+  }
+
+  .categoryTitle {
+    font-size: 44px;
+    border-top: none;
+  }
+
+  .titleSubheading, .asideText {
+    line-height: 4;
+    letter-spacing: 0.9rem;
+    font-size: 16px;
+  }
+
+  .title :nth-child(3) { 
+    order: unset; 
+    border-bottom: none;
+  }
+
+  .figure img {
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    width: auto;
+  }
+
+  .aside {
+    width: 50%;
+    border-left: 1px solid var(--brand-black);
+  }
+}
