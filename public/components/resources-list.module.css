@@ -102,6 +102,7 @@
 
 .divider {
   margin-bottom:28px;
+  padding-bottom: 275px;
 }
 
 .divider::after {
@@ -116,11 +117,6 @@
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
-
-.divider {
-  padding-bottom: 275px;
-}
-
 .old {
   margin: 0.5em 0;
   display: flex;
@@ -210,6 +206,30 @@
   }
 
   .item:nth-child(3n) .heading, .item:nth-child(3n) .desc  {
+    width: 50%;
+  }
+}
+
+
+@media (min-width: 1500px) {
+
+  .item {
+    width: 33.333%;
+  }
+
+  .item:nth-child(3n) {
+    width: 33.333%;
+  }
+
+  .item:nth-child(3n) .heading, .item:nth-child(3n) .desc  {
+    width: 50%;
+  }
+
+  .item:nth-child(4n) {
+    width: 100%;
+  }
+
+  .item:nth-child(4n) .heading, .item:nth-child(4n) .desc  {
     width: 50%;
   }
 }

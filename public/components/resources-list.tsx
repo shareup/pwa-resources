@@ -1,5 +1,5 @@
 import type { FunctionalComponent, VNode } from 'preact'
-import { useCallback, useEffect, useRef } from 'preact/hooks'
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import { useDB } from '../db-context'
 import { useFetched } from '../hooks/use-fetched'
 import componentsUrl from '../images/svg/components.svg'
@@ -87,6 +87,7 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources, category 
   const listRef = useRef<HTMLUListElement>(null)
   const db = useDB()
   const startingBackgroundColor = categoryToColors.get(category)
+  const [screenWidth, updateWidth] = useState(window.innerWidth)
 
   const { state: favs, error: favsError, fetch: fetchFavs } = useFetched(undefined, async () => {
     return db && db.getAllKeys('favs')
@@ -125,14 +126,32 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources, category 
     }
   }, [db])
 
+  const getColumnForScreenSize = (screenSize: number): number => {
+    if (screenSize >= 1500) {
+      return 4
+    } else if (screenSize <= 900) {
+      return 3
+    } else {
+      return 3
+    }
+  }
+
+  let columnCount = getColumnForScreenSize(window.innerWidth)
+
+  const handleResize = useCallback(() => {
+    columnCount = getColumnForScreenSize(window.innerWidth)
+    updateWidth(window.innerWidth)
+  }, [window.innerWidth])
+
   useEffect(() => {
     listRef.current.addEventListener('click', clicked)
-
+    window.addEventListener('resize', handleResize)
     return () => {
       listRef.current?.removeEventListener('click', clicked)
     }
   }, [db])
 
+  console.log(columnCount, screenWidth)
   // grabs the next color
   let colorIndex = backgroundColors.indexOf(startingBackgroundColor) + 1
   // next color might be out of bounds, so reset
@@ -148,7 +167,7 @@ export const ResourcesList: FunctionalComponent<Props> = ({ resources, category 
             item={res}
             favs={favs}
             backgroundColor={backgroundColors[colorIndex]}
-            divider={(index + 1) % 3 === 0}
+            divider={(index + 1) % columnCount === 0}
           />
         )
 
