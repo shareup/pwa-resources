@@ -12,13 +12,12 @@ self.addEventListener('error', e => {
 
 self.addEventListener('install', e => {
   self.skipWaiting()
-
-  e.waitUntil(async () => {
-    const urlsRequest = fetch('/cache-urls.json')
+  ;(async () => {
     const cache = await caches.open(cacheName)
 
     cache.add('/')
 
+    const urlsRequest = fetch('/cache-urls.json')
     const urlsResponse = await urlsRequest
 
     if (urlsResponse.ok) {
@@ -28,7 +27,7 @@ self.addEventListener('install', e => {
         cache.add(url)
       }
     }
-  })
+  })()
 })
 
 self.addEventListener('activate', e => {

@@ -7,10 +7,6 @@ export default (options: Options) => {
   options.port = parseInt(process.env.PORT || '8080', 10)
 
   options.middleware.push(async (req, res, next) => {
-    if (process.env.NODE_ENV !== 'production') {
-      return next()
-    }
-
     const reqPath = req.path.replace(/^\//, '')
 
     if (reqPath.startsWith('service-worker.') && reqPath.endsWith('.js')) {
