@@ -42,7 +42,7 @@ const CategoryLayout: FunctionalComponent<LayoutProps> = ({ title, resources }) 
         <a href='/' onClick={onBackclick} class={headerStyles.backButton}>↩BACK</a>
         <h1
           class={[headerStyles.categoryTitle, darkColor ? darkStyles.dark : null].join(' ')}
-          style={`background-color:${backgroundColor}`}
+          style={{ backgroundColor: backgroundColor }}
         >
           {title}
         </h1>
