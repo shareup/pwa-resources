@@ -180,6 +180,7 @@
 .saveButton {
   letter-spacing: 0;
   text-indent: 0;
+  user-select: none;
   padding-left: 28px;
   padding-right: 28px;
   background-color: var(--button-color);
