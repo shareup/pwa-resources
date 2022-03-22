@@ -28,12 +28,11 @@ We wanted to quickly build a little PWA with [wmr][] which [caches itself and wo
 
 ## What's the tech stack for this PWA?
 
-* All our code is written in [TypeScript][] and vanilla CSS
+* All our code is written in [TypeScript][] and [CSS modules][]
 * [wmr][] is our dev server and bundler
 * [Preact][] and [preact-iso][] renders HTML both server-side and client-side, provides routing in both cases, and hydrates the interactive parts client-side
 	* We are biased and only used [functional components][] + [hooks][]
 * [idb][] is the fantastic library we are using to promisify IndexedDB access
-* [css modules][] (included with wmr) helps us keep our css scoped
 * [CSS custom properties][] are how we are trying to dynamically control style values
 * A [vanilla service worker][] handles the caching and offline access
 
@@ -41,7 +40,7 @@ We wanted to quickly build a little PWA with [wmr][] which [caches itself and wo
 [Preact]: https://preactjs.com
 [preact-iso]: https://github.com/preactjs/wmr/tree/main/packages/preact-iso
 [idb]: https://github.com/jakearchibald/idb
-[css modules]: https://github.com/css-modules/css-modules
+[CSS modules]: https://github.com/css-modules/css-modules
 [CSS custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 [vanilla service worker]: https://github.com/shareup/pwa-resources/blob/main/public/service-worker.ts
 [functional components]: https://preactjs.com/guide/v10/components#functional-components
