@@ -55,5 +55,5 @@ Yes, we agree! [Adam][] did a great job creating some really fun illustrations f
 
 ## TODOs
 
-- [ ] Communicate the entire bundle's asset URLs to the service worker to know we've fully cached everything from the first load
+- [ ] Can we force iOS to pre-cache all the assets when installing to springboard?
 - [ ] Revisit <https://github.com/preactjs/wmr/tree/main/packages/sw-plugin> and document why it didn't work out
