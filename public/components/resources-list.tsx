@@ -230,6 +230,7 @@ const Item: FunctionalComponent<ItemProps> = ({ item, favs, divider, backgroundC
             src={illustrationPairs[backgroundColor]}
             class={styles.featureImage}
             height='275'
+            alt=''
           />
         )
         : null}
