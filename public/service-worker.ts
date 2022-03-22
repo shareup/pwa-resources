@@ -4,7 +4,7 @@
 
 declare let self: ServiceWorkerGlobalScope
 
-const cacheName = 'pwaResourcesV8' + (import.meta.env.NODE_ENV || '---')
+const cacheName = 'pwaResourcesV9' + (import.meta.env.NODE_ENV || '---')
 
 self.addEventListener('error', e => {
   console.error('caught unhandled error in service worker', e, e.error, e.filename, e.lineno)
@@ -14,15 +14,14 @@ self.addEventListener('install', e => {
   self.skipWaiting()
   ;(async () => {
     const cache = await caches.open(cacheName)
-
-    cache.add('/')
+    await cache.add('/')
 
     const urlsRequest = fetch('/cache-urls.json')
     const urlsResponse = await urlsRequest
 
     if (urlsResponse.ok) {
       const urls = await urlsResponse.json() as string[]
-      cache.addAll(urls)
+      await cache.addAll(urls)
     }
   })()
 })
@@ -39,16 +38,7 @@ self.addEventListener('fetch', (e: FetchEvent) => {
   e.respondWith((async () => {
     try {
       if (import.meta.env.NODE_ENV === 'development') {
-        const url = new URL(e.request.url)
-        const fromCache = !!url.searchParams.get('fromcache')
-
-        if (fromCache) {
-          const networkResponse = getFromNetworkAndCache(e)
-          const cachedResponse = await getFromCache(e.request)
-          return cachedResponse || await networkResponse
-        } else {
-          return await getFromNetworkAndCache(e)
-        }
+        return await getFromNetworkAndCache(e)
       }
 
       if (isHtmlRequest(e.request)) {
@@ -58,6 +48,7 @@ self.addEventListener('fetch', (e: FetchEvent) => {
         const cachedResponse = await getFromCache(e.request)
 
         if (cachedResponse) {
+          // NOTE: update the cache async when the network request resolves
           networkResponse
             .catch(err => {
               if (import.meta.env.NODE_ENV === 'development') {
@@ -71,6 +62,7 @@ self.addEventListener('fetch', (e: FetchEvent) => {
         }
       } else {
         // NOTE: assets are fine to return from cache every time
+        //       assuming they are hashed or have a versioned url 🤞
         const cachedResponse = await getFromCache(e.request)
         if (cachedResponse) { return cachedResponse }
         return await getFromNetworkAndCache(e)
@@ -116,9 +108,3 @@ async function getFromNetworkAndCache(e: FetchEvent): Promise<Response> {
 function getFromCache(request: Request): Promise<Response | undefined> {
   return caches.match(request, { cacheName })
 }
-
-self.addEventListener('message', e => {
-  e.waitUntil(async () => {
-    console.debug('message', e.data)
-  })
-})
