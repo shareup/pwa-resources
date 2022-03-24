@@ -299,6 +299,29 @@ export const resources: Resource[] = [
     title: 'PWA Plugin for Vite',
     desc: 'Zero-config PWA Framework-agnostic Plugin for Vite',
     categories: ['Project Templates']
+  },
+  {
+    url: new URL(
+      'https://www.codica.com/blog/progressive-web-app-design-7-tips-for-great-ux-and-ui/'
+    ),
+    title: 'Progressive Web App Design',
+    desc: '7 Tips for Great PWA UX and UI',
+    categories: ['Design']
+  },
+  {
+    url: new URL(
+      'https://uxdesign.cc/what-when-how-to-design-progressive-web-apps-a-case-study-ae9de7609df'
+    ),
+    title: 'What, when & how to design progressive web apps — a case study',
+    desc: '“Designing a Progressive Web App for a festival microsite.”',
+    categories: ['Design']
+  },
+  {
+    url: new URL('https://cloudfour.com/thinks/designing-responsive-progressive-web-apps/'),
+    title: 'Designing Responsive Progressive Web Apps',
+    desc:
+      'A good overview of design considerations and best practices for building responsive PWAs.',
+    categories: ['Design', ':old']
   }
 ].sort((l, r) => {
   const lTitle = l.title.toLowerCase().replace(/^the\s*/, '').replace(/^@/, '')
