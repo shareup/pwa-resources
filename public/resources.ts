@@ -322,6 +322,12 @@ export const resources: Resource[] = [
     desc:
       'A good overview of design considerations and best practices for building responsive PWAs.',
     categories: ['Design', ':old']
+  },
+  {
+    url: new URL('https://whatpwacando.today/'),
+    title: 'What PWA Can Do Today',
+    desc: '“A showcase of what is possible with Progressive Web Apps today.”',
+    categories: ['Advocacy']
   }
 ].sort((l, r) => {
   const lTitle = l.title.toLowerCase().replace(/^the\s*/, '').replace(/^@/, '')
