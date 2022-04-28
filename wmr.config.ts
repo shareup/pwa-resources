@@ -29,8 +29,6 @@ export default (options: Options) => {
 }
 
 function cacheUrlsPlugin(): Plugin {
-  let count = 0
-
   return {
     enforce: 'post',
     name: 'cache-urls-plugin',
